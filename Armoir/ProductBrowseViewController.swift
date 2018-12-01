@@ -11,7 +11,6 @@ import UIKit
 var productImageURLs:[String] = [String]()
 
 class ProductBrowseViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    @IBOutlet weak var contentView: UIView!
     
     @IBOutlet weak var myCollectionView: UICollectionView!
     let array:[String] = ["1", "2", "3", "4"]

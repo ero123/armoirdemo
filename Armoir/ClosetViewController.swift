@@ -10,7 +10,6 @@ import UIKit
 
 class ClosetViewController: UIViewController {
 
-    @IBOutlet weak var contentView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 

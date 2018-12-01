@@ -10,7 +10,6 @@ import UIKit
 
 class NewsViewController: UIViewController {
 
-    @IBOutlet weak var contentView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
