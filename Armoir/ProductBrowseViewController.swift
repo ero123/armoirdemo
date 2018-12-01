@@ -11,8 +11,10 @@ import UIKit
 var productImageURLs:[String] = [String]()
 
 class ProductBrowseViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    @IBOutlet weak var contentView: UIView!
     
     @IBOutlet weak var myCollectionView: UICollectionView!
+    let array:[String] = ["1", "2", "3", "4"]
     
     func loadData() {
         var numImages = 10
@@ -27,7 +29,8 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return productImageURLs.count
+        return array.count
+        //productImageURLs.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -64,7 +67,7 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         }*/
         
         //cell.productImage.image = UIImage(named: "NewsScreenshot")
-        //cell.productPrice.text = "$5/day"
+        cell.productPrice.text = "$5/day"
         //cell.productDistance.text = "1.2 mi"
         
         return cell
