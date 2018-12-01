@@ -29,14 +29,14 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return array.count
-        //productImageURLs.count
+        //return array.count
+        return productImageURLs.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ProductCell
         
-        /*if let imgURL = URL(string: productImageURLs[indexPath.row]) {
+        if let imgURL = URL(string: productImageURLs[indexPath.row]) {
             
             URLSession.shared.dataTask(with: imgURL, completionHandler: { (data, response, error) in
                 if error != nil {
@@ -49,7 +49,7 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
                     cell.productImage.image = image
                 }
             }).resume()
-        }*/
+        }
 
        /* if let imgURL = URL(string: "https://i.imgur.com/JOPiokr.png") {
             
@@ -76,9 +76,9 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //loadData()
+        loadData()
 
-        /*let itemSize = UIScreen.main.bounds.width / 2 - 3
+        let itemSize = UIScreen.main.bounds.width / 2 - 3
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         layout.itemSize = CGSize(width: itemSize, height: itemSize*1.2)
@@ -86,7 +86,7 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         layout.minimumInteritemSpacing = 3
         layout.minimumLineSpacing = 7
         
-        myCollectionView.collectionViewLayout = layout*/
+        myCollectionView.collectionViewLayout = layout
     }
     
 
