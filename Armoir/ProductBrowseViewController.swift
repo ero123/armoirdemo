@@ -13,7 +13,6 @@ var productImageURLs:[String] = [String]()
 class ProductBrowseViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var myCollectionView: UICollectionView!
-    let array:[String] = ["1", "2", "3", "4"]
     
     func loadData() {
         var numImages = 10
