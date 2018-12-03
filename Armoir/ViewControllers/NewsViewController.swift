@@ -12,11 +12,14 @@ class NewsViewController: UIViewController {
 
     @IBAction func newsSegue(_ sender: UIButton) {
         performSegue(withIdentifier: "newsSegue", sender: self)
+        
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
     }
     
 
