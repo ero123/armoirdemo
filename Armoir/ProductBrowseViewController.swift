@@ -12,6 +12,9 @@ var productImageURLs:[String] = [String]()
 
 class ProductBrowseViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    @IBAction func searchSegue(_ sender: UIButton) {
+        performSegue(withIdentifier: "searchSegue", sender: self)
+    }
     @IBOutlet weak var myCollectionView: UICollectionView!
     let array:[String] = ["1", "2", "3", "4"]
     

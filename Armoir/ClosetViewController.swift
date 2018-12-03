@@ -10,10 +10,22 @@ import UIKit
 
 class ClosetViewController: UIViewController {
 
+    
+    @IBAction func SettingsBtn(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: "closetSegue", sender: self)
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func openNextView() {
+        let settingsVC = Settings()
+        present(settingsVC, animated: true, completion: nil)
     }
     
 
