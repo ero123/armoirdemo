@@ -85,7 +85,7 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         layout.minimumInteritemSpacing = 3
         layout.minimumLineSpacing = 7
         
-        myCollectionView.collectionViewLayout = layout
+        //myCollectionView.collectionViewLayout = layout
     }
     
 
