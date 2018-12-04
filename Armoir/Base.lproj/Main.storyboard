@@ -207,13 +207,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7Fo-SI-XzH"/>
                     </view>
+                    <navigationItem key="navigationItem" id="UU3-Uz-ruX"/>
                     <connections>
                         <outlet property="myCollectionView" destination="z3M-0F-MaS" id="dM0-vv-IBp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rvh-Qs-OTy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-140" y="-639"/>
+            <point key="canvasLocation" x="-140" y="-640"/>
         </scene>
         <!--Closet View Controller-->
         <scene sceneID="W2r-hs-E3y">
