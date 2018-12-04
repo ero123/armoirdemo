@@ -8,21 +8,8 @@
 
 import UIKit
 
-struct Cell{
-    let productImage : UIImage?
-    let profileImage : UIImage?
-    let profile : String?
-    let distance : String?
-    let message : String?
-    
-    /*init(productImage: UIImage, profileImage: UIImage, profile: String, distance: String, message: String) {
-        self.productImage = productImage;
-        self.profileImage = profileImage;
-        self.profile = profile;
-        self.distance = distance;
-        self.message = message;
-    }*/
-}
+class NewsViewController: UIViewController {
+
 
 class NewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
@@ -43,10 +30,15 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
             data.append(c);
             i-=1
         }
+
+
+    @IBAction func newsSegue(_ sender: UIButton) {
+        performSegue(withIdentifier: "newsSegue", sender: self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         //load_data()
         let image = UIImage(named:"dress")
         //print(data)
@@ -57,35 +49,21 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
+
+
+        // Do any additional setup after loading the view.
+      
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! NewsTableViewCell
-        
-        cell.productImg?.image =  data[indexPath.row].productImage
-        cell.profileImg?.image =  data[indexPath.row].profileImage
-            cell.profileImg.layer.cornerRadius = cell.profileImg.frame.size.width / 2;
-        cell.profileImg.clipsToBounds = true;
-        cell.profile?.text = data[indexPath.row].profile
-        cell.distance?.text = data[indexPath.row].distance
-        cell.message?.text = data[indexPath.row].message
-        
-        return cell
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
-
-}
-
-class NewsTableViewCell: UITableViewCell{
-    
-    
-    @IBOutlet weak var productImg: UIImageView!
-
-    @IBOutlet weak var profileImg: UIImageView!
-    
-    @IBOutlet weak var profile: UILabel!
-    
-    @IBOutlet weak var distance: UILabel!
-    
-    @IBOutlet weak var message: UILabel!
+    */
 
 }
