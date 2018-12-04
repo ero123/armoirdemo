@@ -14,7 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var dbRef: DatabaseReference!
-    
+    var armoirUsername : String?
+    var fireAuth : Auth!
     
     
 
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
+        fireAuth = Auth.auth()
         dbRef = Database.database().reference()
         return true
     }

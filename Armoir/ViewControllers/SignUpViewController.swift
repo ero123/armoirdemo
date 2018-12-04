@@ -8,13 +8,20 @@
 
 import UIKit
 import Firebase
+
+
+
 class SignUpViewController: UIViewController {
 
+    
+    @IBOutlet var popup: UIView! = nil
     @IBOutlet var usernameTextField: UITextField!
     
     @IBOutlet var emailTextField: UITextField!
     
     @IBOutlet var passwordTextField: UITextField!
+    
+    @IBOutlet var closePopup: UIButton!
     
     @IBOutlet var signUpButton: UIButton!
     @IBOutlet var loginButton: UIButton!
@@ -22,16 +29,25 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        popup.isHidden = true
 
         // Do any additional setup after loading the view.
         loginButton.addTarget(self, action: #selector(goBackToSignIn), for: .touchUpInside)
         
         signUpButton.addTarget(self, action: #selector(SignUpViewController.signUp), for: .touchUpInside)
+        
+        closePopup.addTarget(self, action: #selector(cancelPopup), for: .touchUpInside)
     }
     
     @objc func goBackToSignIn()
     {
         self.navigationController?.popViewController(animated: true);
+    }
+    
+    @objc func cancelPopup()
+    {
+    self.popup.isHidden=true;
     }
     
     @objc func signUp()
@@ -54,17 +70,38 @@ class SignUpViewController: UIViewController {
                     authResult, error in
                     
                     
-                    dbRef.child(Const.dbConst.usersQuickListKey).observeSingleEvent(of: .value, with: {
+                    dbRef.child(Const.db.userKeys.usersQuickListKey).observeSingleEvent(of: .value, with: {
                         snapshot in
                         
                         print("snapshot value: \(snapshot.value)")
                         
-                        //get uid on usersList & add username to list
-                        dbRef.child(Const.dbConst.usersQuickListKey).childByAutoId().setValue(username)
+                        //get uid on usersList & add username & emailAdr Object to list
+                        let quickListKeys = Const.db.userKeys.createUser.inQuickList
+                        
+                        let quickListUserObj : [String : String] = [
+                            quickListKeys.emailKey : email,
+                            quickListKeys.usernameKey : username
+                        ]
+                        
+                        let dirKeys = Const.db.userKeys.createUser.inDirectory
+                        
+                        var userDirectoryInfoObj : [String : String] = [
+                            dirKeys.usernameKey : username,
+                            dirKeys.emailKey : email,
+                            dirKeys.bioKey : "",
+                            dirKeys.addressKey : "",
+                            dirKeys.encodedImageKey : ""
+                        ]
+                        
+                       //update quickList of users
+                       dbRef.child(Const.db.userKeys.usersQuickListKey).childByAutoId().setValue(quickListUserObj)
+                        
+                        //update usersDirectory
+                        dbRef.child("\(Const.db.userKeys.usersDirectoryKey)/\(username)").setValue(userDirectoryInfoObj)
                         
                         //return to root view controller
                         print("signUp Success!")
-                       // self.navigationController!.popViewController(animated: true)
+                       self.navigationController!.popViewController(animated: true)
                     })
                     
                 })
@@ -93,7 +130,7 @@ class SignUpViewController: UIViewController {
         let dbRef = (UIApplication.shared.delegate as! AppDelegate).dbRef!
         
         //check username list prior to allowing signup, see if usename is avail.
-        dbRef.child(Const.dbConst.usersQuickListKey).observeSingleEvent(of: .value, with: {
+        dbRef.child(Const.db.userKeys.usersQuickListKey).observeSingleEvent(of: .value, with: {
             snapshot in
             print(snapshot.value)
             
@@ -108,7 +145,7 @@ class SignUpViewController: UIViewController {
                 }
                  isUsernameAvail = true
             }else{
-                print("There are no users in this list, username is available")
+                self.popup.isHidden = false
                 isUsernameAvail = true
             }
                doSignUp(isUsernameAvail)
