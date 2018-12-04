@@ -18,6 +18,7 @@
 		17D979E121B22BAA00E74816 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D979E021B22BAA00E74816 /* MainViewController.swift */; };
 		17D979E321B2309F00E74816 /* ClosetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D979E221B2309F00E74816 /* ClosetViewController.swift */; };
 		17D979E521B230BE00E74816 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D979E421B230BE00E74816 /* NewsViewController.swift */; };
+<<<<<<< HEAD
 		21AD111B65211086D4553EBA /* Pods_ArmoirUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DAFC33B1452C9E2319BC08E /* Pods_ArmoirUITests.framework */; };
 		7105750A21B5902200E756B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7105750921B5902200E756B9 /* LoginViewController.swift */; };
 		7161E67021B3870A005F4072 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161E66F21B3870A005F4072 /* Settings.swift */; };
@@ -28,6 +29,12 @@
 		71F4EDAA21B5888C004BEA0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71F4EDA921B5888C004BEA0C /* GoogleService-Info.plist */; };
 		81D96B6EF9B6DB4E1FD114B5 /* Pods_ArmoirTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C60362816CBA14F3EA9B051 /* Pods_ArmoirTests.framework */; };
 		A3109CFDB5E2F3A95EE8FEB0 /* Pods_Armoir.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B57C958732EE8E8FD19002D /* Pods_Armoir.framework */; };
+=======
+		743BD5DB21B48B5F00855A1E /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = 743BD5DA21B48B5F00855A1E /* search.json */; };
+		743BD5DD21B4989400855A1E /* images in Resources */ = {isa = PBXBuildFile; fileRef = 743BD5DC21B4989400855A1E /* images */; };
+		743BD5E321B5E64400855A1E /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743BD5E221B5E64400855A1E /* ItemCell.swift */; };
+		743BD5E521B5FB8C00855A1E /* BorrowedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743BD5E421B5FB8C00855A1E /* BorrowedCell.swift */; };
+>>>>>>> master
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +72,7 @@
 		17D979E021B22BAA00E74816 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		17D979E221B2309F00E74816 /* ClosetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetViewController.swift; sourceTree = "<group>"; };
 		17D979E421B230BE00E74816 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		1C60362816CBA14F3EA9B051 /* Pods_ArmoirTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArmoirTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B57C958732EE8E8FD19002D /* Pods_Armoir.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Armoir.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D5ACFF86502FC891DC71D74 /* Pods-Armoir.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Armoir.release.xcconfig"; path = "Pods/Target Support Files/Pods-Armoir/Pods-Armoir.release.xcconfig"; sourceTree = "<group>"; };
@@ -81,6 +89,12 @@
 		CEE088A5B231429B52A16744 /* Pods-ArmoirUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArmoirUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArmoirUITests/Pods-ArmoirUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D51DA5ABD92A9AF51562645F /* Pods-Armoir.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Armoir.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Armoir/Pods-Armoir.debug.xcconfig"; sourceTree = "<group>"; };
 		EAAAAE58B5A265F423DE31D1 /* Pods-ArmoirUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArmoirUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArmoirUITests/Pods-ArmoirUITests.release.xcconfig"; sourceTree = "<group>"; };
+=======
+		743BD5DA21B48B5F00855A1E /* search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = search.json; path = ../../../Desktop/search.json; sourceTree = "<group>"; };
+		743BD5DC21B4989400855A1E /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = ../../../Desktop/images; sourceTree = "<group>"; };
+		743BD5E221B5E64400855A1E /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		743BD5E421B5FB8C00855A1E /* BorrowedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorrowedCell.swift; sourceTree = "<group>"; };
+>>>>>>> master
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,12 +150,25 @@
 		1751F04D21B06E9F00F55356 /* Armoir */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				71F4EDA921B5888C004BEA0C /* GoogleService-Info.plist */,
 				1751F04E21B06E9F00F55356 /* AppDelegate.swift */,
 				1751F05221B06E9F00F55356 /* Main.storyboard */,
 				7105750421B58FAD00E756B9 /* ViewControllers */,
+=======
+				743BD5DC21B4989400855A1E /* images */,
+				1751F04E21B06E9F00F55356 /* AppDelegate.swift */,
+				1751F05221B06E9F00F55356 /* Main.storyboard */,
+				17D979E021B22BAA00E74816 /* MainViewController.swift */,
+				743BD5E421B5FB8C00855A1E /* BorrowedCell.swift */,
+				743BD5E221B5E64400855A1E /* ItemCell.swift */,
+				17D979E221B2309F00E74816 /* ClosetViewController.swift */,
+				1751F07C21B08B2100F55356 /* ProductBrowseViewController.swift */,
+				17D979E421B230BE00E74816 /* NewsViewController.swift */,
+>>>>>>> master
 				1751F07E21B08BFD00F55356 /* ProductCell.swift */,
 				1751F05521B06EA300F55356 /* Assets.xcassets */,
+				743BD5DA21B48B5F00855A1E /* search.json */,
 				1751F05721B06EA300F55356 /* LaunchScreen.storyboard */,
 				1751F05A21B06EA300F55356 /* Info.plist */,
 				7161E66F21B3870A005F4072 /* Settings.swift */,
@@ -322,8 +349,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				743BD5DD21B4989400855A1E /* images in Resources */,
 				1751F05921B06EA300F55356 /* LaunchScreen.storyboard in Resources */,
+<<<<<<< HEAD
 				71F4EDAA21B5888C004BEA0C /* GoogleService-Info.plist in Resources */,
+=======
+				743BD5DB21B48B5F00855A1E /* search.json in Resources */,
+>>>>>>> master
 				1751F05621B06EA300F55356 /* Assets.xcassets in Resources */,
 				1751F05421B06E9F00F55356 /* Main.storyboard in Resources */,
 			);
@@ -433,14 +465,19 @@
 			files = (
 				71EBC8DE21B5E2C9002B5789 /* CustomExtensions.swift in Sources */,
 				1751F07F21B08BFD00F55356 /* ProductCell.swift in Sources */,
+				743BD5E521B5FB8C00855A1E /* BorrowedCell.swift in Sources */,
 				17D979E321B2309F00E74816 /* ClosetViewController.swift in Sources */,
 				1751F04F21B06E9F00F55356 /* AppDelegate.swift in Sources */,
 				17D979E521B230BE00E74816 /* NewsViewController.swift in Sources */,
+<<<<<<< HEAD
 				7105750A21B5902200E756B9 /* LoginViewController.swift in Sources */,
 				71EBC8D721B5A45C002B5789 /* Constants.swift in Sources */,
 				7161E67021B3870A005F4072 /* Settings.swift in Sources */,
 				71EBC8E221B64231002B5789 /* StartViewController.swift in Sources */,
 				71EBC8D521B59A0C002B5789 /* SignUpViewController.swift in Sources */,
+=======
+				743BD5E321B5E64400855A1E /* ItemCell.swift in Sources */,
+>>>>>>> master
 				17D979E121B22BAA00E74816 /* MainViewController.swift in Sources */,
 				1751F07D21B08B2100F55356 /* ProductBrowseViewController.swift in Sources */,
 			);
