@@ -13,71 +13,52 @@ import Firebase
 
 class LoginViewController: UIViewController
 {
+    var gradient:CAGradientLayer?
 
     @IBOutlet var emailTextField: UITextField!
     
     @IBOutlet var passwordTextField: UITextField!
     
     @IBOutlet var loginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        loginButton.addTarget(self, action: #selector(LoginViewController.login), for: .touchUpInside)
+        addGradient()
+        loginButton.layer.cornerRadius = 10
+        emailTextField.delegate = self as? UITextFieldDelegate
+        passwordTextField.delegate = self as? UITextFieldDelegate
     }
     
-    
-    
-   @objc func login()
-    {
-        //if fields are not empty sign-in else tell user to enter valid input
-        guard let emailAdr = emailTextField.text, let password = passwordTextField.text else {
-            return
+    @IBAction func loginAction(_ sender: Any) {
+        
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+            if error == nil{
+                self.performSegue(withIdentifier: "loginToHome", sender: self)
+            }
+            else{
+                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                
+                alertController.addAction(defaultAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
         }
         
-        //sign-in with firebase auth
-        Auth.auth().signIn(withEmail: emailAdr, password: password, completion: {
-            authResult, error in
-            
-            if let thisError = error
-            {
-                print(thisError.localizedDescription)
-            }else{
-                    print("signIn Success!")
-            }
-            
-            let dbRef = (UIApplication.shared.delegate as! AppDelegate).dbRef
-            
-            //get quickList of users
-            dbRef!.child(Const.db.userKeys.usersQuickListKey).observe(.value, with: {
-                snapshot in
-                print("quickList from login: \(snapshot.value)")
-            })
-            
-            //set appUsername in appDel
-//            (UIApplication.shared.delegate as! AppDelegate).armoirUsername =
-           //load mainVC
-            self.loadRootVC()
-        })
-        
     }
     
-    
-    func loadRootVC()
-    {
-        let mainVC = self.storyboard!.instantiateViewController(withIdentifier: "setupVC")
-        self.navigationController!.isNavigationBarHidden = true
-        
-        self.navigationController!.pushViewController(mainVC, animated: true)
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
+        textField.resignFirstResponder()
+        return true
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func addGradient() {
+        gradient = CAGradientLayer()
+        let startColor = UIColor(red: 3/255, green: 196/255, blue: 190/255, alpha: 1)
+        let endColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        gradient?.colors = [startColor.cgColor,endColor.cgColor]
+        gradient?.startPoint = CGPoint(x: 0, y: 0)
+        gradient?.endPoint = CGPoint(x: 0, y:1)
+        gradient?.frame = view.frame
+        self.view.layer.insertSublayer(gradient!, at: 0)
     }
-    */
-
 }

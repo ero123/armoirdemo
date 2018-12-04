@@ -11,147 +11,60 @@ import Firebase
 
 
 
-class SignUpViewController: UIViewController {
-
+class SignUpViewController: UIViewController, UITextFieldDelegate {
+    var gradient:CAGradientLayer?
+    @IBOutlet weak var signUpButton: UIButton!
     
-    @IBOutlet var popup: UIView! = nil
-    @IBOutlet var usernameTextField: UITextField!
-    
-    @IBOutlet var emailTextField: UITextField!
-    
-    @IBOutlet var passwordTextField: UITextField!
-    
-    @IBOutlet var closePopup: UIButton!
-    
-    @IBOutlet var signUpButton: UIButton!
-    @IBOutlet var loginButton: UIButton!
-    
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var passwordConfirm: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        popup.isHidden = true
-
-        // Do any additional setup after loading the view.
-        loginButton.addTarget(self, action: #selector(goBackToSignIn), for: .touchUpInside)
-        
-        signUpButton.addTarget(self, action: #selector(SignUpViewController.signUp), for: .touchUpInside)
-        
-        closePopup.addTarget(self, action: #selector(cancelPopup), for: .touchUpInside)
+        addGradient()
+        signUpButton.layer.cornerRadius = 10
+        email.delegate = self
+        password.delegate = self
+        passwordConfirm.delegate = self
     }
     
-    @objc func goBackToSignIn()
-    {
-        self.navigationController?.popViewController(animated: true);
-    }
-    
-    @objc func cancelPopup()
-    {
-    self.popup.isHidden=true;
-    }
-    
-    @objc func signUp()
-    {
+    @IBAction func signUpAction(_ sender: Any) {
         
-        //get dbRef from appDel
-        let dbRef = (UIApplication.shared.delegate as! AppDelegate).dbRef!
-        
-        guard let username = usernameTextField.text, let email = emailTextField.text, let password = passwordTextField.text else {return}
-        
-       
-        //check if username is avail
-        isUsernameAvailable(username: username) {
-            isAvail in
+        if password.text != passwordConfirm.text{
+            let alertController = UIAlertController(title: "Password Incorrect", message: "Please re-type password", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             
-            //if avail, signUp
-            if(isAvail)
-            {
-                Auth.auth().createUser(withEmail: email, password: password, completion: {
-                    authResult, error in
-                    
-                    
-                    dbRef.child(Const.db.userKeys.usersQuickListKey).observeSingleEvent(of: .value, with: {
-                        snapshot in
-                        
-                        print("snapshot value: \(snapshot.value)")
-                        
-                        //get uid on usersList & add username & emailAdr Object to list
-                        let quickListKeys = Const.db.userKeys.createUser.inQuickList
-                        
-                        let quickListUserObj : [String : String] = [
-                            quickListKeys.emailKey : email,
-                            quickListKeys.usernameKey : username
-                        ]
-                        
-                        let dirKeys = Const.db.userKeys.createUser.inDirectory
-                        
-                        var userDirectoryInfoObj : [String : String] = [
-                            dirKeys.usernameKey : username,
-                            dirKeys.emailKey : email,
-                            dirKeys.bioKey : "",
-                            dirKeys.addressKey : "",
-                            dirKeys.encodedImageKey : ""
-                        ]
-                        
-                       //update quickList of users
-                       dbRef.child(Const.db.userKeys.usersQuickListKey).childByAutoId().setValue(quickListUserObj)
-                        
-                        //update usersDirectory
-                        dbRef.child("\(Const.db.userKeys.usersDirectoryKey)/\(username)").setValue(userDirectoryInfoObj)
-                        
-                        //return to root view controller
-                        print("signUp Success!")
-                       self.navigationController!.popViewController(animated: true)
-                    })
-                    
-                })
-            }else{
-                print("username: \(username) is not available")
-            }
-            
-            
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: nil)
         }
-        
-       
-        
-    }
-    
-
-   
-    
-    
-    func isUsernameAvailable(username : String, doSignUp: @escaping (Bool) -> Void )
-    {
-        
-        //isUsernameAvail flag
-        var isUsernameAvail : Bool = false
-        
-        //get dbref from appDel
-        let dbRef = (UIApplication.shared.delegate as! AppDelegate).dbRef!
-        
-        //check username list prior to allowing signup, see if usename is avail.
-        dbRef.child(Const.db.userKeys.usersQuickListKey).observeSingleEvent(of: .value, with: {
-            snapshot in
-            print(snapshot.value)
-            
-            if let usernameList : [String] = snapshot.value as? [String]
-            {
-                for usernameFromDB in usernameList
-                {
-                    if(usernameFromDB == username)
-                    {
-                        isUsernameAvail = false
-                    }
+        else{
+            Auth.auth().createUser(withEmail: email.text!, password: password.text!){ (user, error) in
+                if error == nil {
+                    self.performSegue(withIdentifier: "signupToHome", sender: self)
                 }
-                 isUsernameAvail = true
-            }else{
-                self.popup.isHidden = false
-                isUsernameAvail = true
+                else{
+                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    
+                    alertController.addAction(defaultAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
             }
-               doSignUp(isUsernameAvail)
-        })
-        
-     
-        
+        }
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
+        textField.resignFirstResponder()
+        return true
+    }
+    func addGradient() {
+        gradient = CAGradientLayer()
+        let startColor = UIColor(red: 3/255, green: 196/255, blue: 190/255, alpha: 1)
+        let endColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        gradient?.colors = [startColor.cgColor,endColor.cgColor]
+        gradient?.startPoint = CGPoint(x: 0, y: 0)
+        gradient?.endPoint = CGPoint(x: 0, y:1)
+        gradient?.frame = view.frame
+        self.view.layer.insertSublayer(gradient!, at: 0)
+    }
+
 }
