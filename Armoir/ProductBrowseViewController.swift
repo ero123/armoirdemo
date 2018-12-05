@@ -77,7 +77,7 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         loadData()
 
         //let itemSize = UIScreen.main.bounds.width / 2
-        let layout = UICollectionViewFlowLayout()
+        //let layout = UICollectionViewFlowLayout()
         //layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         //layout.itemSize = CGSize(width: itemSize, height: itemSize*1.2)
         

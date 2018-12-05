@@ -1,0 +1,117 @@
+"localClosets": {
+"closet": {
+"owner":"chloe",
+"distance_in_miles": 5,
+"item_num": 5,
+"clothes": {
+  "item": {
+    "item_id": 12345,
+    "name": "Formal shirt",
+    "lent": "FALSE",
+    "image": "c_img1.png",
+    "color_tag": "red",
+    "size": "M",
+    "price": 70,
+    "category": "shirt"
+  },
+  "item": {
+    "item_id": 14445,
+    "name": "Fun shirt",
+    "lent": "FALSE",
+    "image": "c_img2.png",
+    "color_tag": "red",
+    "size": "M",
+    "price": 50,
+    "category": "shirt"
+  },
+  "item": {
+    "item_id": 16645,
+    "name": "Superhero shirt",
+    "lent": "FALSE",
+    "image": "c_img3.png",
+    "color_tag": "green",
+    "size": "M",
+    "price": 40,
+    "category": "shirt"
+  },
+  "item": {
+    "item_id": 17745,
+    "name": "bright shirt",
+    "lent": "FALSE",
+    "image": "c_img4.png",
+    "color_tag": "red",
+    "size": "M",
+    "price": 30,
+    "category": "shirt"
+  },
+  "item": {
+    "item_id": 17845,
+    "name": "frayed jeans",
+    "lent": "FALSE",
+    "image": "c_img5.png",
+    "color_tag": "blue",
+    "size": "S",
+    "price": 80,
+    "category": "pant"
+  }
+}
+},
+"closet": {
+"owner":"rhea",
+"distance_in_miles": 2,
+"item_num": 5,
+"clothes": {
+  "item": {
+    "item_id": 54321,
+    "name": "Formal shirt",
+    "lent": "FALSE",
+    "image": "r_img1.png",
+    "color_tag": "blue",
+    "size": "M",
+    "price": 35,
+    "category": "shirt"
+  },
+  "item": {
+    "item_id": 54322,
+    "name": "frilly shirt",
+    "lent": "FALSE",
+    "image": "r_img2.png",
+    "color_tag": "red",
+    "size": "S",
+    "price": 65,
+    "category": "shirt"
+  },
+  "item": {
+    "item_id": 54323,
+    "name": "summer tank top",
+    "lent": "FALSE",
+    "image": "r_img3.png",
+    "color_tag": "white",
+    "size": "S",
+    "price": 55,
+    "category": "shirt"
+  },
+  "item": {
+    "item_id": 54324,
+    "name": "fun, flared skirt",
+    "lent": "FALSE",
+    "image": "r_img4.png",
+    "color_tag": "yellow",
+    "size": "S",
+    "price": 76,
+    "category": "skirt"
+  },
+  "item": {
+    "item_id": 54325,
+    "name": "ripped jeans",
+    "lent": "FALSE",
+    "image": "r_img5.png",
+    "color_tag": "black",
+    "size": "S",
+    "price": 90,
+    "category": "pant"
+  }
+}
+}
+
+}

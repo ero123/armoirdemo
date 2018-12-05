@@ -9,6 +9,8 @@
 import UIKit
 import Foundation
 
+var itemImage: UIImage = UIImage()
+
 struct Item: Decodable {
     enum Sizes: String, Decodable {
         case XS, S, M, L, XL
@@ -278,8 +280,7 @@ let json = """
 }]
 """.data(using: .utf8)!
 
-class ClosetViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate {
-    
+class ClosetViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var currUser = a_User(user_ID: 123, profPic: "", name: "", borrowed: [], closet: []);
     var user_num = 321;
@@ -301,25 +302,43 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
     }
     
     @objc func showActionSheet() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        
         let actionSheet = UIAlertController(title: "Import Image", message: "Take a picture or select one from your library.", preferredStyle: .actionSheet)
         
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action:UIAlertAction) in
+            self.performSegue(withIdentifier: "toCameraPage", sender: self)
+        }))
         
-        let takePic = UIAlertAction(title: "Camera", style: .default) { action in
-            //Replace this with the API to take a picture
-            self.performSegue(withIdentifier: "test", sender: self)
+        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action:UIAlertAction) in
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController, animated: true, completion: {
+                self.performSegue(withIdentifier: "toAddItemPage", sender: self)
+            })
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(actionSheet, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        var selectedImage: UIImage?
+        if let editedImage = info[.editedImage] as? UIImage {
+            selectedImage = editedImage
+            itemImage = selectedImage!
+            dismiss(animated: true, completion: nil)
+        } else if let originalImage = info[.originalImage] as? UIImage{
+            selectedImage = originalImage
+            itemImage = selectedImage!
+            dismiss(animated: true, completion: nil)
         }
-        
-        let fromCamera = UIAlertAction(title: "Library", style: .default) { action in
-            //Replace this with the API to grab a picture from library
-            self.performSegue(withIdentifier: "test", sender: self)
-        }
-        
-        actionSheet.addAction(takePic)
-        actionSheet.addAction(fromCamera)
-        actionSheet.addAction(cancel)
-        
-        present(actionSheet, animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
     
     func loadData() {
