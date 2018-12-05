@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17040B0821B76B180049C902 /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = 17040B0721B76B180049C902 /* search.json */; };
 		1751F04F21B06E9F00F55356 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F04E21B06E9F00F55356 /* AppDelegate.swift */; };
 		1751F05421B06E9F00F55356 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1751F05221B06E9F00F55356 /* Main.storyboard */; };
 		1751F05621B06EA300F55356 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1751F05521B06EA300F55356 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17040B0721B76B180049C902 /* search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search.json; sourceTree = "<group>"; };
 		1751F04B21B06E9F00F55356 /* Armoir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Armoir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1751F04E21B06E9F00F55356 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1751F05321B06E9F00F55356 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				17D979E021B22BAA00E74816 /* MainViewController.swift */,
 				17D979E421B230BE00E74816 /* NewsViewController.swift */,
 				1751F07C21B08B2100F55356 /* ProductBrowseViewController.swift */,
+				17040B0721B76B180049C902 /* search.json */,
 				743BD5E421B5FB8C00855A1E /* BorrowedCell.swift */,
 				743BD5E221B5E64400855A1E /* ItemCell.swift */,
 				17D979E221B2309F00E74816 /* ClosetViewController.swift */,
@@ -255,6 +258,7 @@
 			files = (
 				17B3022E21B65735004E5EF8 /* images in Resources */,
 				1751F05921B06EA300F55356 /* LaunchScreen.storyboard in Resources */,
+				17040B0821B76B180049C902 /* search.json in Resources */,
 				1751F05621B06EA300F55356 /* Assets.xcassets in Resources */,
 				1751F05421B06E9F00F55356 /* Main.storyboard in Resources */,
 			);

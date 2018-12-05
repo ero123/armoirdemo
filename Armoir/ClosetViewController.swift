@@ -281,10 +281,6 @@ let json = """
 class ClosetViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate {
     
     
-    /*@IBAction func pressedSettings(_ sender: UIButton) {
-        performSegue(withIdentifier: "closetSegue", sender: self)
-    }*/
-    
     var currUser = a_User(user_ID: 123, profPic: "", name: "", borrowed: [], closet: []);
     var user_num = 321;
     var currArray: [Item] = [];
@@ -299,6 +295,33 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
    @IBOutlet weak var profileName: UILabel!
     
 
+    //Replace with the uploadItemButton
+    @IBAction func uploadItemButton(_ sender: UIButton) {
+        self.showActionSheet();
+    }
+    
+    @objc func showActionSheet() {
+        let actionSheet = UIAlertController(title: "Import Image", message: "Take a picture or select one from your library.", preferredStyle: .actionSheet)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        let takePic = UIAlertAction(title: "Camera", style: .default) { action in
+            //Replace this with the API to take a picture
+            self.performSegue(withIdentifier: "test", sender: self)
+        }
+        
+        let fromCamera = UIAlertAction(title: "Library", style: .default) { action in
+            //Replace this with the API to grab a picture from library
+            self.performSegue(withIdentifier: "test", sender: self)
+        }
+        
+        actionSheet.addAction(takePic)
+        actionSheet.addAction(fromCamera)
+        actionSheet.addAction(cancel)
+        
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
     func loadData() {
         var myStructArray:[a_User] = [];
         do {
