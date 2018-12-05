@@ -15,18 +15,32 @@ class AddItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         itemImageView.image = itemImage
-        
-        // Do any additional setup after loading the view.
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+        self.navigationItem.hidesBackButton = false;
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func back(sender: UIBarButtonItem) {
+        // Go back two ViewControllers
+        _ = navigationController?.popViewControllers(viewsToPop: 2)
     }
-    */
 
+}
+
+extension UINavigationController {
+    
+    func popToViewController(ofClass: AnyClass, animated: Bool = true) {
+        if let vc = viewControllers.filter({$0.isKind(of: ofClass)}).last {
+            popToViewController(vc, animated: animated)
+        }
+    }
+    
+    func popViewControllers(viewsToPop: Int, animated: Bool = true) {
+        if viewControllers.count > viewsToPop {
+            let vc = viewControllers[viewControllers.count - viewsToPop - 1]
+            popToViewController(vc, animated: animated)
+        }
+    }
+    
 }
