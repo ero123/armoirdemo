@@ -21,12 +21,17 @@ class AddItemViewController: UIViewController {
         self.navigationItem.hidesBackButton = false;
     }
     
+<<<<<<< HEAD
+    /*
+    // MARK: - Navigation
+=======
     @objc func back(sender: UIBarButtonItem) {
         // Go back two ViewControllers
         _ = navigationController?.popViewControllers(viewsToPop: 2)
     }
 
 }
+>>>>>>> 4b353f1897bae77adad68c903b3600fb11663cb1
 
 extension UINavigationController {
     
