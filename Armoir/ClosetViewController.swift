@@ -281,6 +281,9 @@ let json = """
 class ClosetViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate {
     
     
+    /*@IBAction func pressedSettings(_ sender: UIButton) {
+        performSegue(withIdentifier: "closetSegue", sender: self)
+    }*/
     
     var currUser = a_User(user_ID: 123, profPic: "", name: "", borrowed: [], closet: []);
     var user_num = 321;
