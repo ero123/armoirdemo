@@ -76,15 +76,15 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         super.viewDidLoad()
         loadData()
 
-        let itemSize = UIScreen.main.bounds.width / 2 - 3
+        //let itemSize = UIScreen.main.bounds.width / 2
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-        layout.itemSize = CGSize(width: itemSize, height: itemSize*1.2)
+        //layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        //layout.itemSize = CGSize(width: itemSize, height: itemSize*1.2)
         
-        layout.minimumInteritemSpacing = 3
-        layout.minimumLineSpacing = 7
+        //layout.minimumInteritemSpacing = 3
+        //layout.minimumLineSpacing = 7
         
-        myCollectionView.collectionViewLayout = layout
+        //myCollectionView.collectionViewLayout = layout
     }
     
 
