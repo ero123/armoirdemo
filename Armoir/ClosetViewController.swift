@@ -313,9 +313,7 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
         
         actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action:UIAlertAction) in
             imagePickerController.sourceType = .photoLibrary
-            self.present(imagePickerController, animated: true, completion: {
-                self.performSegue(withIdentifier: "toAddItemPage", sender: self)
-            })
+            self.present(imagePickerController, animated: true, completion: nil)
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -329,11 +327,15 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
         if let editedImage = info[.editedImage] as? UIImage {
             selectedImage = editedImage
             itemImage = selectedImage!
-            dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: {
+                self.performSegue(withIdentifier: "toAddItemPage", sender: self)
+            })
         } else if let originalImage = info[.originalImage] as? UIImage{
             selectedImage = originalImage
             itemImage = selectedImage!
-            dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: {
+                self.performSegue(withIdentifier: "toAddItemPage", sender: self)
+            })
         }
     }
     
