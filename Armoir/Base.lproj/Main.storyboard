@@ -179,7 +179,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LoS-rq-Gba">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LoS-rq-Gba">
                                 <rect key="frame" x="16" y="109" width="192" height="199"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="199" id="Opo-Zy-Nah"/>
@@ -443,7 +443,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due in: 3 days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gv1-RX-Skb">
-                                                    <rect key="frame" x="41" y="135.5" width="106.5" height="21.5"/>
+                                                    <rect key="frame" x="40.5" y="135.5" width="107" height="21.5"/>
                                                     <fontDescription key="fontDescription" name="Alike-Regular" family="Alike" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -486,7 +486,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due in: 3 days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHz-Nw-6cS">
-                                                    <rect key="frame" x="41" y="135.5" width="106.5" height="21.5"/>
+                                                    <rect key="frame" x="40.5" y="135.5" width="107" height="21.5"/>
                                                     <fontDescription key="fontDescription" name="Alike-Regular" family="Alike" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -600,20 +600,50 @@
             </objects>
             <point key="canvasLocation" x="2121" y="-142"/>
         </scene>
-        <!--View Controller-->
+        <!--Camera View Controller-->
         <scene sceneID="pje-Yq-dH5">
             <objects>
-                <viewController id="QNo-EL-TyX" sceneMemberID="viewController">
+                <viewController wantsFullScreenLayout="YES" extendedLayoutIncludesOpaqueBars="YES" id="QNo-EL-TyX" customClass="CameraViewController" customModule="Armoir" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MQd-Rr-GPy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jeanJacketCamera" translatesAutoresizingMaskIntoConstraints="NO" id="5se-M0-TWW">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Woe-RG-DKR">
+                                <rect key="frame" x="145" y="581.5" width="85.5" height="85.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Woe-RG-DKR" secondAttribute="height" multiplier="1:1" id="IcZ-f0-Efu"/>
+                                </constraints>
+                                <state key="normal" image="CameraButton"/>
+                                <connections>
+                                    <action selector="clickedPhotoButton:" destination="QNo-EL-TyX" eventType="touchUpInside" id="i4J-Ea-XUL"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Woe-RG-DKR" firstAttribute="centerX" secondItem="5se-M0-TWW" secondAttribute="centerX" id="7Rr-In-ODv"/>
+                            <constraint firstItem="Woe-RG-DKR" firstAttribute="bottom" secondItem="5se-M0-TWW" secondAttribute="bottom" id="Bb2-ep-gzJ"/>
+                            <constraint firstItem="dKc-nL-4Oj" firstAttribute="bottom" secondItem="5se-M0-TWW" secondAttribute="bottom" id="HfP-BO-S45"/>
+                            <constraint firstItem="5se-M0-TWW" firstAttribute="leading" secondItem="dKc-nL-4Oj" secondAttribute="leading" id="hIN-Xv-1tk"/>
+                            <constraint firstItem="Woe-RG-DKR" firstAttribute="width" secondItem="5se-M0-TWW" secondAttribute="height" multiplier="97:734" id="ihW-RH-bmL"/>
+                            <constraint firstItem="dKc-nL-4Oj" firstAttribute="trailing" secondItem="5se-M0-TWW" secondAttribute="trailing" id="laA-Cq-LLl"/>
+                            <constraint firstItem="5se-M0-TWW" firstAttribute="top" secondItem="dKc-nL-4Oj" secondAttribute="top" id="zqj-DJ-nQ4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dKc-nL-4Oj"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="cameraImageView" destination="5se-M0-TWW" id="rC1-Kc-vgi"/>
+                        <segue destination="McH-PY-hkW" kind="show" identifier="toAddItemPage" id="q4d-cE-Cts"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p6Q-wK-UYn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2905" y="-549"/>
+            <point key="canvasLocation" x="2925.5999999999999" y="-561.57635467980299"/>
         </scene>
         <!--News View Controller-->
         <scene sceneID="peX-qq-OTr">
@@ -638,13 +668,13 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nqa-Ml-0wB" userLabel="productImg">
-                                                            <rect key="frame" x="15" y="15" width="160" height="174.5"/>
+                                                            <rect key="frame" x="15" y="15" width="105" height="174.5"/>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FIe-IG-Yps" userLabel="profileImg">
-                                                            <rect key="frame" x="183" y="15" width="69" height="59"/>
+                                                            <rect key="frame" x="128" y="15" width="69" height="59"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTi-Xl-fRC" userLabel="profile">
-                                                            <rect key="frame" x="274" y="15" width="66" height="37"/>
+                                                            <rect key="frame" x="219" y="15" width="66" height="37"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="66" id="Ma5-Ka-gnd"/>
                                                                 <constraint firstAttribute="height" constant="37" id="uY7-Gq-FWz"/>
@@ -654,7 +684,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCR-AB-763" userLabel="distance">
-                                                            <rect key="frame" x="274" y="53" width="66" height="21"/>
+                                                            <rect key="frame" x="219" y="53" width="66" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="66" id="XOX-BW-nyq"/>
                                                             </constraints>
@@ -663,7 +693,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMF-lQ-pwG" userLabel="message">
-                                                            <rect key="frame" x="183" y="82" width="177" height="108"/>
+                                                            <rect key="frame" x="128" y="82" width="177" height="108"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="108" id="Hc9-g8-ZIW"/>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="177" id="WMM-WI-6c1"/>
@@ -973,14 +1003,17 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CameraButton" width="132" height="126"/>
         <image name="armoir logo" width="116" height="31"/>
         <image name="camera" width="42" height="42"/>
         <image name="closetbutton" width="97" height="113"/>
+        <image name="jeanJacketCamera" width="640" height="1136"/>
         <image name="newsbutton" width="97" height="113"/>
         <image name="search button2-1" width="97" height="113"/>
         <image name="settingsbutton" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="q4d-cE-Cts"/>
         <segue reference="43q-gw-GJD"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
