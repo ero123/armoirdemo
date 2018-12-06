@@ -11,6 +11,10 @@ import Foundation
 
 var itemImage: UIImage = UIImage()
 var startWithCamera: Bool = Bool()
+var currItem: Int = 0
+var currUser = a_User(user_ID: 123, profPic: "", name: "", borrowed: [], closet: []);
+var currArray: [Item] = [];
+
 
 struct Item: Decodable {
     enum Sizes: String, Decodable {
@@ -283,9 +287,8 @@ let json = """
 
 class ClosetViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var currUser = a_User(user_ID: 123, profPic: "", name: "", borrowed: [], closet: []);
+    
     var user_num = 321;
-    var currArray: [Item] = [];
     let sectionInsets = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
     let itemsPerRow: CGFloat = 2.0
     var status_lending = true
@@ -435,6 +438,11 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
             break
         }
        self.viewOfItems.reloadData();
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        currItem = currArray[indexPath.row].item_id;
+
     }
     
     override func viewDidLoad() {

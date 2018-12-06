@@ -27,6 +27,7 @@
 		71388D7221B87D0B00232F7B /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71388D7121B87D0B00232F7B /* StartViewController.swift */; };
 		743BD5E321B5E64400855A1E /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743BD5E221B5E64400855A1E /* ItemCell.swift */; };
 		743BD5E521B5FB8C00855A1E /* BorrowedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743BD5E421B5FB8C00855A1E /* BorrowedCell.swift */; };
+		743BD5E921B9DEAB00855A1E /* BorrowedItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743BD5E821B9DEAB00855A1E /* BorrowedItemDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		71388D7121B87D0B00232F7B /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		743BD5E221B5E64400855A1E /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		743BD5E421B5FB8C00855A1E /* BorrowedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorrowedCell.swift; sourceTree = "<group>"; };
+		743BD5E821B9DEAB00855A1E /* BorrowedItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorrowedItemDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				1751F05721B06EA300F55356 /* LaunchScreen.storyboard */,
 				1751F05A21B06EA300F55356 /* Info.plist */,
 				71388D7121B87D0B00232F7B /* StartViewController.swift */,
+				743BD5E821B9DEAB00855A1E /* BorrowedItemDetailViewController.swift */,
 			);
 			path = Armoir;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				743BD5E321B5E64400855A1E /* ItemCell.swift in Sources */,
 				176F559121B746BA00FFF556 /* SignUpViewController.swift in Sources */,
 				17D979E121B22BAA00E74816 /* MainViewController.swift in Sources */,
+				743BD5E921B9DEAB00855A1E /* BorrowedItemDetailViewController.swift in Sources */,
 				1751F07D21B08B2100F55356 /* ProductBrowseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
