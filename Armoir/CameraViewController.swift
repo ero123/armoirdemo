@@ -14,7 +14,7 @@ class CameraViewController: UIViewController {
     
     @IBAction func clickedPhotoButton(_ sender: UIButton) {
         cameraImageView.image = (UIImage(named:"jeanJacketFlash"))
-        Timer.scheduledTimer(timeInterval: 1.1, target: self, selector: #selector(timeToMoveOn), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timeToMoveOn), userInfo: nil, repeats: false)
         
     }
     

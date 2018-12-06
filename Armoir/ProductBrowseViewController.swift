@@ -25,6 +25,7 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         }
     }
     
+    @IBOutlet weak var showingLabel: UILabel!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //return array.count
@@ -76,15 +77,15 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         super.viewDidLoad()
         loadData()
 
-        //let itemSize = UIScreen.main.bounds.width / 2
-        //let layout = UICollectionViewFlowLayout()
-        //layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-        //layout.itemSize = CGSize(width: itemSize, height: itemSize*1.2)
+        let itemSize = (UIScreen.main.bounds.width / 2) - 3
+        let layout = UICollectionViewFlowLayout()
+        //layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout.itemSize = CGSize(width: itemSize, height: itemSize*1.3)
         
-        //layout.minimumInteritemSpacing = 3
+        layout.minimumInteritemSpacing = 1
         //layout.minimumLineSpacing = 7
         
-        //myCollectionView.collectionViewLayout = layout
+        myCollectionView.collectionViewLayout = layout
     }
     
 
