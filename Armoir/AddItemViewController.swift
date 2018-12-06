@@ -22,8 +22,14 @@ class AddItemViewController: UIViewController {
     }
     
     @objc func back(sender: UIBarButtonItem) {
+        if (startWithCamera) {
+            print("true")
         // Go back two ViewControllers
-        _ = navigationController?.popViewControllers(viewsToPop: 2)
+            _ = navigationController?.popViewControllers(viewsToPop: 2)
+        } else {
+            _ = navigationController?.popViewControllers(viewsToPop: 1)
+        }
+        
     }
 
 }

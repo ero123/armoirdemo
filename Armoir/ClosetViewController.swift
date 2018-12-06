@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 
 var itemImage: UIImage = UIImage()
+var startWithCamera: Bool = Bool()
 
 struct Item: Decodable {
     enum Sizes: String, Decodable {
@@ -308,10 +309,12 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
         let actionSheet = UIAlertController(title: "Import Image", message: "Take a picture or select one from your library.", preferredStyle: .actionSheet)
         
         actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action:UIAlertAction) in
+            startWithCamera = true
             self.performSegue(withIdentifier: "toCameraPage", sender: self)
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action:UIAlertAction) in
+            startWithCamera = false
             imagePickerController.sourceType = .photoLibrary
             self.present(imagePickerController, animated: true, completion: nil)
         }))

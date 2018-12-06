@@ -18,6 +18,10 @@ class CameraViewController: UIViewController {
         
     }
     
+    @IBAction func pressedExit(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @objc func timeToMoveOn() {
         //Put your segue identifier instead of gotoMainUi
         itemImage = UIImage(named:"jeanJacketFinal")!
