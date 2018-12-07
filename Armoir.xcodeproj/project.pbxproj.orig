@@ -7,33 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17040B0821B76B180049C902 /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = 17040B0721B76B180049C902 /* search.json */; };
+		17040B0A21B775BD0049C902 /* Alike-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17040B0921B775040049C902 /* Alike-Regular.ttf */; };
+		17040B0E21B77BD80049C902 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17040B0D21B77BD80049C902 /* AddItemViewController.swift */; };
+		17040B1021B78D000049C902 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17040B0F21B78D000049C902 /* CameraViewController.swift */; };
+		17040B1221B796D40049C902 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17040B1121B796D40049C902 /* Assets.xcassets */; };
+		17040B1621B9FA760049C902 /* SearchItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17040B1521B9FA760049C902 /* SearchItemDetailViewController.swift */; };
 		1751F04F21B06E9F00F55356 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F04E21B06E9F00F55356 /* AppDelegate.swift */; };
-		1751F05421B06E9F00F55356 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1751F05221B06E9F00F55356 /* Main.storyboard */; };
-		1751F05621B06EA300F55356 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1751F05521B06EA300F55356 /* Assets.xcassets */; };
 		1751F05921B06EA300F55356 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1751F05721B06EA300F55356 /* LaunchScreen.storyboard */; };
 		1751F06421B06EA400F55356 /* ArmoirTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F06321B06EA400F55356 /* ArmoirTests.swift */; };
 		1751F06F21B06EA400F55356 /* ArmoirUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F06E21B06EA400F55356 /* ArmoirUITests.swift */; };
 		1751F07D21B08B2100F55356 /* ProductBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F07C21B08B2100F55356 /* ProductBrowseViewController.swift */; };
 		1751F07F21B08BFD00F55356 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F07E21B08BFD00F55356 /* ProductCell.swift */; };
+		176F559121B746BA00FFF556 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176F559021B746BA00FFF556 /* SignUpViewController.swift */; };
 		17B3022E21B65735004E5EF8 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 17B3022D21B65735004E5EF8 /* images */; };
 		17D979E121B22BAA00E74816 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D979E021B22BAA00E74816 /* MainViewController.swift */; };
 		17D979E321B2309F00E74816 /* ClosetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D979E221B2309F00E74816 /* ClosetViewController.swift */; };
 		17D979E521B230BE00E74816 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D979E421B230BE00E74816 /* NewsViewController.swift */; };
 <<<<<<< HEAD
+		711695E321B9F9790022C3C6 /* fb.png in Resources */ = {isa = PBXBuildFile; fileRef = 711695E221B9F9790022C3C6 /* fb.png */; };
+=======
+		6216B1D521B9FADF00AB5943 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216B1D421B9FADF00AB5943 /* SettingsViewController.swift */; };
+>>>>>>> af70fd16d32bd992a108d1211fdd2b79b481c09e
+		71388D7221B87D0B00232F7B /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71388D7121B87D0B00232F7B /* StartViewController.swift */; };
+		7193F59621BA370700427907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7193F59521BA370700427907 /* Main.storyboard */; };
+		7193F59721BA370700427907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7193F59521BA370700427907 /* Main.storyboard */; };
+		7193F59821BA370700427907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7193F59521BA370700427907 /* Main.storyboard */; };
 		743BD5E321B5E64400855A1E /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743BD5E221B5E64400855A1E /* ItemCell.swift */; };
 		743BD5E521B5FB8C00855A1E /* BorrowedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743BD5E421B5FB8C00855A1E /* BorrowedCell.swift */; };
-=======
-		21AD111B65211086D4553EBA /* Pods_ArmoirUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DAFC33B1452C9E2319BC08E /* Pods_ArmoirUITests.framework */; };
-		7105750A21B5902200E756B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7105750921B5902200E756B9 /* LoginViewController.swift */; };
-		7161E67021B3870A005F4072 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161E66F21B3870A005F4072 /* Settings.swift */; };
-		71EBC8D521B59A0C002B5789 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EBC8D421B59A0C002B5789 /* SignUpViewController.swift */; };
-		71EBC8D721B5A45C002B5789 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EBC8D621B5A45C002B5789 /* Constants.swift */; };
-		71EBC8DE21B5E2C9002B5789 /* CustomExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EBC8DD21B5E2C9002B5789 /* CustomExtensions.swift */; };
-		71EBC8E221B64231002B5789 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EBC8E121B64231002B5789 /* StartViewController.swift */; };
-		71F4EDAA21B5888C004BEA0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71F4EDA921B5888C004BEA0C /* GoogleService-Info.plist */; };
-		81D96B6EF9B6DB4E1FD114B5 /* Pods_ArmoirTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C60362816CBA14F3EA9B051 /* Pods_ArmoirTests.framework */; };
-		A3109CFDB5E2F3A95EE8FEB0 /* Pods_Armoir.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B57C958732EE8E8FD19002D /* Pods_Armoir.framework */; };
->>>>>>> parent of b48a35a... Merge remote-tracking branch 'refs/remotes/origin/master'
+		743BD5E921B9DEAB00855A1E /* BorrowedItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743BD5E821B9DEAB00855A1E /* BorrowedItemDetailViewController.swift */; };
+		743BD5EB21B9ECCF00855A1E /* LentItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743BD5EA21B9ECCF00855A1E /* LentItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,10 +57,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17040B0721B76B180049C902 /* search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search.json; sourceTree = "<group>"; };
+		17040B0921B775040049C902 /* Alike-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alike-Regular.ttf"; sourceTree = "<group>"; };
+		17040B0D21B77BD80049C902 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		17040B0F21B78D000049C902 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		17040B1121B796D40049C902 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		17040B1521B9FA760049C902 /* SearchItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemDetailViewController.swift; sourceTree = "<group>"; };
 		1751F04B21B06E9F00F55356 /* Armoir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Armoir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1751F04E21B06E9F00F55356 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1751F05321B06E9F00F55356 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1751F05521B06EA300F55356 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1751F05821B06EA300F55356 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1751F05A21B06EA300F55356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1751F05F21B06EA400F55356 /* ArmoirTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArmoirTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,31 +75,22 @@
 		1751F07021B06EA400F55356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1751F07C21B08B2100F55356 /* ProductBrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductBrowseViewController.swift; sourceTree = "<group>"; };
 		1751F07E21B08BFD00F55356 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		176F559021B746BA00FFF556 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		17B3022D21B65735004E5EF8 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		17D979E021B22BAA00E74816 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		17D979E221B2309F00E74816 /* ClosetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetViewController.swift; sourceTree = "<group>"; };
 		17D979E421B230BE00E74816 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 <<<<<<< HEAD
+		711695E221B9F9790022C3C6 /* fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fb.png; path = ../../fb.png; sourceTree = "<group>"; };
+=======
+		6216B1D421B9FADF00AB5943 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+>>>>>>> af70fd16d32bd992a108d1211fdd2b79b481c09e
+		71388D7121B87D0B00232F7B /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		7193F59521BA370700427907 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		743BD5E221B5E64400855A1E /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		743BD5E421B5FB8C00855A1E /* BorrowedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorrowedCell.swift; sourceTree = "<group>"; };
-=======
-		1C60362816CBA14F3EA9B051 /* Pods_ArmoirTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArmoirTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B57C958732EE8E8FD19002D /* Pods_Armoir.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Armoir.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D5ACFF86502FC891DC71D74 /* Pods-Armoir.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Armoir.release.xcconfig"; path = "Pods/Target Support Files/Pods-Armoir/Pods-Armoir.release.xcconfig"; sourceTree = "<group>"; };
-		5DAFC33B1452C9E2319BC08E /* Pods_ArmoirUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArmoirUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7105750921B5902200E756B9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		7161E66F21B3870A005F4072 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		71EBC8D421B59A0C002B5789 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		71EBC8D621B5A45C002B5789 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		71EBC8DD21B5E2C9002B5789 /* CustomExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExtensions.swift; sourceTree = "<group>"; };
-		71EBC8E121B64231002B5789 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
-		71F4EDA921B5888C004BEA0C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		775A94AF3821A07CA413AEEB /* Pods-ArmoirTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArmoirTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArmoirTests/Pods-ArmoirTests.debug.xcconfig"; sourceTree = "<group>"; };
-		C380A73C1A6B7BF43300E528 /* Pods-ArmoirTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArmoirTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArmoirTests/Pods-ArmoirTests.release.xcconfig"; sourceTree = "<group>"; };
-		CEE088A5B231429B52A16744 /* Pods-ArmoirUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArmoirUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArmoirUITests/Pods-ArmoirUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		D51DA5ABD92A9AF51562645F /* Pods-Armoir.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Armoir.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Armoir/Pods-Armoir.debug.xcconfig"; sourceTree = "<group>"; };
-		EAAAAE58B5A265F423DE31D1 /* Pods-ArmoirUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArmoirUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArmoirUITests/Pods-ArmoirUITests.release.xcconfig"; sourceTree = "<group>"; };
->>>>>>> parent of b48a35a... Merge remote-tracking branch 'refs/remotes/origin/master'
+		743BD5E821B9DEAB00855A1E /* BorrowedItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorrowedItemDetailViewController.swift; sourceTree = "<group>"; };
+		743BD5EA21B9ECCF00855A1E /* LentItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LentItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,26 +141,34 @@
 		1751F04D21B06E9F00F55356 /* Armoir */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
+				7193F59521BA370700427907 /* Main.storyboard */,
+				711695E221B9F9790022C3C6 /* fb.png */,
 				1751F04E21B06E9F00F55356 /* AppDelegate.swift */,
+<<<<<<< HEAD
+=======
 				1751F05221B06E9F00F55356 /* Main.storyboard */,
+				17040B1521B9FA760049C902 /* SearchItemDetailViewController.swift */,
+>>>>>>> af70fd16d32bd992a108d1211fdd2b79b481c09e
+				17040B0F21B78D000049C902 /* CameraViewController.swift */,
+				17040B0D21B77BD80049C902 /* AddItemViewController.swift */,
+				176F559021B746BA00FFF556 /* SignUpViewController.swift */,
 				17D979E021B22BAA00E74816 /* MainViewController.swift */,
+				17D979E421B230BE00E74816 /* NewsViewController.swift */,
+				1751F07C21B08B2100F55356 /* ProductBrowseViewController.swift */,
+				17040B0721B76B180049C902 /* search.json */,
 				743BD5E421B5FB8C00855A1E /* BorrowedCell.swift */,
+				17040B1121B796D40049C902 /* Assets.xcassets */,
 				743BD5E221B5E64400855A1E /* ItemCell.swift */,
 				17D979E221B2309F00E74816 /* ClosetViewController.swift */,
+				17040B0921B775040049C902 /* Alike-Regular.ttf */,
 				17B3022D21B65735004E5EF8 /* images */,
-				1751F07C21B08B2100F55356 /* ProductBrowseViewController.swift */,
-				17D979E421B230BE00E74816 /* NewsViewController.swift */,
-=======
-				71F4EDA921B5888C004BEA0C /* GoogleService-Info.plist */,
-				1751F04E21B06E9F00F55356 /* AppDelegate.swift */,
-				1751F05221B06E9F00F55356 /* Main.storyboard */,
-				7105750421B58FAD00E756B9 /* ViewControllers */,
->>>>>>> parent of b48a35a... Merge remote-tracking branch 'refs/remotes/origin/master'
 				1751F07E21B08BFD00F55356 /* ProductCell.swift */,
-				1751F05521B06EA300F55356 /* Assets.xcassets */,
 				1751F05721B06EA300F55356 /* LaunchScreen.storyboard */,
 				1751F05A21B06EA300F55356 /* Info.plist */,
+				71388D7121B87D0B00232F7B /* StartViewController.swift */,
+				743BD5E821B9DEAB00855A1E /* BorrowedItemDetailViewController.swift */,
+				743BD5EA21B9ECCF00855A1E /* LentItemViewController.swift */,
+				6216B1D421B9FADF00AB5943 /* SettingsViewController.swift */,
 			);
 			path = Armoir;
 			sourceTree = "<group>";
@@ -289,15 +295,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
+				7193F59621BA370700427907 /* Main.storyboard in Resources */,
+				17040B0A21B775BD0049C902 /* Alike-Regular.ttf in Resources */,
+				711695E321B9F9790022C3C6 /* fb.png in Resources */,
 				17B3022E21B65735004E5EF8 /* images in Resources */,
 				1751F05921B06EA300F55356 /* LaunchScreen.storyboard in Resources */,
-=======
-				1751F05921B06EA300F55356 /* LaunchScreen.storyboard in Resources */,
-				71F4EDAA21B5888C004BEA0C /* GoogleService-Info.plist in Resources */,
->>>>>>> parent of b48a35a... Merge remote-tracking branch 'refs/remotes/origin/master'
-				1751F05621B06EA300F55356 /* Assets.xcassets in Resources */,
-				1751F05421B06E9F00F55356 /* Main.storyboard in Resources */,
+				17040B0821B76B180049C902 /* search.json in Resources */,
+				17040B1221B796D40049C902 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +309,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7193F59721BA370700427907 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7193F59821BA370700427907 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,20 +328,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17040B1021B78D000049C902 /* CameraViewController.swift in Sources */,
 				1751F07F21B08BFD00F55356 /* ProductCell.swift in Sources */,
+				743BD5E521B5FB8C00855A1E /* BorrowedCell.swift in Sources */,
 				17D979E321B2309F00E74816 /* ClosetViewController.swift in Sources */,
+				743BD5EB21B9ECCF00855A1E /* LentItemViewController.swift in Sources */,
 				1751F04F21B06E9F00F55356 /* AppDelegate.swift in Sources */,
+				71388D7221B87D0B00232F7B /* StartViewController.swift in Sources */,
 				17D979E521B230BE00E74816 /* NewsViewController.swift in Sources */,
-<<<<<<< HEAD
+				6216B1D521B9FADF00AB5943 /* SettingsViewController.swift in Sources */,
+				17040B0E21B77BD80049C902 /* AddItemViewController.swift in Sources */,
 				743BD5E321B5E64400855A1E /* ItemCell.swift in Sources */,
-=======
-				7105750A21B5902200E756B9 /* LoginViewController.swift in Sources */,
-				71EBC8D721B5A45C002B5789 /* Constants.swift in Sources */,
-				7161E67021B3870A005F4072 /* Settings.swift in Sources */,
-				71EBC8E221B64231002B5789 /* StartViewController.swift in Sources */,
-				71EBC8D521B59A0C002B5789 /* SignUpViewController.swift in Sources */,
->>>>>>> parent of b48a35a... Merge remote-tracking branch 'refs/remotes/origin/master'
+				17040B1621B9FA760049C902 /* SearchItemDetailViewController.swift in Sources */,
+				176F559121B746BA00FFF556 /* SignUpViewController.swift in Sources */,
 				17D979E121B22BAA00E74816 /* MainViewController.swift in Sources */,
+				743BD5E921B9DEAB00855A1E /* BorrowedItemDetailViewController.swift in Sources */,
 				1751F07D21B08B2100F55356 /* ProductBrowseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,14 +379,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1751F05221B06E9F00F55356 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1751F05321B06E9F00F55356 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1751F05721B06EA300F55356 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

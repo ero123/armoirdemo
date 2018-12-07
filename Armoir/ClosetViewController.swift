@@ -12,6 +12,7 @@ import Foundation
 var itemImage: UIImage = UIImage()
 var startWithCamera: Bool = Bool()
 var currItem: Int = 0
+var user_num = 321;
 var currUser = a_User(user_ID: 123, profPic: "", name: "", borrowed: [], closet: []);
 var currArray: [Item] = [];
 
@@ -61,6 +62,7 @@ struct a_User {
     var name: String
     var borrowed: [Item]
     var closet: [Item]
+    
     init(user_ID: Int, profPic: String, name: String, borrowed:[Item], closet: [Item]) {
         self.user_ID = user_ID;
         self.profPic = "images/" + profPic;
@@ -69,7 +71,7 @@ struct a_User {
         self.closet = closet;
     }
 }
-
+//DONT WORRY ABOUT THIS
 extension a_User: Decodable {
     enum userStructKeys: String, CodingKey { // declaring our keys
         case user_ID = "user_ID"
@@ -135,6 +137,8 @@ extension a_User: Decodable {
         
     }
 }
+
+//TILL HERE
 
 let json = """
 [{
@@ -288,7 +292,6 @@ let json = """
 class ClosetViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
-    var user_num = 321;
     let sectionInsets = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
     let itemsPerRow: CGFloat = 2.0
     var status_lending = true
@@ -357,9 +360,9 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
         catch {
             print("array didn't work");
         }
-        for stru in myStructArray {
-            if stru.user_ID == user_num {
-                currUser = stru;
+        for user_instance in myStructArray {
+            if user_instance.user_ID == user_num {
+                currUser = user_instance;
             }
         }
     }

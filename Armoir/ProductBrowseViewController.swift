@@ -8,13 +8,18 @@
 
 import UIKit
 
+var clickedIndex:Int = Int()
 var productImageURLs:[String] = [String]()
 
+var otherUsers:[a_User] = [];
+
+
 class ProductBrowseViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    
+    var fullArray: [Item] = [];
     @IBOutlet weak var myCollectionView: UICollectionView!
     
     func loadData() {
+        /*
         var numImages = 10
     
         let imageURL = "https://i.imgur.com/JOPiokr.png"
@@ -22,6 +27,29 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         while(numImages > 0) {
             productImageURLs.append(imageURL)
             numImages -= 1
+        }*/
+        
+        var myStructArray:[a_User] = [];
+        do {
+            try myStructArray = JSONDecoder().decode([a_User].self, from: json);
+        }
+        catch {
+            print("array didn't work");
+        }
+        for stru in myStructArray {
+            if stru.user_ID != user_num {
+                otherUsers.append(stru);
+            }
+        }
+        
+        // add all the items
+        for u in otherUsers {
+            let cl = u.closet;
+            for i in cl {
+                if !(i.borrowed) {
+                    fullArray.append(i);
+                }
+            }
         }
     }
     
@@ -29,12 +57,45 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //return array.count
-        return productImageURLs.count
+        //return productImageURLs.count
+        return fullArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ProductCell
         
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell",for: indexPath) as! ProductCell
+        
+        
+        let i = fullArray[indexPath.row]
+        
+        cell.productImage.image = UIImage(named: i.imgURL);
+        cell.productImage.contentMode = .scaleToFill;
+        cell.productImage.layer.borderWidth = 1;
+        cell.productPrice.text = "$" + String(i.price) + "/day";
+        cell.productDistance.text = "0.8 mi"
+        cell.backgroundColor = UIColor.white
+        return cell
+        
+        
+        
+        /*
+         let cell = viewOfItems.dequeueReusableCell(withReuseIdentifier: "lendingCell",for: indexPath) as! ItemCell
+         let i = currArray[indexPath.row]
+         cell.itemName.text = i.name;
+         cell.img_display.image = UIImage(named: i.imgURL);
+         cell.img_display.contentMode = .scaleToFill;
+         cell.img_display.layer.borderWidth = 1;
+         if (i.borrowed) {
+         cell.backgroundColor = UIColor.lightGray
+         cell.due_display.text = "1 day left";
+         cell.due_display.textColor = UIColor.red;
+         } else {
+         cell.backgroundColor = UIColor.white
+         cell.due_display.text = "not borrowed";
+         cell.due_display.textColor = UIColor.black;
+         }
+         return cell
+ 
         if let imgURL = URL(string: productImageURLs[indexPath.row]) {
             
             URLSession.shared.dataTask(with: imgURL, completionHandler: { (data, response, error) in
@@ -68,8 +129,7 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         //cell.productImage.image = UIImage(named: "NewsScreenshot")
         cell.productPrice.text = "$5/day"
         //cell.productDistance.text = "1.2 mi"
-        
-        return cell
+        */
     }
     
 
@@ -88,7 +148,16 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         myCollectionView.collectionViewLayout = layout
     }
     
-
+    /*func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        clickedIndex = indexPath.row
+        self.performSegue(withIdentifier: "toItemDetail", sender: self)
+    }*/
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        currItem = fullArray[indexPath.row].item_id;
+        
+    }
     /*
     // MARK: - Navigation
 

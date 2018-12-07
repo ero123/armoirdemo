@@ -406,7 +406,7 @@
         <!--Borrowed Item Detail View Controller-->
         <scene sceneID="SPB-yX-FFn">
             <objects>
-                <viewController id="XH1-R9-w02" customClass="BorrowedItemDetailViewController" customModule="Armoir" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XH1-R9-w02" customClass="BorrowedItemDetailViewController" customModule="Armoir" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aeJ-yw-R0s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -692,7 +692,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rb4-dJ-lq7">
-                                        <rect key="frame" x="137" y="16" width="218" height="80"/>
+                                        <rect key="frame" x="137" y="54" width="218" height="42"/>
                                         <color key="backgroundColor" red="0.89411764709999997" green="0.89411764709999997" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <accessibility key="accessibilityConfiguration" label="Upload Item">
                                             <accessibilityTraits key="traits" button="YES" image="YES"/>
@@ -743,12 +743,7 @@
                         <outlet property="viewOfItems" destination="Uwo-fp-M0o" id="75J-SQ-rnJ"/>
                         <segue destination="rlv-nD-C9r" kind="show" identifier="closetSegue" id="43q-gw-GJD"/>
                         <segue destination="McH-PY-hkW" kind="show" identifier="toAddItemPage" id="Om7-qJ-M5f"/>
-<<<<<<< HEAD
-=======
-                        <segue destination="QNo-EL-TyX" kind="popoverPresentation" identifier="toCameraPage" popoverAnchorView="vP2-NG-r74" id="NRQ-3n-NFE">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
-                        </segue>
->>>>>>> parent of 57f55db... Merge remote-tracking branch 'refs/remotes/origin/master'
+                        <segue destination="QNo-EL-TyX" kind="show" identifier="toCameraPage" id="NRQ-3n-NFE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTq-5G-x5u" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -815,12 +810,11 @@
                     <connections>
                         <outlet property="cameraImageView" destination="5se-M0-TWW" id="rC1-Kc-vgi"/>
                         <segue destination="McH-PY-hkW" kind="show" identifier="toAddItemPage" id="q4d-cE-Cts"/>
-                        <segue destination="A9T-z1-Itm" kind="show" identifier="goBack" id="t6i-cD-ucv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p6Q-wK-UYn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3062" y="-794"/>
+            <point key="canvasLocation" x="2925.5999999999999" y="-561.76911544227892"/>
         </scene>
         <!--News View Controller-->
         <scene sceneID="peX-qq-OTr">
@@ -1044,14 +1038,15 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrx-ew-nMQ">
-                                <rect key="frame" x="56" y="473" width="262" height="138"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrx-ew-nMQ">
+                                <rect key="frame" x="93" y="524" width="189" height="67"/>
                                 <color key="backgroundColor" red="0.81568627449999997" green="0.74117647060000003" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="189" id="9tS-BE-BO5"/>
                                     <constraint firstAttribute="height" constant="67" id="ONA-lR-rh0"/>
                                 </constraints>
-                                <state key="normal" title="Sign in with Facebook" image="fb.png">
+                                <fontDescription key="fontDescription" name="Alike-Regular" family="Alike" pointSize="25"/>
+                                <state key="normal" title="Continue">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -1075,11 +1070,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JoC-s5-00C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-            <point key="canvasLocation" x="-770.39999999999998" y="339.58020989505252"/>
-=======
             <point key="canvasLocation" x="-726" y="340"/>
->>>>>>> af70fd16d32bd992a108d1211fdd2b79b481c09e
         </scene>
         <!--Product Browse View Controller-->
         <scene sceneID="EpW-Eg-F05">
@@ -1288,7 +1279,7 @@
         <!--Lent Item View Controller-->
         <scene sceneID="Xdl-GG-PAI">
             <objects>
-                <viewController id="0gy-E7-uYq" customClass="LentItemViewController" customModule="Armoir" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0gy-E7-uYq" customClass="LentItemViewController" customModule="Armoir" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sFJ-T0-R6z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1402,27 +1393,21 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CameraButton" width="66" height="63"/>
+        <image name="CameraButton" width="132" height="126"/>
         <image name="armoir logo" width="116" height="31"/>
-        <image name="camera" width="80.139129638671875" height="80.139129638671875"/>
+        <image name="camera" width="42" height="42"/>
         <image name="closetbutton" width="97" height="113"/>
         <image name="distanceIcon" width="76" height="106"/>
-        <image name="fb.png" width="800" height="300"/>
         <image name="jeanJacketCamera" width="640" height="1136"/>
         <image name="newsbutton" width="97" height="113"/>
         <image name="search button2-1" width="97" height="113"/>
         <image name="settingsbutton" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-<<<<<<< HEAD
-        <segue reference="q4d-cE-Cts"/>
-        <segue reference="43q-gw-GJD"/>
-=======
         <segue reference="pHs-t2-CJq"/>
         <segue reference="MqN-mZ-Kjy"/>
         <segue reference="Om7-qJ-M5f"/>
         <segue reference="P0h-GW-DiH"/>
->>>>>>> af70fd16d32bd992a108d1211fdd2b79b481c09e
     </inferredMetricsTieBreakers>
     <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
 </document>

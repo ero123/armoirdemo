@@ -8,9 +8,15 @@
 
 import UIKit
 
+<<<<<<< HEAD
 
 class BorrowedItemDetailViewController: UIViewController {
 
+=======
+
+class BorrowedItemDetailViewController: UIViewController {
+    
+>>>>>>> af70fd16d32bd992a108d1211fdd2b79b481c09e
     @IBOutlet weak var priceDetail: UILabel!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var profPic: UIImageView!
@@ -30,7 +36,11 @@ class BorrowedItemDetailViewController: UIViewController {
                 if (i.borrowed) {
                     userID = i.borrowed_by;
                     distanceText.text = "Borrowed";
+<<<<<<< HEAD
 
+=======
+                    
+>>>>>>> af70fd16d32bd992a108d1211fdd2b79b481c09e
                 } else {
                     distanceText.text = "Currently available";
                 }
@@ -47,10 +57,17 @@ class BorrowedItemDetailViewController: UIViewController {
                         user = stru;
                         if (i.borrowed) {
                             userName.text = user.name;
+<<<<<<< HEAD
 
                         } else {
                             userName.text = "Owned by you";
 
+=======
+                            
+                        } else {
+                            userName.text = "Owned by you";
+                            
+>>>>>>> af70fd16d32bd992a108d1211fdd2b79b481c09e
                         }
                         let image = UIImage(named: user.profPic);
                         self.profPic.image = image;
@@ -67,15 +84,15 @@ class BorrowedItemDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
