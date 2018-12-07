@@ -14,6 +14,7 @@ struct Cell{
     let profile : String?
     let distance : String?
     let message : String?
+    let borrowed: Bool?
     
     /*init(productImage: UIImage, profileImage: UIImage, profile: String, distance: String, message: String) {
      self.productImage = productImage;
@@ -42,24 +43,17 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var data = [Cell]()
     
-    func load_data(){
-        let num_data = 5
-        var i = 0
-        let image = UIImage(named:"dress")
-        
-        while i < num_data{
-            let c = Cell(productImage: image!, profileImage: image!, profile: "Jesse", distance: "0.8 mi", message: "You have 3 dats left to return 'Free People Dress' to Jesse");
-            data.append(c);
-            i-=1
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //load_data()
-        let image = UIImage(named:"dress")
-        //print(data)
-        data = [Cell(productImage: image, profileImage: image, profile: "Jesse", distance: "0.8 mi", message: "You have 3 dats left to return 'Free People Dress' to Jesse"),Cell(productImage: image, profileImage: image, profile: "Jesse", distance: "0.8 mi", message: "You have 3 dats left to return 'Free People Dress' to Jesse")]
+        let bow_shirt = UIImage(named:"images/c_img1.png")
+        let formal_shirt = UIImage(named:"images/r_img1.png")
+        let profimg1 = UIImage(named: "chloe")
+        let profimg2 = UIImage(named: "jesse")
+        
+        data = [Cell(productImage: bow_shirt, profileImage: profimg1, profile: "Chloe", distance: "0.8 mi", message: "You have 2 days left to return \"bow shirt\"",borrowed: true),Cell(productImage: formal_shirt, profileImage: profimg2, profile: "Jesse", distance: "1 mi", message: "You have 1 day left until \"Free People Dress\" is returned", borrowed: false)]
+        
         
     }
     
@@ -78,6 +72,9 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.profile?.text = data[indexPath.row].profile
         cell.distance?.text = data[indexPath.row].distance
         cell.message?.text = data[indexPath.row].message
+        if(data[indexPath.row].borrowed!){
+            cell.backgroundColor = UIColor.lightGray
+        }
         
         return cell
     }
