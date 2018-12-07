@@ -16,14 +16,36 @@ class SearchItemDetailViewController: UIViewController {
         @IBOutlet weak var distanceText: UILabel!
         @IBOutlet weak var itemImage: UIImageView!
         @IBOutlet weak var itemDescrip: UILabel!
+    
+
         override func viewDidLoad() {
             super.viewDidLoad()
-            for i in currArray {
-                if (i.item_id == currItem) {
-                    priceDetail.text = "$" + String(i.price) + "/day";
-                    let imageI = UIImage(named: i.imgURL);
-                    self.itemImage.image = imageI;
-                    self.itemImage.clipsToBounds = true;
+           
+            print(chosenItem)
+            itemDescrip.text = chosenItem["name"].string
+            if let imageStr = chosenItem["image"].string {
+                itemImage.image = UIImage(named: "images/" + imageStr)
+            }
+            if let currPrice = chosenItem["price"].int {
+                priceDetail.text = "$" + String(currPrice) + "/day";
+            }
+            distanceText.text = chosenItem["distance"].string! + " mi"
+            itemImage.clipsToBounds = true;
+            for (_,user) in readableJSON {
+                if (user["user_ID"].int == chosenItem["owner"].int) {
+                    if let imageStr = user["profPic"].string {
+                        profPic.image = UIImage(named: "images/" + imageStr)
+                        profPic.layer.cornerRadius = self.profPic.frame.size.width / 2;
+                        profPic.clipsToBounds = true;
+                    }
+                    userName.text = user["owner"].string
+                }
+            }
+            
+            /*for i in currArray {
+                if (i.item_id == chosenItem["item_id"].int) {
+                    print("success")
+
                     itemDescrip.text = i.name;
                     var userID = i.owner;
                     if (i.borrowed) {
@@ -50,20 +72,16 @@ class SearchItemDetailViewController: UIViewController {
                             } else {
                                 userName.text = "Owned by you";
                                 
+                                
                             }
-                            let image = UIImage(named: user.profPic);
-                            self.profPic.image = image;
-                            self.profPic.layer.cornerRadius = self.profPic.frame.size.width / 2;
-                            self.profPic.clipsToBounds = true;
+
                         }
                     }
                     
                     
                     
                 }
-            }
-            
-            // Do any additional setup after loading the view.
+            }*/
         }
         
         

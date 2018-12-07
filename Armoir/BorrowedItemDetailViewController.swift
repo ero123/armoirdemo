@@ -29,7 +29,7 @@ class BorrowedItemDetailViewController: UIViewController {
                 var userID = i.owner;
                 if (i.borrowed) {
                     userID = i.borrowed_by;
-                    distanceText.text = "Borrowed";
+                    distanceText.text = "Borrowed by";
 
                 } else {
                     distanceText.text = "Currently available";

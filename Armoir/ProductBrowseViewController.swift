@@ -7,28 +7,60 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 var clickedIndex:Int = Int()
 var productImageURLs:[String] = [String]()
-
+var readableJSON:JSON = JSON()
+var itemData:[JSON] = [JSON]()
 var otherUsers:[a_User] = [];
-
+var currCategory:Int = Int()
+var categories:[String] = [String]()
+var categorySet:Bool = Bool()
+var currUser2:Int = Int()
+var chosenItem:JSON = JSON()
 
 class ProductBrowseViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     var fullArray: [Item] = [];
     @IBOutlet weak var myCollectionView: UICollectionView!
     
-    func loadData() {
-        /*
-        var numImages = 10
+    func getData() {
+        if let path = Bundle.main.path(forResource: "search", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                readableJSON = try JSON(data: data)
+            } catch {
+                print("Error reading json file")
+            }
+        }
+    }
     
-        let imageURL = "https://i.imgur.com/JOPiokr.png"
+
+    func reloadData() {
+        itemData = []
+        for (_,user) in readableJSON {
+            if (user["user_ID"].int != currUser2) {
+                for (_,item) in user["closet"] {
+                    if (categorySet) {
+                        if (item["category"].string! == categories[currCategory]) {
+                            itemData.append(item)
+                
+                        }
+                    } else {
+                        itemData.append(item)
+                        print(item)
+                    }
+                }
+            }
+        }
         
-        while(numImages > 0) {
-            productImageURLs.append(imageURL)
-            numImages -= 1
-        }*/
-        
+        for item in itemData {
+           print(item["name"])
+        }
+    }
+    
+    func loadData() {
+
         var myStructArray:[a_User] = [];
         do {
             try myStructArray = JSONDecoder().decode([a_User].self, from: json);
@@ -56,87 +88,40 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
     @IBOutlet weak var showingLabel: UILabel!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //return array.count
-        //return productImageURLs.count
-        return fullArray.count
+        return itemData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell",for: indexPath) as! ProductCell
         
-        
-        let i = fullArray[indexPath.row]
-        
-        cell.productImage.image = UIImage(named: i.imgURL);
+        let currItem = itemData[indexPath.row]
+        print(currItem)
+        cell.productImage.image = UIImage(named: currItem["image"].string!)
+        if let imageStr = currItem["image"].string {
+            cell.productImage.image = UIImage(named: "images/" + imageStr)
+        }
+        if let currPrice = currItem["price"].int {
+            cell.productPrice.text = "$" + String(currPrice) + "/day";
+        }
+
         cell.productImage.contentMode = .scaleToFill;
         cell.productImage.layer.borderWidth = 1;
-        cell.productPrice.text = "$" + String(i.price) + "/day";
         cell.productDistance.text = "0.8 mi"
         cell.backgroundColor = UIColor.white
         return cell
-        
-        
-        
-        /*
-         let cell = viewOfItems.dequeueReusableCell(withReuseIdentifier: "lendingCell",for: indexPath) as! ItemCell
-         let i = currArray[indexPath.row]
-         cell.itemName.text = i.name;
-         cell.img_display.image = UIImage(named: i.imgURL);
-         cell.img_display.contentMode = .scaleToFill;
-         cell.img_display.layer.borderWidth = 1;
-         if (i.borrowed) {
-         cell.backgroundColor = UIColor.lightGray
-         cell.due_display.text = "1 day left";
-         cell.due_display.textColor = UIColor.red;
-         } else {
-         cell.backgroundColor = UIColor.white
-         cell.due_display.text = "not borrowed";
-         cell.due_display.textColor = UIColor.black;
-         }
-         return cell
- 
-        if let imgURL = URL(string: productImageURLs[indexPath.row]) {
-            
-            URLSession.shared.dataTask(with: imgURL, completionHandler: { (data, response, error) in
-                if error != nil {
-                    print(error!)
-                    return
-                }
-                let image = UIImage(data: data!)
-            
-                DispatchQueue.main.async {
-                    cell.productImage.image = image
-                }
-            }).resume()
-        }
-
-       /* if let imgURL = URL(string: "https://i.imgur.com/JOPiokr.png") {
-            
-            URLSession.shared.dataTask(with: imgURL, completionHandler: { (data, response, error) in
-                if error != nil {
-                    print(error!)
-                    return
-                }
-                let image = UIImage(data: data!)
-                
-                DispatchQueue.main.async {
-                    cell.productImage.image = image
-                }
-            }).resume()
-        }*/
-        
-        //cell.productImage.image = UIImage(named: "NewsScreenshot")
-        cell.productPrice.text = "$5/day"
-        //cell.productDistance.text = "1.2 mi"
-        */
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        currUser2 = 321
+        categorySet = false
+        categories = ["shirt", "pants", "skirt", "shorts", "dress", "none"]
+        getData()
         loadData()
-
+        reloadData()
+        
         let itemSize = (UIScreen.main.bounds.width / 2) - 3
         let layout = UICollectionViewFlowLayout()
         //layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
@@ -148,16 +133,16 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         myCollectionView.collectionViewLayout = layout
     }
     
-    /*func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        clickedIndex = indexPath.row
-        self.performSegue(withIdentifier: "toItemDetail", sender: self)
-    }*/
-    
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        currItem = fullArray[indexPath.row].item_id;
-        
+        chosenItem = itemData[indexPath.row]
+        self.performSegue(withIdentifier: "toItemDetail", sender: self)
     }
+    
+    
+    /*func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //currItem = fullArray[indexPath.row].item_id;
+        currItem = itemData[indexPath.row]["item_id"].int!
+    }*/
     /*
     // MARK: - Navigation
 
