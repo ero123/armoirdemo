@@ -1026,15 +1026,14 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrx-ew-nMQ">
-                                <rect key="frame" x="93" y="524" width="189" height="67"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrx-ew-nMQ">
+                                <rect key="frame" x="-301" y="408" width="977" height="300"/>
                                 <color key="backgroundColor" red="0.81568627449999997" green="0.74117647060000003" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="189" id="9tS-BE-BO5"/>
                                     <constraint firstAttribute="height" constant="67" id="ONA-lR-rh0"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Alike-Regular" family="Alike" pointSize="25"/>
-                                <state key="normal" title="Continue">
+                                <state key="normal" title="Sign in with Facebook" image="fb.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -1058,7 +1057,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JoC-s5-00C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-769" y="340"/>
+            <point key="canvasLocation" x="-770.39999999999998" y="339.58020989505252"/>
         </scene>
         <!--Product Browse View Controller-->
         <scene sceneID="EpW-Eg-F05">
@@ -1383,6 +1382,7 @@
         <image name="camera" width="80.139129638671875" height="80.139129638671875"/>
         <image name="closetbutton" width="97" height="113"/>
         <image name="distanceIcon" width="76" height="106"/>
+        <image name="fb.png" width="800" height="300"/>
         <image name="jeanJacketCamera" width="640" height="1136"/>
         <image name="newsbutton" width="97" height="113"/>
         <image name="search button2-1" width="97" height="113"/>
