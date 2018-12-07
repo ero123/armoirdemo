@@ -11,6 +11,10 @@ import Foundation
 
 var itemImage: UIImage = UIImage()
 var startWithCamera: Bool = Bool()
+var currItem: Int = 0
+var currUser = a_User(user_ID: 123, profPic: "", name: "", borrowed: [], closet: []);
+var currArray: [Item] = [];
+
 
 struct Item: Decodable {
     enum Sizes: String, Decodable {
@@ -283,9 +287,8 @@ let json = """
 
 class ClosetViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var currUser = a_User(user_ID: 123, profPic: "", name: "", borrowed: [], closet: []);
+    
     var user_num = 321;
-    var currArray: [Item] = [];
     let sectionInsets = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
     let itemsPerRow: CGFloat = 2.0
     var status_lending = true
@@ -437,6 +440,11 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
        self.viewOfItems.reloadData();
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        currItem = currArray[indexPath.row].item_id;
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData();
@@ -445,12 +453,17 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
         loadLending();
         uploadButton.imageView?.contentMode = .scaleAspectFit;
         uploadButton.layer.cornerRadius = 5;
-        viewOfItems.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        let availableWidth = viewOfItems.frame.size.width-(10*6.5);
-        let widthPerItem = availableWidth / 2;
-        let layout = viewOfItems.collectionViewLayout as! UICollectionViewFlowLayout;
-        layout.minimumInteritemSpacing = 5;
-        layout.itemSize = CGSize( width: widthPerItem, height: widthPerItem*1.2)
+        viewOfItems.contentInset = UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
+        //let availableWidth = viewOfItems.frame.size.width-(10*6.5);
+        //let widthPerItem = availableWidth / 2;
+        let widthPerItem = (UIScreen.main.bounds.width / 2) - 3
+        let layout = UICollectionViewFlowLayout()
+        //let layout = viewOfItems.collectionViewLayout as! UICollectionViewFlowLayout;
+        layout.minimumInteritemSpacing = 1;
+        layout.itemSize = CGSize( width: widthPerItem, height: widthPerItem*1.3)
+    
+        viewOfItems.collectionViewLayout = layout
+
         
     }
    
