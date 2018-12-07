@@ -12,6 +12,7 @@ import Foundation
 var itemImage: UIImage = UIImage()
 var startWithCamera: Bool = Bool()
 var currItem: Int = 0
+var user_num = 321;
 var currUser = a_User(user_ID: 123, profPic: "", name: "", borrowed: [], closet: []);
 var currArray: [Item] = [];
 
@@ -288,7 +289,6 @@ let json = """
 class ClosetViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
-    var user_num = 321;
     let sectionInsets = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
     let itemsPerRow: CGFloat = 2.0
     var status_lending = true
