@@ -12,9 +12,33 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var profileImage: UIImageView!
     
+    @IBOutlet weak var saveChanges: UIButton!
+    
+    @IBOutlet weak var inviteFriends: UIButton!
+
+    @IBOutlet weak var changePassword: UIButton!
+    
+    @IBOutlet weak var changePicture: UIButton!
+    
+    func makeButtonsRound(){
+        self.inviteFriends.layer.cornerRadius = 7
+        self.inviteFriends.clipsToBounds = true
+        
+        self.saveChanges.layer.cornerRadius = 7
+        self.saveChanges.clipsToBounds = true
+        
+        self.changePicture.layer.cornerRadius = 7
+        self.changePicture.clipsToBounds = true
+        
+        self.changePassword.layer.cornerRadius = 7
+        self.changePassword.clipsToBounds = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.profileImage.image = UIImage(named: "images/rhea.png")
+        makeButtonsRound()
+
         // Do any additional setup after loading the view.
     }
     
