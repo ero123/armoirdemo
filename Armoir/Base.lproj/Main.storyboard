@@ -616,9 +616,7 @@
                         <outlet property="viewOfItems" destination="Uwo-fp-M0o" id="75J-SQ-rnJ"/>
                         <segue destination="rlv-nD-C9r" kind="show" identifier="closetSegue" id="43q-gw-GJD"/>
                         <segue destination="McH-PY-hkW" kind="show" identifier="toAddItemPage" id="Om7-qJ-M5f"/>
-                        <segue destination="QNo-EL-TyX" kind="popoverPresentation" identifier="toCameraPage" popoverAnchorView="vP2-NG-r74" id="NRQ-3n-NFE">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
-                        </segue>
+                        <segue destination="QNo-EL-TyX" kind="show" identifier="toCameraPage" id="NRQ-3n-NFE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTq-5G-x5u" userLabel="First Responder" sceneMemberID="firstResponder"/>
