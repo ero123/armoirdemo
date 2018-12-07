@@ -28,6 +28,7 @@
 		743BD5E321B5E64400855A1E /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743BD5E221B5E64400855A1E /* ItemCell.swift */; };
 		743BD5E521B5FB8C00855A1E /* BorrowedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743BD5E421B5FB8C00855A1E /* BorrowedCell.swift */; };
 		743BD5E921B9DEAB00855A1E /* BorrowedItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743BD5E821B9DEAB00855A1E /* BorrowedItemDetailViewController.swift */; };
+		743BD5EB21B9ECCF00855A1E /* LentItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743BD5EA21B9ECCF00855A1E /* LentItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		743BD5E221B5E64400855A1E /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		743BD5E421B5FB8C00855A1E /* BorrowedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorrowedCell.swift; sourceTree = "<group>"; };
 		743BD5E821B9DEAB00855A1E /* BorrowedItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorrowedItemDetailViewController.swift; sourceTree = "<group>"; };
+		743BD5EA21B9ECCF00855A1E /* LentItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LentItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				1751F05A21B06EA300F55356 /* Info.plist */,
 				71388D7121B87D0B00232F7B /* StartViewController.swift */,
 				743BD5E821B9DEAB00855A1E /* BorrowedItemDetailViewController.swift */,
+				743BD5EA21B9ECCF00855A1E /* LentItemViewController.swift */,
 			);
 			path = Armoir;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				1751F07F21B08BFD00F55356 /* ProductCell.swift in Sources */,
 				743BD5E521B5FB8C00855A1E /* BorrowedCell.swift in Sources */,
 				17D979E321B2309F00E74816 /* ClosetViewController.swift in Sources */,
+				743BD5EB21B9ECCF00855A1E /* LentItemViewController.swift in Sources */,
 				1751F04F21B06E9F00F55356 /* AppDelegate.swift in Sources */,
 				71388D7221B87D0B00232F7B /* StartViewController.swift in Sources */,
 				17D979E521B230BE00E74816 /* NewsViewController.swift in Sources */,

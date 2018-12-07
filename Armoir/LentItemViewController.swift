@@ -1,5 +1,5 @@
 //
-//  BorrowedItemDetailViewController.swift
+//  LentItemViewController.swift
 //  Armoir
 //
 //  Created by rhea krtr on 06/12/18.
@@ -8,32 +8,27 @@
 
 import UIKit
 
+class LentItemViewController: UIViewController {
 
-class BorrowedItemDetailViewController: UIViewController {
-
-    @IBOutlet weak var priceDetail: UILabel!
+    @IBOutlet weak var daysLeft: UILabel!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var profPic: UIImageView!
-    @IBOutlet weak var distanceText: UILabel!
-    @IBOutlet weak var itemImage: UIImageView!
+    @IBOutlet weak var distDisplay: UILabel!
+    @IBOutlet weak var priceDisplay: UILabel!
+    @IBOutlet weak var imgDisplay: UIImageView!
     @IBOutlet weak var itemDescrip: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        distDisplay.text = "0.8 mi";
+        daysLeft.text = "3 days left";
         for i in currArray {
             if (i.item_id == currItem) {
-                priceDetail.text = "$" + String(i.price) + "/day";
+                priceDisplay.text = "$" + String(i.price) + "/day";
                 let imageI = UIImage(named: i.imgURL);
-                self.itemImage.image = imageI;
-                self.itemImage.clipsToBounds = true;
+                self.imgDisplay.image = imageI;
+                self.imgDisplay.clipsToBounds = true;
                 itemDescrip.text = i.name;
-                var userID = i.owner;
-                if (i.borrowed) {
-                    userID = i.borrowed_by;
-                    distanceText.text = "Borrowed";
-
-                } else {
-                    distanceText.text = "Currently available";
-                }
+                let userID = i.owner;
                 var user: a_User;
                 var myStructArray:[a_User] = [];
                 do {
@@ -45,13 +40,7 @@ class BorrowedItemDetailViewController: UIViewController {
                 for stru in myStructArray {
                     if stru.user_ID == userID {
                         user = stru;
-                        if (i.borrowed) {
-                            userName.text = user.name;
-
-                        } else {
-                            userName.text = "Owned by you";
-
-                        }
+                        userName.text = user.name;
                         let image = UIImage(named: user.profPic);
                         self.profPic.image = image;
                         self.profPic.layer.cornerRadius = self.profPic.frame.size.width / 2;
@@ -63,6 +52,8 @@ class BorrowedItemDetailViewController: UIViewController {
                 
             }
         }
+        
+
         
         // Do any additional setup after loading the view.
     }
