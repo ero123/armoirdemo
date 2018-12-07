@@ -104,12 +104,11 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.distance?.text = data[indexPath.row].distance
         cell.message?.text = data[indexPath.row].message
         if(!data[indexPath.row].borrowed!){
-            cell.backgroundColor = UIColor.lightGray
+            cell.backgroundColor = UIColor(hue: 0.0028, saturation: 0, brightness: 0.82, alpha: 1.0)
         }
         
         return cell
     }
-    
 }
 
 class NewsTableViewCell: UITableViewCell{

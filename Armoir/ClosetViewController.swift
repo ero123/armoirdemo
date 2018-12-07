@@ -394,9 +394,9 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
             cell.img_display.contentMode = .scaleToFill;
             cell.img_display.layer.borderWidth = 1;
             if (i.borrowed) {
-                cell.backgroundColor = UIColor.lightGray
+                cell.backgroundColor = UIColor(hue: 0.0028, saturation: 0, brightness: 0.82, alpha: 1.0)
                 cell.due_display.text = "1 day left";
-                cell.due_display.textColor = UIColor.red;
+                cell.due_display.textColor = UIColor(hue: 0.0028, saturation: 0.97, brightness: 0.65, alpha: 1.0);
             } else {
                 cell.backgroundColor = UIColor.white
                 cell.due_display.text = "not borrowed";
