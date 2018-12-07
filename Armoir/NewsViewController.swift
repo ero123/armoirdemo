@@ -65,7 +65,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
             let profileimg = UIImage(named: profimageURL[i])
             let prof = rand_names[i]
             let dst = dist[i]
-            let msg = "You have 2 days left to return "+item.name+" "+item.category;
+            let msg = "You have 2 days left to return "+item.name+" to "+rand_names[i];
             data.append(Cell(productImage: productimg, profileImage: profileimg, profile: prof, distance: dst, message: msg, borrowed: true))
             i+=1
         }
@@ -75,7 +75,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let profileimg = UIImage(named: profimageURL[i])
                 let prof = rand_names[i]
                 let dst = dist[i]
-                let msg = "You have 2 days left to return "+"\""+item.name+"\""+" "+item.category;
+                let msg = rand_names[i]+" borrowed "+"\""+item.name+"\" from your closet";
                 data.append(Cell(productImage: productimg, profileImage: profileimg, profile: prof, distance: dst, message: msg, borrowed: false))
                 i+=1
             }
