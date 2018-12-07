@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import DropDown
 
 var clickedIndex:Int = Int()
 var productImageURLs:[String] = [String]()
@@ -22,8 +23,10 @@ var chosenItem:JSON = JSON()
 
 class ProductBrowseViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     var fullArray: [Item] = [];
+    
     @IBOutlet weak var myCollectionView: UICollectionView!
     
+
     func getData() {
         if let path = Bundle.main.path(forResource: "search", ofType: "json") {
             do {
@@ -34,6 +37,12 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
             }
         }
     }
+
+    @IBOutlet weak var categoryDropDown: UILabel!
+    
+    @IBOutlet weak var Sortby: UILabel!
+    
+    @IBOutlet weak var Filter: UILabel!
     
 
     func reloadData() {
@@ -112,7 +121,30 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         return cell
     }
     
-
+    /*let category = DropDown()
+    let filter = DropDown()
+    let sortby = DropDown()
+    
+    func initCategory(){
+        category.dataSource = ["All", "Shirt", "Pants", "Shorts", "Dresses", "Skirts", "Outerwear", "Shoes", "Accessories", "Other" ]
+        
+        category.selectionAction = {[weak self] (index: Int, item: String) in
+            
+            print("Selected item: \(item) at index: \(index)")
+        }
+        category.cellNib = UINib(nibName: "cell”, bundle: nil)
+    }
+    
+    func initFilter(){
+        filter.dataSource = ["??"]
+        filter.bottomOffset = CGPoint(x: 0, y:(filter.anchorView?.plainView.bounds.height)!)
+    }
+    
+    func initSortBy(){
+        sortby.dataSource = ["Price: low->high","Price: high->low", "Distance"]
+        sortby.bottomOffset = CGPoint(x: 0, y:(sortby.anchorView?.plainView.bounds.height)!)
+    }*/
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         currUser2 = 321
@@ -154,3 +186,4 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
     */
 
 }
+

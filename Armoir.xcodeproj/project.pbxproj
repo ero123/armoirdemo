@@ -26,6 +26,8 @@
 		17D979E521B230BE00E74816 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D979E421B230BE00E74816 /* NewsViewController.swift */; };
 		2F4EB6A65C6E1331B9831F4D /* Pods_Armoir.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3B0FD42F3D1F612CE415C3 /* Pods_Armoir.framework */; };
 		6216B1D921BA5E5B00AB5943 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216B1D821BA5E5A00AB5943 /* SettingsViewController.swift */; };
+		6216B1DB21BAA73300AB5943 /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6216B1DA21BAA73300AB5943 /* DropDown.framework */; };
+		6250122221BAAE5B0015F10A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6250122121BAAE5B0015F10A /* SwiftyJSON.framework */; };
 		71388D7221B87D0B00232F7B /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71388D7121B87D0B00232F7B /* StartViewController.swift */; };
 		7193F59621BA370700427907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7193F59521BA370700427907 /* Main.storyboard */; };
 		7193F59721BA370700427907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7193F59521BA370700427907 /* Main.storyboard */; };
@@ -83,6 +85,8 @@
 		44DC47DD6FC2973BBAADF91A /* Pods-ArmoirUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArmoirUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArmoirUITests/Pods-ArmoirUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4C6EE03E84BA4F5E1E39930B /* Pods-ArmoirTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArmoirTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArmoirTests/Pods-ArmoirTests.release.xcconfig"; sourceTree = "<group>"; };
 		6216B1D821BA5E5A00AB5943 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		6216B1DA21BAA73300AB5943 /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6250122121BAAE5B0015F10A /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71388D7121B87D0B00232F7B /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		7193F59521BA370700427907 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		743BD5E221B5E64400855A1E /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
@@ -102,6 +106,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6250122221BAAE5B0015F10A /* SwiftyJSON.framework in Frameworks */,
+				6216B1DB21BAA73300AB5943 /* DropDown.framework in Frameworks */,
 				2F4EB6A65C6E1331B9831F4D /* Pods_Armoir.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,8 +156,8 @@
 		1751F04D21B06E9F00F55356 /* Armoir */ = {
 			isa = PBXGroup;
 			children = (
-				7193F59521BA370700427907 /* Main.storyboard */,
 				1751F04E21B06E9F00F55356 /* AppDelegate.swift */,
+				7193F59521BA370700427907 /* Main.storyboard */,
 				17040B1521B9FA760049C902 /* SearchItemDetailViewController.swift */,
 				17040B0F21B78D000049C902 /* CameraViewController.swift */,
 				17040B0D21B77BD80049C902 /* AddItemViewController.swift */,
@@ -198,6 +204,8 @@
 		58EDE642AEDDAF578B388A59 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6250122121BAAE5B0015F10A /* SwiftyJSON.framework */,
+				6216B1DA21BAA73300AB5943 /* DropDown.framework */,
 				8A3B0FD42F3D1F612CE415C3 /* Pods_Armoir.framework */,
 				ED3771DD3B476D4EA4BBBF13 /* Pods_ArmoirTests.framework */,
 				E475E1EC01E3EA2A5F1B5702 /* Pods_ArmoirUITests.framework */,

@@ -12,6 +12,23 @@ class AddItemViewController: UIViewController {
 
     @IBOutlet weak var itemImageView: UIImageView!
     
+    /*func load_json(){
+        let item_id = 23234 //uhm???
+        let name = "jean jacket" //obtain from input
+        let owner = 321
+        let borrowed_by = 0
+        let imgURL = "jeanJacketFinal"
+        let color = "blue"
+        let size = "S"
+        let price = 20
+        let category = "jacket"
+        
+        let new_item = Item.init(item_id: item_id, name: name, owner: owner, borrowed: false, borrowed_by: borrowed_by, imgURL: imgURL, color: color, size: size, price: price, category: category)
+        
+        let enoded  = encoder.codingPath
+        
+    }*/
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         itemImageView.image = itemImage
