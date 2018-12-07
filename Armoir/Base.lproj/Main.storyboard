@@ -691,7 +691,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rb4-dJ-lq7">
-                                        <rect key="frame" x="137" y="54" width="218" height="42"/>
+                                        <rect key="frame" x="137" y="16" width="218" height="80"/>
                                         <color key="backgroundColor" red="0.89411764709999997" green="0.89411764709999997" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <accessibility key="accessibilityConfiguration" label="Upload Item">
                                             <accessibilityTraits key="traits" button="YES" image="YES"/>
@@ -742,7 +742,6 @@
                         <outlet property="viewOfItems" destination="Uwo-fp-M0o" id="75J-SQ-rnJ"/>
                         <segue destination="rlv-nD-C9r" kind="show" identifier="closetSegue" id="43q-gw-GJD"/>
                         <segue destination="McH-PY-hkW" kind="show" identifier="toAddItemPage" id="Om7-qJ-M5f"/>
-                        <segue destination="QNo-EL-TyX" kind="show" identifier="toCameraPage" id="NRQ-3n-NFE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTq-5G-x5u" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -809,11 +808,12 @@
                     <connections>
                         <outlet property="cameraImageView" destination="5se-M0-TWW" id="rC1-Kc-vgi"/>
                         <segue destination="McH-PY-hkW" kind="show" identifier="toAddItemPage" id="q4d-cE-Cts"/>
+                        <segue destination="A9T-z1-Itm" kind="show" identifier="goBack" id="t6i-cD-ucv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p6Q-wK-UYn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2925.5999999999999" y="-561.76911544227892"/>
+            <point key="canvasLocation" x="3062" y="-794"/>
         </scene>
         <!--News View Controller-->
         <scene sceneID="peX-qq-OTr">
@@ -1025,7 +1025,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrx-ew-nMQ">
-                                <rect key="frame" x="-301" y="408" width="977" height="300"/>
+                                <rect key="frame" x="56" y="473" width="262" height="138"/>
                                 <color key="backgroundColor" red="0.81568627449999997" green="0.74117647060000003" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="189" id="9tS-BE-BO5"/>
@@ -1375,9 +1375,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CameraButton" width="132" height="126"/>
+        <image name="CameraButton" width="66" height="63"/>
         <image name="armoir logo" width="116" height="31"/>
-        <image name="camera" width="42" height="42"/>
+        <image name="camera" width="80.139129638671875" height="80.139129638671875"/>
         <image name="closetbutton" width="97" height="113"/>
         <image name="distanceIcon" width="76" height="106"/>
         <image name="fb.png" width="800" height="300"/>
@@ -1387,7 +1387,7 @@
         <image name="settingsbutton" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Om7-qJ-M5f"/>
+        <segue reference="q4d-cE-Cts"/>
         <segue reference="43q-gw-GJD"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
