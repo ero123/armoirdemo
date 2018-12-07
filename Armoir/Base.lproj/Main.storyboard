@@ -405,7 +405,7 @@
         <!--Borrowed Item Detail View Controller-->
         <scene sceneID="SPB-yX-FFn">
             <objects>
-                <viewController id="XH1-R9-w02" customClass="BorrowedItemDetailViewController" customModule="Armoir" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XH1-R9-w02" customClass="BorrowedItemDetailViewController" customModule="Armoir" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aeJ-yw-R0s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -691,7 +691,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rb4-dJ-lq7">
-                                        <rect key="frame" x="137" y="16" width="218" height="80"/>
+                                        <rect key="frame" x="137" y="54" width="218" height="42"/>
                                         <color key="backgroundColor" red="0.89411764709999997" green="0.89411764709999997" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <accessibility key="accessibilityConfiguration" label="Upload Item">
                                             <accessibilityTraits key="traits" button="YES" image="YES"/>
@@ -1262,7 +1262,7 @@
         <!--Lent Item View Controller-->
         <scene sceneID="Xdl-GG-PAI">
             <objects>
-                <viewController id="0gy-E7-uYq" customClass="LentItemViewController" customModule="Armoir" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0gy-E7-uYq" customClass="LentItemViewController" customModule="Armoir" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sFJ-T0-R6z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1376,9 +1376,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CameraButton" width="66" height="63"/>
+        <image name="CameraButton" width="132" height="126"/>
         <image name="armoir logo" width="116" height="31"/>
-        <image name="camera" width="80.139129638671875" height="80.139129638671875"/>
+        <image name="camera" width="42" height="42"/>
         <image name="closetbutton" width="97" height="113"/>
         <image name="distanceIcon" width="76" height="106"/>
         <image name="jeanJacketCamera" width="640" height="1136"/>
