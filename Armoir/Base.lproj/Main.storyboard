@@ -691,7 +691,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rb4-dJ-lq7">
-                                        <rect key="frame" x="137" y="16" width="218" height="80"/>
+                                        <rect key="frame" x="137" y="54" width="218" height="42"/>
                                         <color key="backgroundColor" red="0.89411764709999997" green="0.89411764709999997" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <accessibility key="accessibilityConfiguration" label="Upload Item">
                                             <accessibilityTraits key="traits" button="YES" image="YES"/>
@@ -1013,13 +1013,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGj-8h-yei">
-                                <rect key="frame" x="31" y="59" width="312" height="406.5"/>
+                                <rect key="frame" x="31" y="59" width="312" height="377.5"/>
                                 <attributedString key="attributedText">
                                     <fragment>
                                         <string key="content">armoir is a clothes-sharing platform to help you find inspiration in your friends' closets, borrow items you love, and lend your own clothes out to others for some extra cash.</string>
                                         <attributes>
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                            <font key="NSFont" size="27" name="Alike-Regular"/>
+                                            <font key="NSFont" metaFont="system" size="27"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -1103,7 +1103,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Iaf-1P-NZd" customClass="ProductCell" customModule="Armoir">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Iaf-1P-NZd" customClass="ProductCell" customModule="Armoir" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="172" height="202"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -1378,9 +1378,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CameraButton" width="66" height="63"/>
+        <image name="CameraButton" width="132" height="126"/>
         <image name="armoir logo" width="116" height="31"/>
-        <image name="camera" width="80.139129638671875" height="80.139129638671875"/>
+        <image name="camera" width="42" height="42"/>
         <image name="closetbutton" width="97" height="113"/>
         <image name="distanceIcon" width="76" height="106"/>
         <image name="jeanJacketCamera" width="640" height="1136"/>
