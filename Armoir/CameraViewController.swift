@@ -20,6 +20,7 @@ class CameraViewController: UIViewController {
     
     @IBAction func pressedExit(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+        
     }
     
     @objc func timeToMoveOn() {
@@ -56,3 +57,4 @@ class CameraViewController: UIViewController {
     */
 
 }
+

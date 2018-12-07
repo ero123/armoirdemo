@@ -17,7 +17,16 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func continueButton(_ sender: UIButton) {
-        performSegue(withIdentifier: "continue", sender: self)
+        
+        let alert = UIAlertController(title: "\"Facebook\" Would Like to Access Your Contacts", message: "", preferredStyle: .alert)
+        let yes = UIAlertAction(title: "OK", style: .default) { (action) -> Void in
+            let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "mainVC")
+            self.present(mainVC!, animated: true, completion: nil)
+        }
+        alert.addAction(UIAlertAction(title: "Don't Allow", style: .cancel, handler: nil))
+        alert.addAction(yes)
+        alert.view.tintColor = UIColor.blue
+        self.present(alert, animated: true)
     }
     
     /*
