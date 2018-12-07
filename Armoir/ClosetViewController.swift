@@ -142,150 +142,150 @@ extension a_User: Decodable {
 
 let json = """
 [{
-    "user_ID": 123,
-    "owner": "Chloe Imaginary",
-    "profPic": "chloe.png",
-    "borrowed": [{
-        "item_id": 54321,
-        "name": "Formal shirt",
-        "owner": 321,
-        "borrowed": true,
-        "borrowed_by": 123,
-        "image": "r_img1.png",
-        "color_tag": "blue",
-        "size": "M",
-        "price": 35,
-        "category": "shirt"
-    }],
-    "closet": [{
-        "item_id": 12345,
-        "name": "Formal shirt",
-        "owner": 123,
-        "borrowed": true,
-        "borrowed_by": 321,
-        "image": "c_img1.png",
-        "color_tag": "red",
-        "size": "M",
-        "price": 70,
-        "category": "shirt"
-    }, {
-        "item_id": 14445,
-        "name": "Fun shirt",
-        "owner": 123,
-        "borrowed": false,
-        "borrowed_by": 0,
-        "image": "c_img2.png",
-        "color_tag": "red",
-        "size": "M",
-        "price": 50,
-        "category": "shirt"
-    }, {
-        "item_id": 16645,
-        "name": "Superhero shirt",
-        "owner": 123,
-        "borrowed": false,
-        "borrowed_by": 0,
-        "image": "c_img3.png",
-        "color_tag": "green",
-        "size": "M",
-        "price": 40,
-        "category": "shirt"
-    }, {
+   "user_ID": 123,
+   "owner": "Chloe Imaginary",
+   "profPic": "chloe.png",
+   "borrowed": [{
+       "item_id": 54321,
+       "name": "Formal shirt",
+       "owner": 321,
+       "borrowed": true,
+       "borrowed_by": 123,
+       "image": "r_img1.png",
+       "color_tag": "blue",
+       "size": "M",
+       "price": 35,
+       "category": "shirt"
+   }],
+   "closet": [{
+       "item_id": 12345,
+       "name": "Formal shirt",
+       "owner": 123,
+       "borrowed": true,
+       "borrowed_by": 321,
+       "image": "c_img1.png",
+       "color_tag": "red",
+       "size": "M",
+       "price": 70,
+       "category": "shirt"
+   }, {
+       "item_id": 14445,
+       "name": "Fun shirt",
+       "owner": 123,
+       "borrowed":false,
+       "borrowed_by": 0,
+       "image": "c_img2.png",
+       "color_tag": "red",
+       "size": "M",
+       "price": 50,
+       "category": "shirt"
+   }, {
+       "item_id": 16645,
+       "name": "Superhero shirt",
+       "owner": 123,
+       "borrowed": false,
+       "borrowed_by": 0,
+       "image": "c_img3.png",
+       "color_tag": "green",
+       "size": "M",
+       "price": 40,
+       "category": "shirt"
+   }, {
 
-        "item_id": 17745,
-        "name": "bright shirt",
-        "owner": 123,
-        "borrowed": false,
-        "borrowed_by": 0,
-        "image": "c_img4.png",
-        "color_tag": "red",
-        "size": "M",
-        "price": 30,
-        "category": "shirt"
-    }, {
-        "item_id": 17845,
-        "name": "frayed jeans",
-        "owner": 123,
-        "borrowed": false,
-        "borrowed_by": 0,
-        "image": "c_img5.png",
-        "color_tag": "blue",
-        "size": "S",
-        "price": 80,
-        "category": "pant"
-    }]
+       "item_id": 17745,
+       "name": "bright shirt",
+       "owner": 123,
+       "borrowed": false,
+       "borrowed_by": 0,
+       "image": "c_img4.png",
+       "color_tag": "red",
+       "size": "M",
+       "price": 30,
+       "category": "shirt"
+   }, {
+       "item_id": 17845,
+       "name": "frayed jeans",
+       "owner": 123,
+       "borrowed": false,
+       "borrowed_by": 0,
+       "image": "c_img5.png",
+       "color_tag": "blue",
+       "size": "S",
+       "price": 80,
+       "category": "pant"
+   }]
 }, {
-    "user_ID": 321,
-    "owner": "Rhea Karuturi",
-    "profPic": "rhea.png",
-    "borrowed": [{
-        "item_id": 12345,
-        "name": "Formal shirt",
-        "owner": 123,
-        "borrowed": true,
-        "borrowed_by": 321,
-        "image": "c_img1.png",
-        "color_tag": "red",
-        "size": "M",
-        "price": 70,
-        "category": "shirt"
-    }],
-    "closet": [{
-        "item_id": 54321,
-        "name": "Formal shirt",
-        "owner": 321,
-        "borrowed": true,
-        "borrowed_by": 123,
-        "image": "r_img1.png",
-        "color_tag": "blue",
-        "size": "M",
-        "price": 35,
-        "category": "shirt"
-    }, {
-        "item_id": 54322,
-        "name": "frilly shirt",
-        "owner": 321,
-        "borrowed": false,
-        "borrowed_by": 0,
-        "image": "r_img2.png",
-        "color_tag": "red",
-        "size": "S",
-        "price": 65,
-        "category": "shirt"
-    }, {
-        "item_id": 54323,
-        "name": "summer tank top",
-        "owner": 321,
-        "borrowed": false,
-        "borrowed_by": 0,
-        "image": "r_img3.png",
-        "color_tag": "white",
-        "size": "S",
-        "price": 55,
-        "category": "shirt"
-    }, {
-        "item_id": 54324,
-        "name": "fun, flared skirt",
-        "owner": 321,
-        "borrowed": false,
-        "borrowed_by": 0,
-        "image": "r_img4.png",
-        "color_tag": "yellow",
-        "size": "S",
-        "price": 76,
-        "category": "skirt"
-    }, {
-        "item_id": 54325,
-        "name": "ripped jeans",
-        "owner": 321,
-        "borrowed": false,
-        "borrowed_by": 0,
-        "image": "r_img5.png",
-        "color_tag": "black",
-        "size": "S",
-        "price": 90,
-        "category": "pant"
-    }]
+   "user_ID": 321,
+   "owner": "Rhea Karuturi",
+   "profPic": "rhea.png",
+   "borrowed": [{
+       "item_id": 12345,
+       "name": "Formal shirt",
+       "owner": 123,
+       "borrowed": true,
+       "borrowed_by": 321,
+       "image": "c_img1.png",
+       "color_tag": "red",
+       "size": "M",
+       "price": 70,
+       "category": "shirt"
+   }],
+   "closet": [{
+       "item_id": 54321,
+       "name": "Formal shirt",
+       "owner": 321,
+       "borrowed": true,
+       "borrowed_by": 123,
+       "image": "r_img1.png",
+       "color_tag": "blue",
+       "size": "M",
+       "price": 35,
+       "category": "shirt"
+   }, {
+       "item_id": 54322,
+       "name": "frilly shirt",
+       "owner": 321,
+       "borrowed": true,
+       "borrowed_by": 0,
+       "image": "r_img2.png",
+       "color_tag": "red",
+       "size": "S",
+       "price": 65,
+       "category": "shirt"
+   }, {
+       "item_id": 54323,
+       "name": "summer tank top",
+       "owner": 321,
+       "borrowed": false,
+       "borrowed_by": 0,
+       "image": "r_img3.png",
+       "color_tag": "white",
+       "size": "S",
+       "price": 55,
+       "category": "shirt"
+   }, {
+       "item_id": 54324,
+       "name": "fun, flared skirt",
+       "owner": 321,
+       "borrowed": true,
+       "borrowed_by": 0,
+       "image": "r_img4.png",
+       "color_tag": "yellow",
+       "size": "S",
+       "price": 76,
+       "category": "skirt"
+   }, {
+       "item_id": 54325,
+       "name": "ripped jeans",
+       "owner": 321,
+       "borrowed": false,
+       "borrowed_by": 0,
+       "image": "r_img5.png",
+       "color_tag": "black",
+       "size": "S",
+       "price": 90,
+       "category": "pant"
+   }]
 }]
 """.data(using: .utf8)!
 

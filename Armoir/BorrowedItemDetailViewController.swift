@@ -30,7 +30,7 @@ class BorrowedItemDetailViewController: UIViewController {
                 if (i.borrowed) {
                     userID = i.borrowed_by;
                     distanceText.text = "Borrowed";
-                    
+
                 } else {
                     distanceText.text = "Currently available";
                 }
@@ -47,10 +47,11 @@ class BorrowedItemDetailViewController: UIViewController {
                         user = stru;
                         if (i.borrowed) {
                             userName.text = user.name;
-                            
+
                         } else {
                             userName.text = "Owned by you";
-                            
+
+
                         }
                         let image = UIImage(named: user.profPic);
                         self.profPic.image = image;

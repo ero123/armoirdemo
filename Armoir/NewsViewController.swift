@@ -41,20 +41,59 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //var prodImg : UIImage?
     
-    var data = [Cell]()
+    var data:[Cell] = [];
+    let rand_names = ["Chloe", "Cynthia", "Liz", "Jesse"];
+    let dist = ["1.2 mi","0.8 mi","2 mi","2.4 mi"];
+    let profimageURL = ["chloe","cynthia","liz","jesse"];
     
+    func load_data(){
+        var users:[a_User] = [];
+        do {
+            try users = JSONDecoder().decode([a_User].self, from: json);
+        }
+        catch {
+            print("array didn't work");
+        }
+        for user_instance in users {
+            if user_instance.user_ID == user_num {
+                currUser = user_instance;
+            }
+        }
+        var i = 0
+        for item in currUser.borrowed {
+            let productimg = UIImage(named: item.imgURL)
+            let profileimg = UIImage(named: profimageURL[i])
+            let prof = rand_names[i]
+            let dst = dist[i]
+            let msg = "You have 2 days left to return "+item.name+" "+item.category;
+            data.append(Cell(productImage: productimg, profileImage: profileimg, profile: prof, distance: dst, message: msg, borrowed: true))
+            i+=1
+        }
+        for item in currUser.closet {
+            if(item.borrowed){
+                let productimg = UIImage(named: item.imgURL)
+                let profileimg = UIImage(named: profimageURL[i])
+                let prof = rand_names[i]
+                let dst = dist[i]
+                let msg = "You have 2 days left to return "+"\""+item.name+"\""+" "+item.category;
+                data.append(Cell(productImage: productimg, profileImage: profileimg, profile: prof, distance: dst, message: msg, borrowed: false))
+                i+=1
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //load_data()
-        let bow_shirt = UIImage(named:"images/c_img1.png")
+        load_data()
+        
+        /*let bow_shirt = UIImage(named:"images/c_img1.png")
         let formal_shirt = UIImage(named:"images/r_img1.png")
         let profimg1 = UIImage(named: "chloe")
         let profimg2 = UIImage(named: "jesse")
         
         data = [Cell(productImage: bow_shirt, profileImage: profimg1, profile: "Chloe", distance: "0.8 mi", message: "You have 2 days left to return \"bow shirt\"",borrowed: true),Cell(productImage: formal_shirt, profileImage: profimg2, profile: "Jesse", distance: "1 mi", message: "You have 1 day left until \"Free People Dress\" is returned", borrowed: false)]
         
-        
+        */
     }
     
     

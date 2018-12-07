@@ -20,6 +20,7 @@ class CameraViewController: UIViewController {
     
     @IBAction func pressedExit(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+        
     }
     
     @objc func timeToMoveOn() {
@@ -37,12 +38,12 @@ class CameraViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.view.backgroundColor = UIColor.black
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        //self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        //self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
     /*
@@ -56,3 +57,4 @@ class CameraViewController: UIViewController {
     */
 
 }
+
