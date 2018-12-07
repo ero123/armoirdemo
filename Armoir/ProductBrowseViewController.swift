@@ -83,6 +83,8 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         for item in itemData {
            print(item["name"])
         }
+        
+        myCollectionView.reloadData()
     }
     
     func loadData() {
@@ -109,6 +111,7 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
                 }
             }
         }
+
     }
     
     @IBOutlet weak var showingLabel: UILabel!
@@ -166,7 +169,7 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         super.viewDidLoad()
         currUser2 = 321
         categorySet = false
-        categories = ["shirt", "pants", "skirt", "shorts", "dress", "none"]
+        categories = ["shirt", "pant", "skirt", "shorts", "dress", "none"]
         getData()
         loadData()
         reloadData()
@@ -225,15 +228,22 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
     }
     
     func initCategoryDropDown() {
-        categoryDropDown.dataSource = ["Shirts", "Pants", "Skirts", "Shorts", "Dresses", "No category"]
+        let capsCategories = ["Shirts", "Pants", "Skirts", "Shorts", "Dresses", "No category"]
+        categoryDropDown.dataSource = capsCategories
         //selectShadeRow()
         
         categoryDropDown.selectionAction = { [weak self] (index: Int, selectedShade: String) in
-            /*currShade = selectedShade
-            currMaxPrice = 10000
-            self?.reloadBrands()
-            self?.reloadData()
-            self?.reloadSlider()*/
+            if (index == 5) {
+                categorySet = false
+                self?.reloadData()
+                self?.showingLabel.text = "Showing: All Items"
+            } else {
+                categorySet = true
+                print(index)
+                currCategory = index
+                self?.showingLabel.text = "Showing: " + capsCategories[index]
+                self?.reloadData()
+            }
         }
     }
     
