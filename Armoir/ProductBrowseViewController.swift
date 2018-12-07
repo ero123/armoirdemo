@@ -8,6 +8,7 @@
 
 import UIKit
 
+var clickedIndex:Int = Int()
 var productImageURLs:[String] = [String]()
 
 class ProductBrowseViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -86,6 +87,11 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         //layout.minimumLineSpacing = 7
         
         myCollectionView.collectionViewLayout = layout
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        clickedIndex = indexPath.row
+        self.performSegue(withIdentifier: "toItemDetail", sender: self)
     }
     
 
