@@ -27,7 +27,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="82"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CkU-Ip-HUa">
-                                        <rect key="frame" x="80" y="26.5" width="163" height="29"/>
+                                        <rect key="frame" x="80" y="27.5" width="163" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="163" id="FBx-xh-l4t"/>
                                         </constraints>
@@ -43,7 +43,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mkq-1D-Pg2">
-                                        <rect key="frame" x="260" y="26.5" width="100" height="29"/>
+                                        <rect key="frame" x="260" y="27" width="100" height="28"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="7dr-Zs-Auv"/>
@@ -85,7 +85,7 @@
                                 <state key="normal" title="Change Picture"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0o5-pB-gHr">
-                                <rect key="frame" x="20" y="314" width="119" height="31"/>
+                                <rect key="frame" x="20" y="313" width="119" height="31"/>
                                 <color key="backgroundColor" red="0.25926578039999998" green="0.40468230840000002" blue="0.69936054940000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="ZxV-7I-fDI"/>
@@ -97,7 +97,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ML-uI-OBm">
-                                <rect key="frame" x="20" y="263" width="119" height="31"/>
+                                <rect key="frame" x="20" y="263" width="119" height="30"/>
                                 <color key="backgroundColor" red="0.81360930200000003" green="0.74202412370000004" blue="0.67460316419999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="119" id="tVQ-Qb-YTd"/>
@@ -106,8 +106,8 @@
                                 <fontDescription key="fontDescription" name="Alike-Regular" family="Alike" pointSize="15"/>
                                 <state key="normal" title="Invite Friends"/>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ihX-9B-CZ9">
-                                <rect key="frame" x="167" y="148" width="193" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ihX-9B-CZ9">
+                                <rect key="frame" x="167" y="192" width="193" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="155" id="4yh-Wt-g2J"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="ahW-1S-Vn9"/>
@@ -117,19 +117,19 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDF-ma-Zxf">
-                                <rect key="frame" x="167" y="127" width="82" height="22"/>
+                                <rect key="frame" x="167" y="127" width="83" height="20"/>
                                 <fontDescription key="fontDescription" name="Alike-Regular" family="Alike" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7b-EZ-bH7">
-                                <rect key="frame" x="167" y="268" width="66" height="21.5"/>
+                                <rect key="frame" x="167" y="268" width="67.5" height="20"/>
                                 <fontDescription key="fontDescription" name="Alike-Regular" family="Alike" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YC7-on-Nex">
-                                <rect key="frame" x="167" y="212" width="154" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YC7-on-Nex">
+                                <rect key="frame" x="167" y="256" width="154" height="31"/>
                                 <color key="backgroundColor" red="0.81360930200000003" green="0.74202412370000004" blue="0.67460316419999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="154" id="qhV-gi-XqT"/>
@@ -138,7 +138,7 @@
                                 <state key="normal" title="Change Password"/>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tfc-Uo-nxq">
-                                <rect key="frame" x="167" y="290" width="193" height="120"/>
+                                <rect key="frame" x="167" y="288.5" width="193" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="2CT-kn-PaR"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="155" id="WId-BX-kCJ"/>
@@ -377,7 +377,7 @@
                         <barButtonItem key="rightBarButtonItem" image="settingsbutton" id="G1L-2y-eGR">
                             <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="rlv-nD-C9r" kind="show" id="VHW-aS-TXT"/>
+                                <segue destination="rlv-nD-C9r" kind="show" id="EV4-Wg-GsO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -696,7 +696,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rb4-dJ-lq7">
-                                        <rect key="frame" x="137" y="16" width="218" height="80"/>
+                                        <rect key="frame" x="137" y="54" width="218" height="42"/>
                                         <color key="backgroundColor" red="0.89411764709999997" green="0.89411764709999997" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <accessibility key="accessibilityConfiguration" label="Upload Item">
                                             <accessibilityTraits key="traits" button="YES" image="YES"/>
@@ -747,12 +747,9 @@
                         <outlet property="viewOfItems" destination="Uwo-fp-M0o" id="75J-SQ-rnJ"/>
                         <segue destination="rlv-nD-C9r" kind="show" identifier="closetSegue" id="43q-gw-GJD"/>
                         <segue destination="McH-PY-hkW" kind="show" identifier="toAddItemPage" id="Om7-qJ-M5f"/>
-<<<<<<< HEAD
-=======
                         <segue destination="QNo-EL-TyX" kind="popoverPresentation" identifier="toCameraPage" popoverAnchorView="vP2-NG-r74" id="NRQ-3n-NFE">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
                         </segue>
->>>>>>> parent of 57f55db... Merge remote-tracking branch 'refs/remotes/origin/master'
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTq-5G-x5u" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1079,15 +1076,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JoC-s5-00C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
             <point key="canvasLocation" x="-769" y="340"/>
-=======
-<<<<<<< HEAD
-            <point key="canvasLocation" x="-770.39999999999998" y="339.58020989505252"/>
-=======
-            <point key="canvasLocation" x="-726" y="340"/>
->>>>>>> af70fd16d32bd992a108d1211fdd2b79b481c09e
->>>>>>> e34acd62166c3dba462e78a01cb2f14e5650a0f0
         </scene>
         <!--Product Browse View Controller-->
         <scene sceneID="EpW-Eg-F05">
@@ -1407,9 +1396,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CameraButton" width="66" height="63"/>
+        <image name="CameraButton" width="132" height="126"/>
         <image name="armoir logo" width="116" height="31"/>
-        <image name="camera" width="80.139129638671875" height="80.139129638671875"/>
+        <image name="camera" width="42" height="42"/>
         <image name="closetbutton" width="97" height="113"/>
         <image name="distanceIcon" width="76" height="106"/>
         <image name="fb.png" width="800" height="300"/>
@@ -1419,20 +1408,9 @@
         <image name="settingsbutton" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-<<<<<<< HEAD
-        <segue reference="Om7-qJ-M5f"/>
-        <segue reference="43q-gw-GJD"/>
-=======
-<<<<<<< HEAD
+        <segue reference="t6i-cD-ucv"/>
         <segue reference="q4d-cE-Cts"/>
         <segue reference="43q-gw-GJD"/>
-=======
-        <segue reference="pHs-t2-CJq"/>
-        <segue reference="MqN-mZ-Kjy"/>
-        <segue reference="Om7-qJ-M5f"/>
-        <segue reference="P0h-GW-DiH"/>
->>>>>>> af70fd16d32bd992a108d1211fdd2b79b481c09e
->>>>>>> e34acd62166c3dba462e78a01cb2f14e5650a0f0
     </inferredMetricsTieBreakers>
     <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
 </document>

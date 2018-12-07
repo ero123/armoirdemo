@@ -65,7 +65,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
             let profileimg = UIImage(named: profimageURL[i])
             let prof = rand_names[i]
             let dst = dist[i]
-            let msg = "You have 2 days left to return "+item.name+" to "+rand_names[i];
+            let msg = "You have 2 days left to return \""+item.name+"\" to "+rand_names[i];
             data.append(Cell(productImage: productimg, profileImage: profileimg, profile: prof, distance: dst, message: msg, borrowed: true))
             i+=1
         }
@@ -81,7 +81,6 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,12 +104,11 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.distance?.text = data[indexPath.row].distance
         cell.message?.text = data[indexPath.row].message
         if(!data[indexPath.row].borrowed!){
-            cell.backgroundColor = UIColor.lightGray
+            cell.backgroundColor = UIColor(hue: 0.0028, saturation: 0, brightness: 0.82, alpha: 1.0)
         }
         
         return cell
     }
-    
 }
 
 class NewsTableViewCell: UITableViewCell{
