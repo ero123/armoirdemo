@@ -191,7 +191,6 @@ let json = """
        "price": 40,
        "category": "shirt"
    }, {
-
        "item_id": 17745,
        "name": "bright shirt",
        "owner": 123,

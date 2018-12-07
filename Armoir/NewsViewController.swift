@@ -65,7 +65,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
             let profileimg = UIImage(named: profimageURL[i])
             let prof = rand_names[i]
             let dst = dist[i]
-            let msg = "You have 2 days left to return "+item.name+" "+item.category;
+            let msg = "You have 2 days left to return \""+item.name+"\" to "+rand_names[i];
             data.append(Cell(productImage: productimg, profileImage: profileimg, profile: prof, distance: dst, message: msg, borrowed: true))
             i+=1
         }
@@ -75,7 +75,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let profileimg = UIImage(named: profimageURL[i])
                 let prof = rand_names[i]
                 let dst = dist[i]
-                let msg = "You have 2 days left to return "+"\""+item.name+"\""+" "+item.category;
+                let msg = rand_names[i]+" borrowed "+"\""+item.name+"\" from your closet";
                 data.append(Cell(productImage: productimg, profileImage: profileimg, profile: prof, distance: dst, message: msg, borrowed: false))
                 i+=1
             }
@@ -86,14 +86,6 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         load_data()
         
-        /*let bow_shirt = UIImage(named:"images/c_img1.png")
-        let formal_shirt = UIImage(named:"images/r_img1.png")
-        let profimg1 = UIImage(named: "chloe")
-        let profimg2 = UIImage(named: "jesse")
-        
-        data = [Cell(productImage: bow_shirt, profileImage: profimg1, profile: "Chloe", distance: "0.8 mi", message: "You have 2 days left to return \"bow shirt\"",borrowed: true),Cell(productImage: formal_shirt, profileImage: profimg2, profile: "Jesse", distance: "1 mi", message: "You have 1 day left until \"Free People Dress\" is returned", borrowed: false)]
-        
-        */
     }
     
     
@@ -111,7 +103,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.profile?.text = data[indexPath.row].profile
         cell.distance?.text = data[indexPath.row].distance
         cell.message?.text = data[indexPath.row].message
-        if(data[indexPath.row].borrowed!){
+        if(!data[indexPath.row].borrowed!){
             cell.backgroundColor = UIColor.lightGray
         }
         
