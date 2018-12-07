@@ -12,12 +12,28 @@ class AddItemViewController: UIViewController {
 
     @IBOutlet weak var itemImageView: UIImageView!
     
+    /*func load_json(){
+        let item_id = 23234 //uhm???
+        let name = "jean jacket" //obtain from input
+        let owner = 321
+        let borrowed_by = 0
+        let imgURL = "jeanJacketFinal"
+        let color = "blue"
+        let size = "S"
+        let price = 20
+        let category = "jacket"
+        
+        let new_item = Item.init(item_id: item_id, name: name, owner: owner, borrowed: false, borrowed_by: borrowed_by, imgURL: imgURL, color: color, size: size, price: price, category: category)
+        
+        let enoded  = encoder.codingPath
+        
+    }*/
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         itemImageView.image = itemImage
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        //self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationItem.hidesBackButton = true
-        //let newBackButton = UIBarButtonItem(image: UIImage(named:"backButton"), style: .plain, target: self, action: #selector(self.back(sender:)))
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
         self.navigationItem.hidesBackButton = false;
@@ -25,11 +41,10 @@ class AddItemViewController: UIViewController {
     
     @objc func back(sender: UIBarButtonItem) {
         if (startWithCamera) {
-            //print("true")
+            print("true")
         // Go back two ViewControllers
             _ = navigationController?.popViewControllers(viewsToPop: 2)
         } else {
-            //print("false")
             _ = navigationController?.popViewControllers(viewsToPop: 1)
         }
         

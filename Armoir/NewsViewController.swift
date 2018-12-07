@@ -41,19 +41,50 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //var prodImg : UIImage?
     
-    var data = [Cell]()
+    var data:[Cell] = [];
+    let rand_names = ["Chloe", "Cynthia", "Liz", "Jesse"];
+    let dist = ["1.2 mi","0.8 mi","2 mi","2.4 mi"];
+    let profimageURL = ["chloe","cynthia","liz","jesse"];
     
+    func load_data(){
+        var users:[a_User] = [];
+        do {
+            try users = JSONDecoder().decode([a_User].self, from: json);
+        }
+        catch {
+            print("array didn't work");
+        }
+        for user_instance in users {
+            if user_instance.user_ID == user_num {
+                currUser = user_instance;
+            }
+        }
+        var i = 0
+        for item in currUser.borrowed {
+            let productimg = UIImage(named: item.imgURL)
+            let profileimg = UIImage(named: profimageURL[i])
+            let prof = rand_names[i]
+            let dst = dist[i]
+            let msg = "You have 2 days left to return \""+item.name+"\" to "+rand_names[i];
+            data.append(Cell(productImage: productimg, profileImage: profileimg, profile: prof, distance: dst, message: msg, borrowed: true))
+            i+=1
+        }
+        for item in currUser.closet {
+            if(item.borrowed){
+                let productimg = UIImage(named: item.imgURL)
+                let profileimg = UIImage(named: profimageURL[i])
+                let prof = rand_names[i]
+                let dst = dist[i]
+                let msg = rand_names[i]+" borrowed "+"\""+item.name+"\" from your closet";
+                data.append(Cell(productImage: productimg, profileImage: profileimg, profile: prof, distance: dst, message: msg, borrowed: false))
+                i+=1
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //load_data()
-        let bow_shirt = UIImage(named:"images/c_img1.png")
-        let formal_shirt = UIImage(named:"images/r_img1.png")
-        let profimg1 = UIImage(named: "chloe")
-        let profimg2 = UIImage(named: "jesse")
-        
-        data = [Cell(productImage: bow_shirt, profileImage: profimg1, profile: "Chloe", distance: "0.8 mi", message: "You have 2 days left to return \"bow shirt\"",borrowed: true),Cell(productImage: formal_shirt, profileImage: profimg2, profile: "Jesse", distance: "1 mi", message: "You have 1 day left until \"Free People Dress\" is returned", borrowed: false)]
-        
+        load_data()
         
     }
     
@@ -72,13 +103,12 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.profile?.text = data[indexPath.row].profile
         cell.distance?.text = data[indexPath.row].distance
         cell.message?.text = data[indexPath.row].message
-        if(data[indexPath.row].borrowed!){
-            cell.backgroundColor = UIColor.lightGray
+        if(!data[indexPath.row].borrowed!){
+            cell.backgroundColor = UIColor(hue: 0.0028, saturation: 0, brightness: 0.82, alpha: 1.0)
         }
         
         return cell
     }
-    
 }
 
 class NewsTableViewCell: UITableViewCell{

@@ -18,12 +18,21 @@ class MainViewController: UIViewController {
     
     var viewControllers: [UIViewController]!
     
-    var selectedIndex: Int = 0
+    var viewArray: [UIView]!
+    
+    var selectedIndex: Int = 1
     
     @IBOutlet weak var contentView: UIView!
     @IBOutlet var buttons: [UIButton]!
     
+    @IBOutlet weak var searchView: UIView!
+    
+    @IBOutlet weak var closetView: UIView!
+    
+    @IBOutlet weak var newsView: UIView!
+    
     override func viewDidLoad() {
+        viewArray = [searchView, closetView, newsView]
         super.viewDidLoad()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
@@ -44,6 +53,8 @@ class MainViewController: UIViewController {
         let previousIndex = selectedIndex
         selectedIndex = sender.tag
         buttons[previousIndex].isSelected = false
+        viewArray[previousIndex].backgroundColor = UIColor(hue: 0.0778, saturation: 0.17, brightness: 0.81, alpha: 1.0)
+        viewArray[selectedIndex].backgroundColor = UIColor(hue: 0.075, saturation: 0.19, brightness: 0.76, alpha: 1.0)
         let previousVC = viewControllers[previousIndex]
         previousVC.willMove(toParent: nil)
         previousVC.view.removeFromSuperview()
