@@ -11,11 +11,11 @@ import UIKit
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var profileImage: UIImageView!
-    
+
     @IBOutlet weak var saveChanges: UIButton!
     
     @IBOutlet weak var inviteFriends: UIButton!
-
+    
     @IBOutlet weak var changePassword: UIButton!
     
     @IBOutlet weak var changePicture: UIButton!
@@ -37,6 +37,9 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.profileImage.image = UIImage(named: "images/rhea.png")
+
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
+        self.profileImage.clipsToBounds = true
         makeButtonsRound()
 
         // Do any additional setup after loading the view.
