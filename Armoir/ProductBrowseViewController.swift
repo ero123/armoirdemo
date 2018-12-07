@@ -129,7 +129,11 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         */
     }
     
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        currItem = fullArray[indexPath.row].item_id;
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()

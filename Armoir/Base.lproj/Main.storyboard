@@ -220,7 +220,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycq-MO-ufh">
-                                <rect key="frame" x="65" y="356" width="73" height="32"/>
+                                <rect key="frame" x="65" y="354" width="73" height="34"/>
                                 <fontDescription key="fontDescription" name="Alike-Regular" family="Alike" pointSize="17"/>
                                 <state key="normal" title="Add filter"/>
                             </button>
@@ -1165,6 +1165,7 @@
                                                     <outlet property="productDistance" destination="UcA-tT-mgO" id="XNy-0L-ITy"/>
                                                     <outlet property="productImage" destination="Rlx-eP-gIg" id="VVb-Iu-lDe"/>
                                                     <outlet property="productPrice" destination="vLx-CY-CAB" id="059-84-qba"/>
+                                                    <segue destination="XH1-R9-w02" kind="show" id="jy4-DE-sVF"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -1401,6 +1402,7 @@
         <image name="settingsbutton" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="jy4-DE-sVF"/>
         <segue reference="Om7-qJ-M5f"/>
         <segue reference="P0h-GW-DiH"/>
     </inferredMetricsTieBreakers>
