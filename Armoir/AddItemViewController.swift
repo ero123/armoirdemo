@@ -15,7 +15,9 @@ class AddItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         itemImageView.image = itemImage
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationItem.hidesBackButton = true
+        //let newBackButton = UIBarButtonItem(image: UIImage(named:"backButton"), style: .plain, target: self, action: #selector(self.back(sender:)))
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
         self.navigationItem.hidesBackButton = false;
@@ -23,10 +25,11 @@ class AddItemViewController: UIViewController {
     
     @objc func back(sender: UIBarButtonItem) {
         if (startWithCamera) {
-            print("true")
+            //print("true")
         // Go back two ViewControllers
             _ = navigationController?.popViewControllers(viewsToPop: 2)
         } else {
+            //print("false")
             _ = navigationController?.popViewControllers(viewsToPop: 1)
         }
         
