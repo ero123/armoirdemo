@@ -8,6 +8,7 @@
 
 import UIKit
 
+var clickedIndex:Int = Int()
 var productImageURLs:[String] = [String]()
 
 var otherUsers:[a_User] = [];
@@ -45,7 +46,9 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         for u in otherUsers {
             let cl = u.closet;
             for i in cl {
-                fullArray.append(i);
+                if !(i.borrowed) {
+                    fullArray.append(i);
+                }
             }
         }
     }
@@ -145,7 +148,16 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         myCollectionView.collectionViewLayout = layout
     }
     
-
+    /*func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        clickedIndex = indexPath.row
+        self.performSegue(withIdentifier: "toItemDetail", sender: self)
+    }*/
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        currItem = fullArray[indexPath.row].item_id;
+        
+    }
     /*
     // MARK: - Navigation
 
