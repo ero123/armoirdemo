@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DropDown
 
 var clickedIndex:Int = Int()
 var productImageURLs:[String] = [String]()
@@ -16,7 +17,14 @@ var otherUsers:[a_User] = [];
 
 class ProductBrowseViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     var fullArray: [Item] = [];
+    
     @IBOutlet weak var myCollectionView: UICollectionView!
+    
+    @IBOutlet weak var categoryDropDown: UILabel!
+    
+    @IBOutlet weak var Sortby: UILabel!
+    
+    @IBOutlet weak var Filter: UILabel!
     
     func loadData() {
         /*
@@ -132,7 +140,30 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         */
     }
     
-
+    /*let category = DropDown()
+    let filter = DropDown()
+    let sortby = DropDown()
+    
+    func initCategory(){
+        category.dataSource = ["All", "Shirt", "Pants", "Shorts", "Dresses", "Skirts", "Outerwear", "Shoes", "Accessories", "Other" ]
+        
+        category.selectionAction = {[weak self] (index: Int, item: String) in
+            
+            print("Selected item: \(item) at index: \(index)")
+        }
+        category.cellNib = UINib(nibName: "cell”, bundle: nil)
+    }
+    
+    func initFilter(){
+        filter.dataSource = ["??"]
+        filter.bottomOffset = CGPoint(x: 0, y:(filter.anchorView?.plainView.bounds.height)!)
+    }
+    
+    func initSortBy(){
+        sortby.dataSource = ["Price: low->high","Price: high->low", "Distance"]
+        sortby.bottomOffset = CGPoint(x: 0, y:(sortby.anchorView?.plainView.bounds.height)!)
+    }*/
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
@@ -169,3 +200,4 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
     */
 
 }
+
