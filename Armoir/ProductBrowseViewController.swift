@@ -17,6 +17,9 @@ var itemData:[JSON] = [JSON]()
 var otherUsers:[a_User] = [];
 var currCategory:Int = Int()
 var categories:[String] = [String]()
+let categoryDropDown:DropDown = DropDown()
+let filterDropDown:DropDown = DropDown()
+let sortByDropDown:DropDown = DropDown()
 var categorySet:Bool = Bool()
 var currUser2:Int = Int()
 var chosenItem:JSON = JSON()
@@ -26,7 +29,27 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
     
     @IBOutlet weak var myCollectionView: UICollectionView!
     
-
+    @IBOutlet weak var categoryButton: UIButton!
+    
+    @IBOutlet weak var filterButton: UIButton!
+    
+    @IBOutlet weak var sortByButton: UIButton!
+    
+    
+    @IBAction func categoryClicked(_ sender: Any) {
+        categoryDropDown.show()
+    }
+    
+    
+    @IBAction func filterClicked(_ sender: Any) {
+        filterDropDown.show()
+        
+    }
+    
+    @IBAction func sortByClicked(_ sender: Any) {
+        sortByDropDown.show()
+    }
+    
     func getData() {
         if let path = Bundle.main.path(forResource: "search", ofType: "json") {
             do {
@@ -38,12 +61,6 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         }
     }
 
-    @IBOutlet weak var categoryDropDown: UILabel!
-    
-    @IBOutlet weak var Sortby: UILabel!
-    
-    @IBOutlet weak var Filter: UILabel!
-    
 
     func reloadData() {
         itemData = []
@@ -154,6 +171,11 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         loadData()
         reloadData()
         
+        initDropDowns()
+        initCategoryDropDown()
+        initFilterDropDown()
+        initSortByDropDown()
+        
         let itemSize = (UIScreen.main.bounds.width / 2) - 3
         let layout = UICollectionViewFlowLayout()
         //layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
@@ -163,6 +185,69 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         //layout.minimumLineSpacing = 7
         
         myCollectionView.collectionViewLayout = layout
+    }
+    
+    func initDropDowns() {
+        DropDown.appearance().textColor = UIColor.black
+        DropDown.appearance().textFont = UIFont(name: "Alike-Regular", size: 17)!
+        DropDown.appearance().backgroundColor = UIColor.white
+        DropDown.appearance().cellHeight = 60
+        //shadeDropDown.width = 154
+        
+        categoryDropDown.anchorView = categoryButton
+        filterDropDown.anchorView = filterButton
+        sortByDropDown.anchorView = sortByButton
+        
+        categoryDropDown.direction = .bottom
+        filterDropDown.direction = .bottom
+        sortByDropDown.direction = .bottom
+        
+        categoryDropDown.dismissMode = .automatic
+        filterDropDown.dismissMode = .automatic
+        sortByDropDown.dismissMode = .automatic
+        
+        categoryDropDown.bottomOffset = CGPoint(x: 0, y:(categoryDropDown.anchorView?.plainView.bounds.height)!)
+        filterDropDown.bottomOffset = CGPoint(x: 0, y:(filterDropDown.anchorView?.plainView.bounds.height)!)
+        sortByDropDown.bottomOffset = CGPoint(x: 0, y:(sortByDropDown.anchorView?.plainView.bounds.height)!)
+    }
+    
+    func initSortByDropDown() {
+        sortByDropDown.dataSource = ["Low to high", "High to low"]
+        //selectShadeRow()
+        
+        sortByDropDown.selectionAction = { [weak self] (index: Int, selectedShade: String) in
+            /*currShade = selectedShade
+            currMaxPrice = 10000
+            self?.reloadBrands()
+            self?.reloadData()
+            self?.reloadSlider()*/
+        }
+    }
+    
+    func initCategoryDropDown() {
+        categoryDropDown.dataSource = ["Shirts", "Pants", "Skirts", "Shorts", "Dresses", "No category"]
+        //selectShadeRow()
+        
+        categoryDropDown.selectionAction = { [weak self] (index: Int, selectedShade: String) in
+            /*currShade = selectedShade
+            currMaxPrice = 10000
+            self?.reloadBrands()
+            self?.reloadData()
+            self?.reloadSlider()*/
+        }
+    }
+    
+    func initFilterDropDown() {
+        filterDropDown.dataSource = [""]
+        //selectShadeRow()
+        
+        filterDropDown.selectionAction = { [weak self] (index: Int, selectedShade: String) in
+            /*currShade = selectedShade
+            currMaxPrice = 10000
+            self?.reloadBrands()
+            self?.reloadData()
+            self?.reloadSlider()*/
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
