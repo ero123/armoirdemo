@@ -1,18 +1,20 @@
 //
-//  BorrowedItemDetailViewController.swift
+//  SettingsViewController.swift
 //  Armoir
 //
-//  Created by alex weitzman on 12/6/18.
+//  Created by Rachel Hyon on 12/6/18.
 //  Copyright © 2018 CS147. All rights reserved.
 //
 
 import UIKit
 
-class BorrowedItemDetailViewController: UIViewController {
+class SettingsViewController: UIViewController {
 
+    @IBOutlet weak var profileImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.profileImage.image = UIImage(named: "images/rhea.png")
         // Do any additional setup after loading the view.
     }
     
