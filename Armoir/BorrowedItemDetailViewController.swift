@@ -24,6 +24,7 @@ class BorrowedItemDetailViewController: UIViewController {
             if (i.item_id == currItem) {
                 priceDetail.text = "$" + String(i.price) + "/day";
                 sizeDetail.text = i.size;
+                distanceText.text = i.distance;
                 let imageI = UIImage(named: i.image);
                 self.itemImage.image = imageI;
                 self.itemImage.clipsToBounds = true;
