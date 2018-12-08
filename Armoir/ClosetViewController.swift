@@ -100,20 +100,28 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
         }
         
         //4. write to search.json with new encoded string
-        let path = "test" //this is the file. we will write to and read from it
+        let path = "test2" //this is the file. we will write to and read from it
         print("continuing");
-        let text = "some text" //just a text
+        let text = "[\"some text\", \"some text2\"]" //just a text
         if let fileURL = Bundle.main.url(forResource: path, withExtension: "json") {
             //print(fileURL)
             //writing
             do {
                 try text.write(to: fileURL, atomically: false, encoding: .utf8)
                 print("tried to write")
+                let url = Bundle.main.url(forResource: "test2", withExtension: "json")!
+                do {
+                    let jsonData = try Data(contentsOf: url)
+                    let newString = try JSONDecoder().decode([String].self, from: jsonData);
+                    print(newString)
+                }
+                catch {
+                    print(error)
+                }
             }
             catch {
                 print ("oh no");
             }
-            
         }
         
         for user_instance in all_users {
