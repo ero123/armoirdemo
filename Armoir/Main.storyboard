@@ -1260,9 +1260,6 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                                                <connections>
-                                                    <action selector="finishedEditing:" destination="FzJ-7g-3wX" eventType="editingDidEnd" id="rsc-wo-LxT"/>
-                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rqa-W9-wNQ">
                                                 <rect key="frame" x="10" y="61" width="154" height="34"/>
@@ -1502,7 +1499,7 @@
                         <outlet property="filterButton" destination="dHy-4y-eTi" id="0u7-Uq-OsE"/>
                         <outlet property="myCollectionView" destination="fHb-IZ-IJl" id="1jc-T1-vby"/>
                         <outlet property="searchFieldText" destination="Plc-Ek-Pqf" id="0yP-6E-d9l"/>
-                        <outlet property="showingLabel" destination="Y4y-P7-mar" id="BRa-V9-czC"/>
+                        <outlet property="showingLabel" destination="Y4y-P7-mar" id="Wma-iT-kHS"/>
                         <outlet property="sortByButton" destination="Caa-aP-cFs" id="xz2-zq-NMH"/>
                         <segue destination="Wqf-YY-gly" kind="show" identifier="toItemDetail" id="aBv-KK-wQs"/>
                     </connections>

@@ -16,7 +16,6 @@ var user_num = 123;
 var currUser = a_User(user_ID: 123, profPic: "", owner: "", borrowed: [], closet: []);
 var currArray: [Item] = [];
 
-
 struct Item: Codable {
     enum Sizes: String, Decodable {
         case XS, S, M, L, XL
