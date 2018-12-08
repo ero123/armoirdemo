@@ -22,7 +22,7 @@ class BorrowedItemDetailViewController: UIViewController {
         for i in currArray {
             if (i.item_id == currItem) {
                 priceDetail.text = "$" + String(i.price) + "/day";
-                let imageI = UIImage(named: i.imgURL);
+                let imageI = UIImage(named: i.image);
                 self.itemImage.image = imageI;
                 self.itemImage.clipsToBounds = true;
                 itemDescrip.text = i.name;
@@ -47,7 +47,7 @@ class BorrowedItemDetailViewController: UIViewController {
                     if stru.user_ID == userID {
                         user = stru;
                         if (i.borrowed) {
-                            userName.text = user.name;
+                            userName.text = user.owner;
 
                         } else {
                             userName.text = "Owned by you";

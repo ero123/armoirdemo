@@ -75,13 +75,13 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         var i = 0
         for item in currUser.borrowed {
-            let productimg = UIImage(named: item.imgURL)
+            let productimg = UIImage(named: item.image)
             let item_id = item.item_id
             var prof = ""
-            var profileimg = UIImage(named: item.imgURL)
+            var profileimg = UIImage(named: item.image)
             for u in all_users { //changed from users
                 if (u.user_ID == item.owner) {
-                    prof = u.name
+                    prof = u.owner
                     profileimg = UIImage(named: u.profPic)!
                 }
             }
@@ -92,13 +92,13 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         for item in currUser.closet {
             if(item.borrowed){
-                let productimg = UIImage(named: item.imgURL)
+                let productimg = UIImage(named: item.image)
                 let item_id = item.item_id
                 var prof = ""
-                var profileimg = UIImage(named: item.imgURL)
+                var profileimg = UIImage(named: item.image)
                 for u in all_users { //changed from users
                     if (u.user_ID == item.borrowed_by) {
-                        prof = u.name
+                        prof = u.owner
                         profileimg = UIImage(named: u.profPic)!
                     }
                 }
