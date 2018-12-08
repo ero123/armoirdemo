@@ -17,12 +17,16 @@ var itemData:[JSON] = [JSON]()
 var otherUsers:[a_User] = [];
 var currCategory:Int = Int()
 var categories:[String] = [String]()
+var sizes:[String] = [String]()
 let categoryDropDown:DropDown = DropDown()
 let filterDropDown:DropDown = DropDown()
 let sortByDropDown:DropDown = DropDown()
 var categorySet:Bool = Bool()
+var currSizeIndex:Int = Int()
 var currUser2:Int = Int()
 var chosenItem:JSON = JSON()
+var sortType:Int = Int()
+var currUserJSON:JSON = JSON()
 
 class ProductBrowseViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     var fullArray: [Item] = [];
@@ -65,28 +69,85 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
     func reloadData() {
         itemData = []
         for (_,user) in readableJSON {
+            if (user["user_ID"].int == currUser2) {
+                currUserJSON = user
+            }
+        }
+        
+        for (_,user) in readableJSON {
             if (user["user_ID"].int != currUser2) {
                 for (_,item) in user["closet"] {
-                    if (categorySet) {
-                        if (item["category"].string! == categories[currCategory]) {
-                            itemData.append(item)
-                
+                    var alreadyBorrowed = false
+                    for (_,borrowedItem) in currUserJSON["borrowed"] {
+                        if (item == borrowedItem) { alreadyBorrowed = true }
+                    }
+                    if (!alreadyBorrowed) {
+                        if (categorySet) {
+                            if (currSizeIndex != 5) {
+                                if (item["category"].string! == categories[currCategory] && item["size"].string! == sizes[currSizeIndex]) {
+                                    itemData.append(item)
+                                }
+                            } else {
+                                if (item["category"].string! == categories[currCategory]) {
+                                    itemData.append(item)
+                                }
+                            }
+                        } else {
+                            if (currSizeIndex != 5) {
+                                if (item["size"].string! == sizes[currSizeIndex]) {
+                                    itemData.append(item)
+                                }
+                            }
+                            //print(item)
                         }
-                    } else {
-                        itemData.append(item)
-                        print(item)
                     }
                 }
             }
         }
         
-        for item in itemData {
-           print(item["name"])
+        if (sortType == 0) {
+            //sortPriceLowHigh()
+            itemData.sort(by: sortPriceLowHigh)
+        } else if (sortType == 1) {
+            //sortPriceHighLow()
+            itemData.sort(by: sortPriceHighLow)
+        } else if (sortType == 2) {
+            //sortDistanceLowHigh()
+            itemData.sort(by: sortDistanceLowHigh)
         }
-        
+        /*for item in itemData {
+           print(item["name"])
+        }*/
+
         myCollectionView.reloadData()
     }
     
+    func sortPriceLowHigh(this:JSON, that:JSON) -> Bool {
+        return  this["price"].int! < that["price"].int!
+    }
+    
+    func sortPriceHighLow(this:JSON, that:JSON) -> Bool {
+        return  this["price"].int! > that["price"].int!
+    }
+    
+    func sortDistanceLowHigh(this:JSON, that:JSON) -> Bool {
+        let thisDist = this["distance"].string!
+        let thatDist = that["distance"].string!
+        print(Double(thisDist)!)
+        print(Double(thatDist)!)
+        
+        return Double(thisDist)! < Double(thatDist)!
+    }
+    
+    /*func sortPriceLowHigh() {
+        let temp = itemData
+        for item in itemData {
+            print(item["name"])
+        }
+        itemData = temp
+    }*/
+    
+   
     func loadData() {
 
         var myStructArray:[a_User] = [];
@@ -125,7 +186,7 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell",for: indexPath) as! ProductCell
         
         let currItem = itemData[indexPath.row]
-        print(currItem)
+        //print(currItem)
         cell.productImage.image = UIImage(named: currItem["image"].string!)
         if let imageStr = currItem["image"].string {
             cell.productImage.image = UIImage(named: "images/" + imageStr)
@@ -136,7 +197,7 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
 
         cell.productImage.contentMode = .scaleToFill;
         cell.productImage.layer.borderWidth = 1;
-        cell.productDistance.text = "0.8 mi"
+        cell.productDistance.text = currItem["distance"].string!+" mi";
         cell.backgroundColor = UIColor.white
         return cell
     }
@@ -168,8 +229,11 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         currUser2 = 321
+        sortType = 0
         categorySet = false
+        currSizeIndex = 5
         categories = ["shirt", "pant", "skirt", "shorts", "dress", "none"]
+        sizes = ["XS", "S", "M", "L", "XL"]
         getData()
         loadData()
         reloadData()
@@ -214,32 +278,18 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         sortByDropDown.bottomOffset = CGPoint(x: 0, y:(sortByDropDown.anchorView?.plainView.bounds.height)!)
     }
     
-    func initSortByDropDown() {
-        sortByDropDown.dataSource = ["Low to high", "High to low"]
-        //selectShadeRow()
-        
-        sortByDropDown.selectionAction = { [weak self] (index: Int, selectedShade: String) in
-            /*currShade = selectedShade
-            currMaxPrice = 10000
-            self?.reloadBrands()
-            self?.reloadData()
-            self?.reloadSlider()*/
-        }
-    }
-    
     func initCategoryDropDown() {
-        let capsCategories = ["Shirts", "Pants", "Skirts", "Shorts", "Dresses", "No category"]
+        let capsCategories = ["Shirts", "Pants", "Skirts", "Shorts", "Dresses", "All items"]
         categoryDropDown.dataSource = capsCategories
-        //selectShadeRow()
         
-        categoryDropDown.selectionAction = { [weak self] (index: Int, selectedShade: String) in
+        categoryDropDown.selectionAction = { [weak self] (index: Int, _: String) in
             if (index == 5) {
                 categorySet = false
                 self?.reloadData()
                 self?.showingLabel.text = "Showing: All Items"
             } else {
                 categorySet = true
-                print(index)
+                //print(index)
                 currCategory = index
                 self?.showingLabel.text = "Showing: " + capsCategories[index]
                 self?.reloadData()
@@ -248,15 +298,20 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
     }
     
     func initFilterDropDown() {
-        filterDropDown.dataSource = [""]
-        //selectShadeRow()
+        filterDropDown.dataSource = ["XS", "S", "M", "L", "XL", "All"]
         
-        filterDropDown.selectionAction = { [weak self] (index: Int, selectedShade: String) in
-            /*currShade = selectedShade
-            currMaxPrice = 10000
-            self?.reloadBrands()
+        filterDropDown.selectionAction = { [weak self] (index: Int, _: String) in
+            currSizeIndex = index
             self?.reloadData()
-            self?.reloadSlider()*/
+        }
+    }
+    
+    func initSortByDropDown() {
+        sortByDropDown.dataSource = ["Price: Low to high", "Price: High to low", "Distance: Low to high"]
+        
+        sortByDropDown.selectionAction = { [weak self] (index: Int, _: String) in
+            sortType = index
+            self?.reloadData()
         }
     }
     
