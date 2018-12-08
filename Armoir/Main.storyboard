@@ -1194,7 +1194,7 @@
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="87" id="cah-fg-LBD"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Alike-Regular" family="Alike" pointSize="17"/>
-                                                <state key="normal" title="Size     ↓"/>
+                                                <state key="normal" title="Size      ↓"/>
                                                 <connections>
                                                     <action selector="filterClicked:" destination="FzJ-7g-3wX" eventType="touchUpInside" id="aMb-dB-GsW"/>
                                                 </connections>
