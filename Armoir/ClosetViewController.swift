@@ -395,7 +395,7 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
     func loadData() {
         let userIds = [123, 234,345,456,567,789]
         let profPic = ["rhea.png", "cisco.png", "rachel.png", "alex.png", "kendall.png", "kim.png"]
-        let userNames = ["Rhea Karuturi", "Cisco Vlahakis", "Rachel Hyon", "Alex Weitzman", "Kendal Jenner", "Kim Kardashian"]
+        let userNames = ["Rhea Karuturi", "Cisco Vlahakis", "Rachel Hyon", "Alex Weitzman", "Kendall Jenner", "Kim Kardashian"]
         let itemIds = [ 10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40]
         let itemNames = ["Formal shirt", "frilly shirt", "summer tank top","fun, flared skirt","ripped jeans", "Formal shirt","Fun shirt","Superhero shirt","bright shirt","frayed jeans", "White tie top", "Pink off shoulder", "Peach off shoulder", "Plaid skirt", "Ripped Jeans" , "White tie Detail top", "Gray off shoulder" , "Red strappy party dress" , "Red flare Dress", "Black tight jeans", "Red slit dress" , "Patch work jeans", "high waisted jeans", "Polka dress", "Casual cream-colored","Nude pants",  "Jewelled skirt", "Nude Yeezy dress" , "Jean shorts", "Hot pink body-con"]
         let itemOwners = [userIds[0], userIds[0], userIds[0],userIds[0],userIds[0],userIds[1],userIds[1],userIds[1],userIds[1],userIds[1],userIds[2],userIds[2],userIds[2],userIds[2],userIds[2],userIds[3],userIds[3],userIds[3],userIds[3],userIds[3], userIds[4],userIds[4],userIds[4],userIds[4],userIds[4], userIds[5],userIds[5],userIds[5],userIds[5],userIds[5]]
