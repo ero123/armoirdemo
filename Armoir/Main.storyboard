@@ -625,6 +625,12 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="size" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2E-k7-eMz">
+                                <rect key="frame" x="151" y="346" width="36" height="27"/>
+                                <fontDescription key="fontDescription" name="Alike-Regular" family="Alike" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -646,6 +652,8 @@
                             <constraint firstItem="pwg-o0-00G" firstAttribute="top" secondItem="iIi-Sd-Vlk" secondAttribute="bottom" constant="35" id="gTM-NS-4Th"/>
                             <constraint firstItem="p9k-3j-acN" firstAttribute="top" secondItem="PKc-7o-7p9" secondAttribute="bottom" constant="20" id="h3S-T7-BL3"/>
                             <constraint firstItem="pwg-o0-00G" firstAttribute="leading" secondItem="PKc-7o-7p9" secondAttribute="trailing" constant="10" id="jen-6H-UaW"/>
+                            <constraint firstItem="v2E-k7-eMz" firstAttribute="leading" secondItem="p9k-3j-acN" secondAttribute="trailing" constant="21" id="mEu-sO-CDV"/>
+                            <constraint firstItem="v2E-k7-eMz" firstAttribute="top" secondItem="PKc-7o-7p9" secondAttribute="bottom" constant="20" id="rzJ-6e-Eec"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TDY-K8-XwR"/>
                     </view>
@@ -655,6 +663,7 @@
                         <outlet property="itemImage" destination="PKc-7o-7p9" id="9sw-hS-8kq"/>
                         <outlet property="priceDetail" destination="p9k-3j-acN" id="blU-ke-Lau"/>
                         <outlet property="profPic" destination="zCI-Vp-YPu" id="81Z-CB-KvV"/>
+                        <outlet property="sizeDetail" destination="v2E-k7-eMz" id="Ihd-bT-BZm"/>
                         <outlet property="userName" destination="DFm-g9-XQv" id="1ju-QL-q0W"/>
                     </connections>
                 </viewController>
@@ -1577,6 +1586,12 @@
                                 <color key="textColor" red="0.80392156859999997" green="0.74117647060000003" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="size" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqF-wF-0uP">
+                                <rect key="frame" x="151" y="346" width="36" height="27"/>
+                                <fontDescription key="fontDescription" name="Alike-Regular" family="Alike" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1588,6 +1603,7 @@
                             <constraint firstItem="ZTl-5o-wUs" firstAttribute="leading" secondItem="2wT-in-COi" secondAttribute="trailing" constant="21" id="Gjv-0i-yBG"/>
                             <constraint firstItem="kbR-pi-C6D" firstAttribute="leading" secondItem="qV2-gk-ge4" secondAttribute="leading" constant="25" id="Ht6-W8-1KQ"/>
                             <constraint firstItem="2wT-in-COi" firstAttribute="top" secondItem="cbe-UA-ney" secondAttribute="bottom" constant="30" id="JZK-Xe-ybp"/>
+                            <constraint firstItem="PqF-wF-0uP" firstAttribute="leading" secondItem="kbR-pi-C6D" secondAttribute="trailing" constant="21" id="SQz-5s-tSE"/>
                             <constraint firstItem="OiV-BT-sgx" firstAttribute="top" secondItem="Mlz-ki-p53" secondAttribute="top" id="TEB-Dm-HkP"/>
                             <constraint firstItem="qV2-gk-ge4" firstAttribute="trailing" secondItem="OiV-BT-sgx" secondAttribute="trailing" constant="10" id="XeT-gO-cit"/>
                             <constraint firstItem="6rC-3I-rBw" firstAttribute="leading" secondItem="2wT-in-COi" secondAttribute="trailing" constant="21" id="bMe-FU-Vwa"/>
@@ -1597,6 +1613,7 @@
                             <constraint firstItem="6rC-3I-rBw" firstAttribute="top" secondItem="Mlz-ki-p53" secondAttribute="bottom" constant="20" id="eT8-72-fdv"/>
                             <constraint firstItem="OiV-BT-sgx" firstAttribute="bottom" secondItem="Mlz-ki-p53" secondAttribute="bottom" id="h9t-WH-fif"/>
                             <constraint firstItem="kbR-pi-C6D" firstAttribute="top" secondItem="2wT-in-COi" secondAttribute="bottom" constant="20" id="hjp-mb-eju"/>
+                            <constraint firstItem="PqF-wF-0uP" firstAttribute="top" secondItem="2wT-in-COi" secondAttribute="bottom" constant="20" id="ijr-C1-sST"/>
                             <constraint firstItem="2wT-in-COi" firstAttribute="leading" secondItem="qV2-gk-ge4" secondAttribute="leading" constant="25" id="jUz-cm-TUg"/>
                             <constraint firstItem="cbe-UA-ney" firstAttribute="top" secondItem="qV2-gk-ge4" secondAttribute="top" id="r8m-YF-bUI"/>
                             <constraint firstItem="Mlz-ki-p53" firstAttribute="top" secondItem="cbe-UA-ney" secondAttribute="bottom" constant="35" id="vYQ-8Z-Wmp"/>
@@ -1610,6 +1627,7 @@
                         <outlet property="itemDescrip" destination="AO6-hj-o7f" id="dvv-yp-98J"/>
                         <outlet property="priceDisplay" destination="kbR-pi-C6D" id="6FD-i5-lMg"/>
                         <outlet property="profPic" destination="6rC-3I-rBw" id="dWf-3m-8WX"/>
+                        <outlet property="sizeDetail" destination="PqF-wF-0uP" id="6sO-Uy-qD2"/>
                         <outlet property="userName" destination="ZTl-5o-wUs" id="djp-JP-PNV"/>
                     </connections>
                 </viewController>

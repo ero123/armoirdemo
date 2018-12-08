@@ -10,6 +10,7 @@ import UIKit
 
 class LentItemViewController: UIViewController {
 
+    @IBOutlet weak var sizeDetail: UILabel!
     @IBOutlet weak var daysLeft: UILabel!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var profPic: UIImageView!
@@ -24,6 +25,7 @@ class LentItemViewController: UIViewController {
         for i in currArray {
             if (i.item_id == currItem) {
                 priceDisplay.text = "$" + String(i.price) + "/day";
+                sizeDetail.text = i.size;
                 let imageI = UIImage(named: i.image);
                 self.imgDisplay.image = imageI;
                 self.imgDisplay.clipsToBounds = true;
