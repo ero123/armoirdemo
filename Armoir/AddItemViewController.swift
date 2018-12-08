@@ -22,31 +22,40 @@ class AddItemViewController: UIViewController {
     
     
     @IBOutlet weak var Size: UITextField!
-    /*func load_json(){
-        let item_id = 23234 //uhm???
-        let name = "jean jacket" //obtain from input
-        let owner = 321
-        let borrowed_by = 0
-        let imgURL = "jeanJacketFinal"
-        let color = "blue"
-        let size = "S"
-        let price = 20
-        let category = "jacket"
-        
-        let new_item = Item.init(item_id: item_id, name: name, owner: owner, borrowed: false, borrowed_by: borrowed_by, imgURL: imgURL, color: color, size: size, price: price, category: category)
-        
-        let enoded  = encoder.codingPath
-        
-    }*/
     
+    
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        let category: String = Category.text!
+        let color: String = Color.text!
+        let description: String = Description.text!
+        let size: String = Size.text!
+        //needs to be a double based on what they enter
+        let price = 3.0
+        var numItems = 0
+        for u in all_users {
+            for i in u.closet {
+                numItems += 1
+            }
+        }
+        let new_item = Item(item_id: numItems+1, name: description, owner: currUser.user_ID, borrowed: false, borrowed_by: 0, imgURL: "jeanJacketFinal", color: color, size: size, price: price, category: category)
+        
+        currUser.closet.append(new_item)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         itemImageView.image = itemImage
-        //self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
         self.navigationItem.hidesBackButton = false;
+        
+        
+        
+        
+        
+        
+        
     }
     
     @objc func back(sender: UIBarButtonItem) {
