@@ -12,6 +12,16 @@ class AddItemViewController: UIViewController {
 
     @IBOutlet weak var itemImageView: UIImageView!
     
+    @IBOutlet weak var Category: UITextField!
+    
+    @IBOutlet weak var Color: UITextField!
+    
+    @IBOutlet weak var Description: UITextField!
+    
+    @IBOutlet weak var Price: UITextField!
+    
+    
+    @IBOutlet weak var Size: UITextField!
     /*func load_json(){
         let item_id = 23234 //uhm???
         let name = "jean jacket" //obtain from input
