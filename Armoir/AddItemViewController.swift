@@ -37,7 +37,7 @@ class AddItemViewController: UIViewController {
                 numItems += 1
             }
         }
-        let new_item = Item(item_id: numItems+1, name: description, owner: currUser.user_ID, borrowed: false, borrowed_by: 0, imgURL: "jeanJacketFinal", color: color, size: size, price: price, category: category)
+        let new_item = Item(item_id: numItems+1, name: description, owner: currUser.user_ID, borrowed: false, borrowed_by: 0, image: "jeanJacketFinal", color: color, size: size, price: price, category: category)
         
         currUser.closet.append(new_item)
         
