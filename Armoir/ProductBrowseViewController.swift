@@ -24,7 +24,6 @@ let sortByDropDown:DropDown = DropDown()
 var keywords:[String] = [String]()
 var categorySet:Bool = Bool()
 var currSizeIndex:Int = Int()
-var currUser2:Int = Int()
 var chosenItem:JSON = JSON()
 var sortType:Int = Int()
 var currUserJSON:JSON = JSON()
@@ -33,6 +32,8 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
     var fullArray: [Item] = [];
     
     @IBOutlet weak var myCollectionView: UICollectionView!
+    
+    @IBOutlet weak var showingLabel: UILabel!
     
     @IBOutlet weak var categoryButton: UIButton!
     
@@ -94,22 +95,27 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
     func sortDistanceLowHigh(this:JSON, that:JSON) -> Bool {
         let thisDist = this["distance"].string!
         let thatDist = that["distance"].string!
-        print(Double(thisDist)!)
-        print(Double(thatDist)!)
+        let thisDistNS = thisDist as NSString
+        let thatDistNS = thatDist as NSString
+        let thisDistArr = thisDistNS.components(separatedBy: " ")
+        let thatDistArr = thatDistNS.components(separatedBy: " ")
         
-        return Double(thisDist)! < Double(thatDist)!
+        let thisDistFirst = thisDistArr[0]
+        let thatDistFirst = thatDistArr[0]
+        
+        return Double(thisDistFirst)! < Double(thatDistFirst)!
     }
     
     func reloadData() {
         itemData = []
         for (_,user) in readableJSON {
-            if (user["user_ID"].int == currUser2) {
+            if (user["user_ID"].int == currUser.user_ID) {
                 currUserJSON = user
             }
         }
         
         for (_,user) in readableJSON {
-            if (user["user_ID"].int != currUser2) {
+            if (user["user_ID"].int != currUser.user_ID) {
                 for (_,item) in user["closet"] {
                     var alreadyBorrowed = false
                     for (_,borrowedItem) in currUserJSON["borrowed"] {
@@ -158,31 +164,15 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         }
         
         if (sortType == 0) {
-            //sortPriceLowHigh()
             itemData.sort(by: sortPriceLowHigh)
         } else if (sortType == 1) {
-            //sortPriceHighLow()
             itemData.sort(by: sortPriceHighLow)
         } else if (sortType == 2) {
-            //sortDistanceLowHigh()
             itemData.sort(by: sortDistanceLowHigh)
         }
-        /*for item in itemData {
-           print(item["name"])
-        }*/
-
+        
         myCollectionView.reloadData()
     }
-    
-    
-    /*func sortPriceLowHigh() {
-        let temp = itemData
-        for item in itemData {
-            print(item["name"])
-        }
-        itemData = temp
-    }*/
-    
    
     func loadData() {
         /*
@@ -212,8 +202,6 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
 
     }
     
-    @IBOutlet weak var showingLabel: UILabel!
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemData.count
     }
@@ -239,7 +227,7 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
 
         cell.productImage.contentMode = .scaleToFill;
         cell.productImage.layer.borderWidth = 1;
-        cell.productDistance.text = currItem["distance"].string!+" mi";
+        cell.productDistance.text = currItem["distance"].string!;
         cell.backgroundColor = UIColor.white
         return cell
     }
@@ -270,7 +258,6 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currUser2 = 321
         sortType = 0
         categorySet = false
         currSizeIndex = 5
