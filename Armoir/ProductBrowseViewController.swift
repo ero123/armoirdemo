@@ -231,7 +231,7 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         //print(currItem)
         cell.productImage.image = UIImage(named: currItem["image"].string!)
         if let imageStr = currItem["image"].string {
-            cell.productImage.image = UIImage(named: "images/" + imageStr)
+            cell.productImage.image = UIImage(named: imageStr)
         }
         if let currPrice = currItem["price"].int {
             cell.productPrice.text = "$" + String(currPrice) + "/day";
