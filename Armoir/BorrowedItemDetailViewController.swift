@@ -35,14 +35,15 @@ class BorrowedItemDetailViewController: UIViewController {
                     distanceText.text = "Currently available";
                 }
                 var user: a_User;
-                var myStructArray:[a_User] = [];
+                /*var myStructArray:[a_User] = [];
                 do {
                     try myStructArray = JSONDecoder().decode([a_User].self, from: json);
                 }
                 catch {
                     print("array didn't work");
                 }
-                for stru in myStructArray {
+                for stru in myStructArray { */
+                for stru in all_users {
                     if stru.user_ID == userID {
                         user = stru;
                         if (i.borrowed) {

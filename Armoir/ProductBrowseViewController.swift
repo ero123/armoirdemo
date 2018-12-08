@@ -152,7 +152,7 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
     
    
     func loadData() {
-
+        /*
         var myStructArray:[a_User] = [];
         do {
             try myStructArray = JSONDecoder().decode([a_User].self, from: json);
@@ -160,7 +160,8 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         catch {
             print("array didn't work");
         }
-        for stru in myStructArray {
+        for stru in myStructArray { */
+        for stru in all_users {
             if stru.user_ID != user_num {
                 otherUsers.append(stru);
             }

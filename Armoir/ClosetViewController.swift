@@ -12,7 +12,7 @@ import Foundation
 var itemImage: UIImage = UIImage()
 var startWithCamera: Bool = Bool()
 var currItem: Int = 0
-var user_num = 321;
+var user_num = 123;
 var currUser = a_User(user_ID: 123, profPic: "", name: "", borrowed: [], closet: []);
 var currArray: [Item] = [];
 
@@ -22,7 +22,7 @@ struct Item: Decodable {
         case XS, S, M, L, XL
     }
     enum Category: String, Decodable {
-        case shirt,pants,skirt,shorts,dress,none
+        case shirt,pants,skirt,shorts,dress,outerwear,none
     }
     enum Color: String, Decodable {
         case red, orange, yellow, green, blue, purple, white, black, grey, pink, navy, mixed, none
@@ -140,6 +140,17 @@ extension a_User: Decodable {
 
 //TILL HERE
 
+var all_users:[a_User] = []
+
+
+
+/*
+let encoder = JSONEncoder()
+encoder.outputFormatting = .prettyPrinted
+
+let data = try encoder.encode()
+print(String(data: data, encoding: .utf8)!)*/
+/*
 let json = """
 [{
    "user_ID": 123,
@@ -156,7 +167,31 @@ let json = """
        "size": "M",
        "price": 35,
        "category": "shirt"
-   }],
+   }, {
+       "item_id": 54322,
+       "name": "frilly shirt",
+       "owner": 321,
+       "borrowed": true,
+       "borrowed_by": 123,
+       "image": "r_img2.png",
+       "color_tag": "red",
+       "size": "S",
+       "price": 65,
+       "category": "shirt"
+   },
+{
+       "item_id": 54324,
+       "name": "fun, flared skirt",
+       "owner": 321,
+       "borrowed": true,
+       "borrowed_by": 123,
+       "image": "r_img4.png",
+       "color_tag": "yellow",
+       "size": "S",
+       "price": 76,
+       "category": "skirt"
+   }
+],
    "closet": [{
        "item_id": 12345,
        "name": "Formal shirt",
@@ -170,7 +205,7 @@ let json = """
        "category": "shirt"
    }, {
        "item_id": 14445,
-       "name": "Fun shirt",
+       "name": "Formal shirt","Fun shirt",
        "owner": 123,
        "borrowed":false,
        "borrowed_by": 0,
@@ -181,7 +216,7 @@ let json = """
        "category": "shirt"
    }, {
        "item_id": 16645,
-       "name": "Superhero shirt",
+       "name": "Formal shirt","Fun shirt","Superhero shirt",
        "owner": 123,
        "borrowed": false,
        "borrowed_by": 0,
@@ -192,7 +227,7 @@ let json = """
        "category": "shirt"
    }, {
        "item_id": 17745,
-       "name": "bright shirt",
+       "name": "Formal shirt","Fun shirt","Superhero shirt","bright shirt",
        "owner": 123,
        "borrowed": false,
        "borrowed_by": 0,
@@ -203,7 +238,7 @@ let json = """
        "category": "shirt"
    }, {
        "item_id": 17845,
-       "name": "frayed jeans",
+       "name": "Formal shirt","Fun shirt","Superhero shirt","bright shirt","frayed jeans",
        "owner": 123,
        "borrowed": false,
        "borrowed_by": 0,
@@ -245,7 +280,7 @@ let json = """
        "name": "frilly shirt",
        "owner": 321,
        "borrowed": true,
-       "borrowed_by": 0,
+       "borrowed_by": 123,
        "image": "r_img2.png",
        "color_tag": "red",
        "size": "S",
@@ -267,7 +302,7 @@ let json = """
        "name": "fun, flared skirt",
        "owner": 321,
        "borrowed": true,
-       "borrowed_by": 0,
+       "borrowed_by": 123,
        "image": "r_img4.png",
        "color_tag": "yellow",
        "size": "S",
@@ -286,7 +321,7 @@ let json = """
        "category": "pant"
    }]
 }]
-""".data(using: .utf8)!
+""".data(using: .utf8)! */
 
 class ClosetViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -352,6 +387,114 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
     }
     
     func loadData() {
+        let userIds = [123, 234,345,456,567,789]
+        let profPic = ["rhea.png", "cisco.png", "rachel.png", "alex.png", "kendall.png", "kim.png"]
+        let userNames = ["Rhea Karuturi", "Cisco Vlahakis", "Rachel Hyon", "Alex Weitzman", "Kendal Jenner", "Kim Kardashian"]
+        let itemIds = [ 10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40]
+        let itemNames = ["Formal shirt", "frilly shirt", "summer tank top","fun, flared skirt","ripped jeans", "Formal shirt","Fun shirt","Superhero shirt","bright shirt","frayed jeans", "White tie top", "Pink off shoulder", "Peach off shoulder", "Plaid skirt", "Ripped Jeans" , "White tie Detail top", "Gray off shoulder" , "Red strappy party dress" , "Red flare Dress", "Black tight jeans", "Red slit dress" , "Patch work jeans", "high waisted jeans", "Polka dress", "Casual cream-colored","Nude pants",  "Jewelled skirt", "Nude Yeezy dress" , "Jean shorts", "Hot pink body-con"]
+        let itemOwners = [userIds[0], userIds[0], userIds[0],userIds[0],userIds[0],userIds[1],userIds[1],userIds[1],userIds[1],userIds[1],userIds[2],userIds[2],userIds[2],userIds[2],userIds[2],userIds[3],userIds[3],userIds[3],userIds[3],userIds[3], userIds[4],userIds[4],userIds[4],userIds[4],userIds[4], userIds[5],userIds[5],userIds[5],userIds[5],userIds[5]]
+        let borrowedStatus = [true, true, false, false, false]
+        let borrowed_by = [userIds[1], userIds[2], userIds[2], userIds[3], userIds[3],userIds[4],userIds[4], userIds[5], userIds[5], userIds[0], userIds[0], userIds[1], 0]
+        let imgUrl = ["r_img1.png","r_img2.png", "r_img3.png","r_img4.png","r_img5.png","c_img1.png","c_img2.png", "c_img3.png","c_img4.png","c_img5.png", "rachel_img1.png","rachel_img2.png", "rachel_img3.png","rachel_img4.png","rachel_img5.png","alex_img1.png", "alex_img2.png","alex_img3.png","alex_img4.png","alex_img5.png", "kendall_img1.png", "kendall_img2.png", "kendall_img3.png", "kendall_img4.png", "kendall_img5.png", "kimk_img1.png", "kimk_img2.png", "kimk_img3.png","kimk_img4.png","kimk_img5.png"]
+        
+        let colors = ["blue","red","white","yellow", "black", "red","red","green","red","blue","white","pink","pink","blue","blue", "white","grey","red","red","black", "red","blue","blue","white","white", "brown", "white", "brown", "blue", "pink" ]
+        let sizes_all = ["XS", "S", "M", "L", "XL", "M" , "M" , "M" , "M" , "S", "S" , "S" , "S" , "M" , "M", "S" , "S" , "S" , "S" , "S", "XS" , "XS" , "XS" , "XS" , "XS", "L", "L", "L", "M", "M"]
+        let prices = [2.0, 3.0, 5.0, 7.5, 5.5, 7.0, 5.0, 4.0, 3.0, 8.5, 5.0, 5.0, 5.0, 7.5, 9.5, 7.0, 8.0, 7.0, 8.5, 7.5, 105.0, 38.0, 35.0, 30.5, 34.5, 100.0, 100.0, 100.0, 100.0, 100.0]
+        let category = ["shirt", "shirt", "shirt", "skirt", "pant", "shirt", "shirt", "shirt", "shirt", "pant", "shirt", "shirt", "shirt", "skirt", "pant", "shirt", "dress", "dress", "dress", "pant", "dress", "pant", "pant", "dress", "pant", "pant" , "skirt" , "dress" , "pant" , "dress"]
+        
+        var borrowed1:[Item] = [];
+        var borrowed2:[Item] = [];
+        var borrowed3:[Item] = [];
+        var borrowed4:[Item] = [];
+        var borrowed5:[Item] = [];
+        var borrowed6:[Item] = [];
+        var closet1:[Item] = [];
+        var closet2:[Item] = [];
+        var closet3:[Item] = [];
+        var closet4:[Item] = [];
+        var closet5:[Item] = [];
+        var closet6:[Item] = [];
+        
+        var item_num = 0;
+        while (item_num < 30) {
+            let multiple = item_num/5;
+            let positionOfFive = item_num % 5;
+            var borrowedNum = 12;
+            if (positionOfFive == 0) {
+                borrowedNum = multiple*2
+            } else if (positionOfFive == 1) {
+                borrowedNum = multiple*2 + 1
+            }
+            let ex_item = Item(item_id: Int(itemIds[item_num]), name: itemNames[item_num], owner: userIds[multiple], borrowed: Bool(borrowedStatus[positionOfFive]), borrowed_by: borrowed_by[borrowedNum], imgURL: imgUrl[item_num] , color: colors[item_num], size: sizes_all[item_num] , price: prices[item_num], category: category[item_num])
+            
+            if (multiple == 0) {
+            
+                closet1.append(ex_item)
+                if (positionOfFive == 0) {
+                    borrowed2.append(ex_item)
+                }
+                if (positionOfFive == 1) {
+                    borrowed3.append(ex_item)
+                }
+            }
+            if (multiple == 1) {
+                closet2.append(ex_item)
+                if (positionOfFive == 0) {
+                    borrowed3.append(ex_item)
+                }
+                if (positionOfFive == 1) {
+                    borrowed4.append(ex_item)
+                }
+            }
+            if (multiple == 2) {
+                closet3.append(ex_item)
+                if (positionOfFive == 0) {
+                    borrowed4.append(ex_item)
+                }
+                if (positionOfFive == 1) {
+                    borrowed5.append(ex_item)
+                }
+            }
+            if (multiple == 3) {
+                closet4.append(ex_item)
+                if (positionOfFive == 0) {
+                    borrowed5.append(ex_item)
+                }
+                if (positionOfFive == 1) {
+                    borrowed6.append(ex_item)
+                }
+            }
+            if (multiple == 4) {
+                closet5.append(ex_item)
+                if (positionOfFive == 0) {
+                    borrowed6.append(ex_item)
+                }
+                if (positionOfFive == 1) {
+                    borrowed1.append(ex_item)
+                }
+            }
+            if (multiple == 5) {
+                closet6.append(ex_item)
+                if (positionOfFive == 0) {
+                    borrowed1.append(ex_item)
+                }
+                if (positionOfFive == 1) {
+                    borrowed2.append(ex_item)
+                }
+            }
+            item_num += 1
+        }
+        
+        let b_array: [[Item]] = [borrowed1, borrowed2,borrowed3,borrowed4,borrowed5,borrowed6]
+        let c_array: [[Item]] = [closet1, closet2, closet3, closet4, closet5, closet6]
+        var num_user = 5;
+        while (num_user > -1) {
+            let user1 = a_User(user_ID: userIds[num_user], profPic: profPic[num_user], name: userNames[num_user], borrowed: b_array[num_user], closet: c_array[num_user]);
+            all_users.append(user1);
+            num_user -= 1
+        }
+        
+        /*
         var myStructArray:[a_User] = [];
         do {
             try myStructArray = JSONDecoder().decode([a_User].self, from: json);
@@ -359,7 +502,11 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
         catch {
             print("array didn't work");
         }
-        for user_instance in myStructArray {
+        for user_instance in myStructArray {*/
+        
+        print(all_users)
+        for user_instance in all_users {
+            print(user_instance)
             if user_instance.user_ID == user_num {
                 currUser = user_instance;
             }
@@ -446,6 +593,7 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
         currItem = currArray[indexPath.row].item_id;
 
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

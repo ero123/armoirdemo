@@ -30,14 +30,15 @@ class LentItemViewController: UIViewController {
                 itemDescrip.text = i.name;
                 let userID = i.owner;
                 var user: a_User;
-                var myStructArray:[a_User] = [];
-                do {
-                    try myStructArray = JSONDecoder().decode([a_User].self, from: json);
-                }
-                catch {
-                    print("array didn't work");
-                }
-                for stru in myStructArray {
+                /*var myStructArray:[a_User] = [];
+                 do {
+                 try myStructArray = JSONDecoder().decode([a_User].self, from: json);
+                 }
+                 catch {
+                 print("array didn't work");
+                 }
+                 for stru in myStructArray { */
+                for stru in all_users {
                     if stru.user_ID == userID {
                         user = stru;
                         userName.text = user.name;
