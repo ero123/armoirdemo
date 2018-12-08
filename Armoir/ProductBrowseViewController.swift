@@ -73,7 +73,7 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
     }
     
     func getData() {
-        if let path = Bundle.main.path(forResource: "search", ofType: "json") {
+        if let path = Bundle.main.path(forResource: "test2", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 readableJSON = try JSON(data: data)

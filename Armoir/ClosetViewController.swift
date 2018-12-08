@@ -74,11 +74,12 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
     func loadData() {
         
         //1. read json from file: DONE
-
+        var longJsonData = ""
         let url = Bundle.main.url(forResource: "search", withExtension: "json")!
         do {
             let jsonData = try Data(contentsOf: url)
             try all_users = JSONDecoder().decode([a_User].self, from: jsonData);
+            
         }
         catch {
             print(error)
@@ -92,28 +93,38 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
         encoder.outputFormatting = .prettyPrinted
         do {
             let data = try encoder.encode(all_users)
-            print(String(data: data, encoding: .utf8)!)
+            longJsonData = String(data: data, encoding: .utf8)!
+            //print(String(data: data, encoding: .utf8)!)
             print("DONE ENCODING")
         }
         catch {
             print("array didn't work");
         }
+        print(longJsonData)
         
         //4. write to search.json with new encoded string
-        let path = "test" //this is the file. we will write to and read from it
+        let path = "test2" //this is the file. we will write to and read from it
         print("continuing");
-        let text = "some text" //just a text
+        let text = longJsonData //just a text
         if let fileURL = Bundle.main.url(forResource: path, withExtension: "json") {
             //print(fileURL)
             //writing
             do {
                 try text.write(to: fileURL, atomically: false, encoding: .utf8)
                 print("tried to write")
+                let url = Bundle.main.url(forResource: "test2", withExtension: "json")!
+                do {
+                    let jsonData = try Data(contentsOf: url)
+                    let newArray = try JSONDecoder().decode([a_User].self, from: jsonData);
+                    print(newArray)
+                }
+                catch {
+                    print(error)
+                }
             }
             catch {
                 print ("oh no");
             }
-            
         }
         
         for user_instance in all_users {
@@ -131,7 +142,7 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
     }
     
     func showUserName() {
-        let userName = currUser.name;
+        let userName = currUser.owner;
        self.profileName.text = userName;
     }
     
@@ -147,7 +158,7 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
             let cell = viewOfItems.dequeueReusableCell(withReuseIdentifier: "lendingCell",for: indexPath) as! ItemCell
             let i = currArray[indexPath.row]
             cell.itemName.text = i.name;
-            cell.img_display.image = UIImage(named: i.imgURL);
+            cell.img_display.image = UIImage(named: i.image);
             cell.img_display.contentMode = .scaleToFill;
             cell.img_display.layer.borderWidth = 1;
             if (i.borrowed) {
@@ -164,7 +175,7 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
         else {
             let cell = viewOfItems.dequeueReusableCell(withReuseIdentifier: "borrowingCell",for: indexPath) as! BorrowedCell
             let i = currArray[indexPath.row]
-            cell.img_display.image = UIImage(named: i.imgURL);
+            cell.img_display.image = UIImage(named: i.image);
             cell.img_display.contentMode = .scaleToFill;
             cell.img_display.layer.borderWidth = 1;
             cell.dist_display.text = "1.2 mi";
@@ -229,5 +240,3 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
    
 
 }
-
-

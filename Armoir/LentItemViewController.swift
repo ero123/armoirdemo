@@ -24,7 +24,7 @@ class LentItemViewController: UIViewController {
         for i in currArray {
             if (i.item_id == currItem) {
                 priceDisplay.text = "$" + String(i.price) + "/day";
-                let imageI = UIImage(named: i.imgURL);
+                let imageI = UIImage(named: i.image);
                 self.imgDisplay.image = imageI;
                 self.imgDisplay.clipsToBounds = true;
                 itemDescrip.text = i.name;
@@ -41,7 +41,7 @@ class LentItemViewController: UIViewController {
                 for stru in all_users {
                     if stru.user_ID == userID {
                         user = stru;
-                        userName.text = user.name;
+                        userName.text = user.owner;
                         let image = UIImage(named: user.profPic);
                         self.profPic.image = image;
                         self.profPic.layer.cornerRadius = self.profPic.frame.size.width / 2;

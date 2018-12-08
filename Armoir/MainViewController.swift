@@ -13,7 +13,7 @@ var itemImage: UIImage = UIImage()
 var startWithCamera: Bool = Bool()
 var currItem: Int = 0
 var user_num = 123;
-var currUser = a_User(user_ID: 123, profPic: "", name: "", borrowed: [], closet: []);
+var currUser = a_User(user_ID: 123, profPic: "", owner: "", borrowed: [], closet: []);
 var currArray: [Item] = [];
 
 
@@ -33,20 +33,20 @@ struct Item: Codable {
     var owner: Int
     var borrowed: Bool
     var borrowed_by: Int
-    var imgURL: String
+    var image: String
     var color: String //Color
     var size: String //Sizes
     var price: Double
     var category: String //Category
     var distance: String
     
-    init(item_id: Int, name: String, owner: Int, borrowed:Bool, borrowed_by: Int, imgURL: String, color: String, size: String, price: Double, category: String) {
+    init(item_id: Int, name: String, owner: Int, borrowed:Bool, borrowed_by: Int, image: String, color: String, size: String, price: Double, category: String) {
         self.item_id = item_id;
         self.name = name;
         self.owner = owner;
         self.borrowed = borrowed;
         self.borrowed_by = borrowed_by;
-        self.imgURL = imgURL;
+        self.image = image;
         self.color = color ;//Color.none;
         self.size = size ;//Sizes.M;
         self.price = price;
@@ -61,15 +61,15 @@ struct Item: Codable {
 struct a_User {
     let user_ID: Int
     var profPic: String
-    var name: String
+    var owner: String
     var distance: String
     var borrowed: [Item]
     var closet: [Item]
     
-    init(user_ID: Int, profPic: String, name: String, borrowed:[Item], closet: [Item]) {
+    init(user_ID: Int, profPic: String, owner: String, borrowed:[Item], closet: [Item]) {
         self.user_ID = user_ID;
         self.profPic = profPic;
-        self.name = name;
+        self.owner = owner;
         self.borrowed = borrowed;
         self.closet = closet;
         self.distance = "1.2 mi";
@@ -80,7 +80,7 @@ extension a_User: Codable {
     enum userStructKeys: String, CodingKey { // declaring our keys
         case user_ID = "user_ID"
         case profPic = "profPic"
-        case name = "owner"
+        case owner = "owner"
         case borrowed = "borrowed"
         case closet = "closet"
         case distance = "distance"
@@ -92,7 +92,7 @@ extension a_User: Codable {
         case owner = "owner";
         case borrowed = "borrowed";
         case borrowed_by = "borrowed_by";
-        case imgURL = "image";
+        case image="image";
         case color = "color_tag";
         case size = "size";
         case price = "price";
@@ -104,7 +104,7 @@ extension a_User: Codable {
         let container = try decoder.container(keyedBy: userStructKeys.self) // defining our (keyed) container
         let user_ID: Int = try container.decode(Int.self, forKey: .user_ID) // extracting the data
         let profPic: String = try container.decode(String.self, forKey: .profPic) // extracting the data
-        let name: String = try container.decode(String.self, forKey: .name) // extracting the data
+        let owner: String = try container.decode(String.self, forKey: .owner) // extracting the data
         var borrowed_array = try container.nestedUnkeyedContainer(forKey: userStructKeys.borrowed);
         var borrowed: [Item] = [];
         while (!borrowed_array.isAtEnd) {
@@ -114,12 +114,12 @@ extension a_User: Codable {
             let owner: Int = try item_container.decode(Int.self, forKey: itemStructKeys.owner)
             let borrowed_b: Bool = try item_container.decode(Bool.self, forKey: itemStructKeys.borrowed)
             let borrowed_by: Int = try item_container.decode(Int.self, forKey: itemStructKeys.borrowed_by)
-            let img_url: String = try item_container.decode(String.self, forKey: itemStructKeys.imgURL)
+            let image: String = try item_container.decode(String.self, forKey: itemStructKeys.image)
             let color: String = try item_container.decode(String.self, forKey: itemStructKeys.color)
             let size: String = try item_container.decode(String.self, forKey: itemStructKeys.size)
             let price: Double = try item_container.decode(Double.self, forKey: itemStructKeys.price)
             let category: String = try item_container.decode(String.self, forKey: itemStructKeys.category)
-            let item = Item(item_id: item_id, name: i_name, owner: owner, borrowed: borrowed_b, borrowed_by: borrowed_by, imgURL: img_url, color: color, size: size, price: price, category: category);
+            let item = Item(item_id: item_id, name: i_name, owner: owner, borrowed: borrowed_b, borrowed_by: borrowed_by, image: image, color: color, size: size, price: price, category: category);
             borrowed.append(item);
         }
         var closet_array = try container.nestedUnkeyedContainer(forKey: userStructKeys.closet);
@@ -131,15 +131,15 @@ extension a_User: Codable {
             let owner: Int = try item_container.decode(Int.self, forKey: itemStructKeys.owner)
             let borrowed_b: Bool = try item_container.decode(Bool.self, forKey: itemStructKeys.borrowed)
             let borrowed_by: Int = try item_container.decode(Int.self, forKey: itemStructKeys.borrowed_by)
-            let img_url: String = try item_container.decode(String.self, forKey: itemStructKeys.imgURL)
+            let image: String = try item_container.decode(String.self, forKey: itemStructKeys.image)
             let color: String = try item_container.decode(String.self, forKey: itemStructKeys.color)
             let size: String = try item_container.decode(String.self, forKey: itemStructKeys.size)
             let price: Double = try item_container.decode(Double.self, forKey: itemStructKeys.price)
             let category: String = try item_container.decode(String.self, forKey: itemStructKeys.category)
-            let item = Item(item_id: item_id, name: i_name, owner: owner, borrowed: borrowed_b, borrowed_by: borrowed_by, imgURL: img_url, color: color, size: size, price: price, category: category);
+            let item = Item(item_id: item_id, name: i_name, owner: owner, borrowed: borrowed_b, borrowed_by: borrowed_by, image: image, color: color, size: size, price: price, category: category);
             closet.append(item);
         }
-        self.init(user_ID: user_ID,profPic: profPic, name: name, borrowed: borrowed, closet: closet) // initializing our struct
+        self.init(user_ID: user_ID,profPic: profPic, owner: owner, borrowed: borrowed, closet: closet) // initializing our struct
         
     }
 }
