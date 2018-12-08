@@ -103,4 +103,4 @@
             {"item_id": 13, "name": "fun, flared skirt", "owner": 123, "borrowed": false, "borrowed_by": 0,"distance": "1.2", "image": "images/r_img4.png",  "color_tag": "yellow", "size": "L", "price": 7.5, "category": "skirt"},
             {"item_id": 14, "name": "ripped jeans", "owner": 123, "borrowed": false, "borrowed_by": 0, "distance": "1.2","image": "images/r_img5.png",  "color_tag": "black", "size": "XL", "price": 5.5, "category": "pant"}
         ]
-    }]
+        }]
