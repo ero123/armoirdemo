@@ -65,7 +65,23 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         }
     }
 
-
+    func sortPriceLowHigh(this:JSON, that:JSON) -> Bool {
+        return  this["price"].int! < that["price"].int!
+    }
+    
+    func sortPriceHighLow(this:JSON, that:JSON) -> Bool {
+        return  this["price"].int! > that["price"].int!
+    }
+    
+    func sortDistanceLowHigh(this:JSON, that:JSON) -> Bool {
+        let thisDist = this["distance"].string!
+        let thatDist = that["distance"].string!
+        print(Double(thisDist)!)
+        print(Double(thatDist)!)
+        
+        return Double(thisDist)! < Double(thatDist)!
+    }
+    
     func reloadData() {
         itemData = []
         for (_,user) in readableJSON {
@@ -82,23 +98,26 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
                         if (item == borrowedItem) { alreadyBorrowed = true }
                     }
                     if (!alreadyBorrowed) {
+                        
                         if (categorySet) {
-                            if (currSizeIndex != 5) {
-                                if (item["category"].string! == categories[currCategory] && item["size"].string! == sizes[currSizeIndex]) {
+                            
+                            if(item["category"].string! == categories[currCategory]) {
+                            
+                                if (currSizeIndex == 5) {
+                                    itemData.append(item)
+                                } else if (item["size"].string! == sizes[currSizeIndex]) {
                                     itemData.append(item)
                                 }
-                            } else {
-                                if (item["category"].string! == categories[currCategory]) {
-                                    itemData.append(item)
-                                }
+                                
                             }
+
                         } else {
-                            if (currSizeIndex != 5) {
-                                if (item["size"].string! == sizes[currSizeIndex]) {
-                                    itemData.append(item)
-                                }
+
+                            if (currSizeIndex == 5) {
+                                itemData.append(item)
+                            } else if (item["size"].string! == sizes[currSizeIndex]) {
+                                itemData.append(item)
                             }
-                            //print(item)
                         }
                     }
                 }
@@ -122,22 +141,6 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         myCollectionView.reloadData()
     }
     
-    func sortPriceLowHigh(this:JSON, that:JSON) -> Bool {
-        return  this["price"].int! < that["price"].int!
-    }
-    
-    func sortPriceHighLow(this:JSON, that:JSON) -> Bool {
-        return  this["price"].int! > that["price"].int!
-    }
-    
-    func sortDistanceLowHigh(this:JSON, that:JSON) -> Bool {
-        let thisDist = this["distance"].string!
-        let thatDist = that["distance"].string!
-        print(Double(thisDist)!)
-        print(Double(thatDist)!)
-        
-        return Double(thisDist)! < Double(thatDist)!
-    }
     
     /*func sortPriceLowHigh() {
         let temp = itemData
