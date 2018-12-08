@@ -17,6 +17,23 @@ class SearchItemDetailViewController: UIViewController {
         @IBOutlet weak var itemImage: UIImageView!
         @IBOutlet weak var itemDescrip: UILabel!
     
+    @IBAction func borrowItemButton(_ sender: Any) {
+        // set as borrowed
+            //alex way
+            //chosenItem["borrowed"].bool = true;
+          //  chosenItem["borrowed_by"].int = currUser.user_ID
+        
+            //rhea way
+            for var i in currArray {
+                if (i.item_id == currItem) {
+                    i.borrowed = true
+                    i.borrowed_by = currUser.user_ID
+                    currUser.borrowed.append(i)  //add to the borrowers borrowed array
+                }
+            }
+        
+    }
+    
 
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -83,17 +100,6 @@ class SearchItemDetailViewController: UIViewController {
                 }
             }*/
         }
-        
-        
-        /*
-         // MARK: - Navigation
-         
-         // In a storyboard-based application, you will often want to do a little preparation before navigation
-         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-         }
-         */
+    
         
 }
-
