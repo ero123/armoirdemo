@@ -17,7 +17,7 @@ var currUser = a_User(user_ID: 123, profPic: "", name: "", borrowed: [], closet:
 var currArray: [Item] = [];
 
 
-struct Item: Decodable {
+struct Item: Codable {
     enum Sizes: String, Decodable {
         case XS, S, M, L, XL
     }
@@ -38,6 +38,7 @@ struct Item: Decodable {
     var size: String //Sizes
     var price: Double
     var category: String //Category
+    var distance: String
     
     init(item_id: Int, name: String, owner: Int, borrowed:Bool, borrowed_by: Int, imgURL: String, color: String, size: String, price: Double, category: String) {
         self.item_id = item_id;
@@ -45,11 +46,12 @@ struct Item: Decodable {
         self.owner = owner;
         self.borrowed = borrowed;
         self.borrowed_by = borrowed_by;
-        self.imgURL="images/" + imgURL;
+        self.imgURL = imgURL;
         self.color = color ;//Color.none;
         self.size = size ;//Sizes.M;
         self.price = price;
         self.category = category ;//Category.none;
+        self.distance = "1.2 mi";
         
     }
 }
@@ -60,25 +62,28 @@ struct a_User {
     let user_ID: Int
     var profPic: String
     var name: String
+    var distance: String
     var borrowed: [Item]
     var closet: [Item]
     
     init(user_ID: Int, profPic: String, name: String, borrowed:[Item], closet: [Item]) {
         self.user_ID = user_ID;
-        self.profPic = "images/" + profPic;
+        self.profPic = profPic;
         self.name = name;
         self.borrowed = borrowed;
         self.closet = closet;
+        self.distance = "1.2 mi";
     }
 }
 //DONT WORRY ABOUT THIS
-extension a_User: Decodable {
+extension a_User: Codable {
     enum userStructKeys: String, CodingKey { // declaring our keys
         case user_ID = "user_ID"
         case profPic = "profPic"
         case name = "owner"
         case borrowed = "borrowed"
         case closet = "closet"
+        case distance = "distance"
     }
     
     enum itemStructKeys: String, CodingKey { // declaring our keys
@@ -92,6 +97,7 @@ extension a_User: Decodable {
         case size = "size";
         case price = "price";
         case category = "category";
+        case distance = "distance";
     }
     
     init(from decoder: Decoder) throws {
@@ -494,19 +500,49 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
             num_user -= 1
         }
         
-        /*
-        var myStructArray:[a_User] = [];
+        let url = Bundle.main.url(forResource: "search", withExtension: "json")!
         do {
-            try myStructArray = JSONDecoder().decode([a_User].self, from: json);
+            let jsonData = try Data(contentsOf: url)
+            try all_users = JSONDecoder().decode([a_User].self, from: jsonData);
+        }
+        catch {
+            print(error)
+        }
+        //1. read json from file: DONE
+        //2. when adding, add to the all_users array: to do
+        //3. then, encode it to be in json
+        //4. write to search.json with new encoded string
+        
+        let path = "test" //this is the file. we will write to and read from it
+        
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        do {
+            let data = try encoder.encode(all_users)
+            print(String(data: data, encoding: .utf8)!)
+            print("DONE ENCODING")
         }
         catch {
             print("array didn't work");
         }
-        for user_instance in myStructArray {*/
         
-        print(all_users)
+        print("continuing");
+        let text = "some text" //just a text
+        if let fileURL = Bundle.main.url(forResource: path, withExtension: "json") {
+            //print(fileURL)
+            //writing
+            do {
+                try text.write(to: fileURL, atomically: false, encoding: .utf8)
+                print("tried to write")
+            }
+            catch {
+                print ("oh no");
+            }
+            
+        }
+        
         for user_instance in all_users {
-            print(user_instance)
+           // print(user_instance)
             if user_instance.user_ID == user_num {
                 currUser = user_instance;
             }

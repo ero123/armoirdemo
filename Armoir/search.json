@@ -1,160 +1,106 @@
 [
-{
+    {
+        "user_ID": 789,
+        "profPic": "images/kim.png",
+        "owner": "Kim Kardashian",
+        "distance": "1.2",
+        "borrowed": [
+            {"item_id": 26, "name": "Gray off shoulder", "owner": 456, "borrowed": true, "borrowed_by": 789,"distance": "1.2", "image": "images/alex_img2.png",  "color_tag": "grey", "size": "S", "price": 8.0, "category": "dress"},
+            {"item_id": 30, "name": "Red slit dress", "owner": 567, "borrowed": true, "borrowed_by": 789,"distance": "1.2", "image": "images/kendall_img1.png",  "color_tag": "red", "size": "XS", "price": 105.0, "category": "dress"}
+        ],
+        "closet": [
+            {"item_id": 35,
+                "name": "Nude pants",
+                "owner": 789,
+                "borrowed": true,
+                "borrowed_by": 123,
+                "distance": "1.2",
+                "image": "images/kimk_img1.png",
+                "color_tag": "brown",
+                "size": "L",
+                "price": 100.0,
+                "category": "pant"
+            },
+            {"item_id": 36, "name": "Jewelled skirt", "owner": 789, "borrowed": true, "borrowed_by": 234, "distance": "1.2","image": "images/kimk_img2.png",  "color_tag": "white", "size": "L", "price": 100.0, "category": "skirt"},
+            {"item_id": 37, "name": "Nude Yeezy dress", "owner": 789, "borrowed": false, "borrowed_by": 0,"distance": "1.2", "image": "images/kimk_img3.png",  "color_tag": "brown", "size": "L", "price": 100.0, "category": "dress"},
+            {"item_id": 38, "name": "Jean shorts", "owner": 789, "borrowed": false, "borrowed_by": 0,"distance": "1.2", "image": "images/kimk_img4.png",  "color_tag": "blue", "size": "M", "price": 100.0, "category": "pant"},
+            {"item_id": 39, "name": "Hot pink body-con", "owner": 789, "borrowed": false, "borrowed_by": 0, "distance": "1.2","image": "images/kimk_img5.png",  "color_tag": "pink", "size": "M", "price": 100.0, "category": "dress"}
+        ]
+    },
+    {"user_ID": 567,
+        "profPic": "images/kendall.png",
+        "owner": "Kendal Jenner",
+        "distance": "1.2",
+        "borrowed": [
+            {"item_id": 21, "name": "Pink off shoulder", "owner": 345,"borrowed": true, "borrowed_by": 567,"distance": "1.2", "image": "images/rachel_img2.png",  "color_tag": "pink", "size": "S", "price": 5.0, "category": "shirt"},
+            {"item_id": 25, "name": "White tie Detail top", "owner": 456, "borrowed": true, "borrowed_by": 567, "distance": "1.2","image": "images/alex_img1.png",  "color_tag": "white", "size": "S", "price": 7.0, "category": "shirt"}
+        ],
+        "closet": [
+            {"item_id": 30, "name": "Red slit dress", "owner": 567, "borrowed": true, "borrowed_by": 789,"distance": "1.2", "image": "images/kendall_img1.png",  "color_tag": "red", "size": "XS", "price": 105.0, "category": "dress"},
+            {"item_id": 31, "name": "Patch work jeans", "owner": 567, "borrowed": true, "borrowed_by": 123,"distance": "1.2", "image": "images/kendall_img2.png",  "color_tag": "blue", "size": "XS", "price": 38.0, "category": "pant"},
+            {"item_id": 32, "name": "high waisted jeans", "owner": 567, "borrowed": false, "borrowed_by": 0,"distance": "1.2", "image": "images/kendall_img3.png",  "color_tag": "blue", "size": "XS", "price": 35.0, "category": "pant"},
+            {"item_id": 33, "name": "Polka dress", "owner": 567, "borrowed": false, "borrowed_by": 0,"distance": "1.2", "image": "images/kendall_img4.png",  "color_tag": "white", "size": "XS", "price": 30.5, "category": "dress"},
+        {"item_id": 34, "name": "Casual cream- colored", "owner": 567, "borrowed": false, "borrowed_by": 0, "distance": "1.2","image": "images/kendall_img5.png",  "color_tag": "white", "size": "XS", "price": 34.5, "category": "pant"}]},
+    {
+        "user_ID": 456,
+        "profPic": "images/alex.png",
+        "owner": "Alex Weitzman",
+        "distance": "1.2",
+        "borrowed": [
+            {"item_id": 16, "name": "Fun shirt", "owner": 234, "borrowed": true, "borrowed_by": 456, "distance": "1.2", "image": "images/c_img2.png",  "color_tag": "red", "size": "M", "price": 5.0, "category": "shirt"},
+            {"item_id": 20, "name": "White tie top", "owner": 345, "borrowed": true, "borrowed_by": 456,"distance": "1.2", "image": "images/rachel_img1.png",  "color_tag": "white", "size": "S", "price": 5.0, "category": "shirt"}
+        ],
+        "closet": [
+            {"item_id": 25, "name": "White tie Detail top", "owner": 456, "borrowed": true, "borrowed_by": 567,"distance": "1.2", "image": "images/alex_img1.png",  "color_tag": "white", "size": "S", "price": 7.0, "category": "shirt"},
+            {"item_id": 26, "name": "Gray off shoulder", "owner": 456, "borrowed": true, "borrowed_by": 789,"distance": "1.2", "image": "images/alex_img2.png",  "color_tag": "grey", "size": "S", "price": 8.0, "category": "dress"},
+            {"item_id": 27, "name": "Red strappy party dress", "owner": 456, "borrowed": false, "borrowed_by": 0, "distance": "1.2","image": "images/alex_img3.png",  "color_tag": "red", "size": "S", "price": 7.0, "category": "dress"},
+            {"item_id": 28, "name": "Red flare Dress", "owner": 456, "borrowed": false, "borrowed_by": 0, "distance": "1.2","image": "images/alex_img4.png",  "color_tag": "red", "size": "S", "price": 8.5, "category": "dress"},
+        {"item_id": 29, "name": "Black tight jeans", "owner": 456, "borrowed": false, "borrowed_by": 0, "distance": "1.2","image": "images/alex_img5.png",  "color_tag": "black", "size": "S", "price": 7.5, "category": "pant"}]},
+    {
+        "user_ID": 345,
+        "profPic": "images/rachel.png",
+        "owner": "Rachel Hyon",
+        "distance": "1.2",
+        
+        "borrowed":
+        [
+            {"item_id": 11, "name": "frilly shirt", "owner": 123, "borrowed": true, "borrowed_by": 345, "distance": "1.2","image": "images/r_img2.png",  "color_tag": "red", "size": "S", "price": 3.0, "category": "shirt"},
+            {"item_id": 15, "name": "Formal shirt", "owner": 234, "borrowed": true, "borrowed_by": 345, "distance": "1.2","image": "images/c_img1.png",  "color_tag": "red", "size": "M", "price": 7.0, "category": "shirt"}
+        ],
+        "closet": [
+            {"item_id": 20, "name": "White tie top", "owner": 345, "borrowed": true, "borrowed_by": 456, "distance": "1.2","image": "images/rachel_img1.png",  "color_tag": "white", "size": "S", "price": 5.0, "category": "shirt"},
+            {"item_id": 21, "name": "Pink off shoulder", "owner": 345, "borrowed": true, "borrowed_by": 567,"distance": "1.2", "image": "images/rachel_img2.png",  "color_tag": "pink", "size": "S", "price": 5.0, "category": "shirt"},
+            {"item_id": 22, "name": "Peach off shoulder", "owner": 345, "borrowed": false, "borrowed_by": 0, "distance": "1.2","image": "images/rachel_img3.png",  "color_tag": "pink", "size": "S", "price": 5.0, "category": "shirt"},
+            {"item_id": 23, "name": "Plaid skirt", "owner": 345, "borrowed": false, "borrowed_by": 0, "distance": "1.2","image": "images/rachel_img4.png",  "color_tag": "blue", "size": "M", "price": 7.5, "category": "skirt"},
+        {"item_id": 24, "name": "Ripped Jeans", "owner": 345, "borrowed": false, "borrowed_by": 0, "distance": "1.2","image": "images/rachel_img5.png",  "color_tag": "blue", "size": "M", "price": 9.5, "category": "pant"}]},
+    {
+        "user_ID": 234,
+        "profPic": "images/cisco.png",
+        "owner": "Cisco Vlahakis",
+        "distance": "1.2",
+        "borrowed": [
+            {"item_id": 10, "name": "Formal shirt", "owner": 123, "borrowed": true, "borrowed_by": 234, "distance": "1.2","image": "images/r_img1.png",  "color_tag": "blue", "size": "XS", "price": 2.0, "category": "shirt"},
+        {"item_id": 36, "name": "Jewelled skirt", "owner": 789, "borrowed": true, "borrowed_by": 234, "image": "images/kimk_img2.png",  "color_tag": "white", "size": "L", "price": 100.0, "category": "skirt"}],
+        "closet": [
+            {"item_id": 15, "name": "Formal shirt", "owner": 234, "borrowed": true, "borrowed_by": 345, "distance": "1.2","image": "images/c_img1.png",  "color_tag": "red", "size": "M", "price": 7.0, "category": "shirt"},
+            {"item_id": 16, "name": "Fun shirt", "owner": 234, "borrowed": true, "borrowed_by": 456, "distance": "1.2","image": "images/c_img2.png",  "color_tag": "red", "size": "M", "price": 5.0, "category": "shirt"},
+            {"item_id": 17, "name": "Superhero shirt", "owner": 234, "borrowed": false, "borrowed_by": 0, "distance": "1.2","image": "images/c_img3.png",  "color_tag": "green", "size": "M", "price": 4.0, "category": "shirt"},
+            {"item_id": 18, "name": "bright shirt", "owner": 234, "borrowed": false, "borrowed_by": 0, "distance": "1.2","image": "images/c_img4.png",  "color_tag": "red", "size": "M", "price": 3.0, "category": "shirt"},
+        {"item_id": 19, "name": "frayed jeans", "owner": 234, "borrowed": false, "borrowed_by": 0, "distance": "1.2","image": "images/c_img5.png",  "color_tag": "blue", "size": "S", "price": 8.5, "category": "pant"}]},
+    {
         "user_ID": 123,
-        "owner": "Chloe Imaginary",
+        "profPic": "images/rhea.png",
+        "owner": "Rhea Karuturi",
         "distance": "1.2",
-        "profPic": "chloe.png",
-        "borrowed": [{
-            "item_id": 54321,
-            "name": "Formal shirt",
-            "owner": 321,
-            "borrowed": true,
-            "borrowed_by": 123,
-            "image": "r_img1.png",
-            "color_tag": "blue",
-            "size": "M",
-            "price": 35,
-            "category": "shirt"
-        }],
-        "closet": [{
-            "item_id": 12345,
-            "name": "Formal shirt",
-            "owner": 123,
-            "borrowed": true,
-            "borrowed_by": 321,
-            "distance": "1.2",
-            "image": "c_img1.png",
-            "color_tag": "red",
-            "size": "M",
-            "price": 70,
-            "category": "shirt"
-        }, {
-        "item_id": 14445,
-        "name": "Fun shirt",
-        "owner": 123,
-        "borrowed":false,
-        "borrowed_by": 0,
-        "distance": "1.2",
-        "image": "c_img2.png",
-        "color_tag": "red",
-        "size": "M",
-        "price": 50,
-        "category": "shirt"
-        }, {
-        "item_id": 16645,
-        "name": "Superhero shirt",
-        "owner": 123,
-        "borrowed": false,
-        "borrowed_by": 0,
-        "distance": "1.2",
-        "image": "c_img3.png",
-        "color_tag": "green",
-        "size": "M",
-        "price": 40,
-        "category": "shirt"
-        }, {
-        "item_id": 17745,
-        "name": "bright shirt",
-        "owner": 123,
-        "borrowed": false,
-        "borrowed_by": 0,
-        "distance": "1.2",
-        "image": "c_img4.png",
-        "color_tag": "red",
-        "size": "M",
-        "price": 30,
-        "category": "shirt"
-        }, {
-        "item_id": 17845,
-        "name": "frayed jeans",
-        "owner": 123,
-        "borrowed": false,
-        "borrowed_by": 0,
-        "distance": "1.2",
-        "image": "c_img5.png",
-        "color_tag": "blue",
-        "size": "S",
-        "price": 80,
-        "category": "pant"
+        "borrowed": [
+            {"item_id": 31, "name": "Patch work jeans", "owner": 567, "borrowed": true, "borrowed_by": 123,"distance": "1.2", "image": "images/kendall_img2.png",  "color_tag": "blue", "size": "XS", "price": 38.0, "category": "pant"},
+            {"item_id": 35, "name": "Nude pants", "owner": 789, "borrowed": true, "borrowed_by": 123, "distance": "1.2","image": "images/kimk_img1.png",  "color_tag": "brown", "size": "L", "price": 100.0, "category": "pant"}
+        ],
+        "closet": [
+            {"item_id": 10, "name": "Formal shirt", "owner": 123, "borrowed": true, "borrowed_by": 234, "distance": "1.2","image": "images/r_img1.png",  "color_tag": "blue", "size": "XS", "price": 2.0, "category": "shirt"},
+            {"item_id": 11, "name": "frilly shirt", "owner": 123, "borrowed": true, "borrowed_by": 345,"distance": "1.2", "image": "images/r_img2.png",  "color_tag": "red", "size": "S", "price": 3.0, "category": "shirt"},
+            {"item_id": 12, "name": "summer tank top", "owner": 123, "borrowed": false, "borrowed_by": 0, "distance": "1.2","image": "images/r_img3.png",  "color_tag": "white", "size": "M", "price": 5.0, "category": "shirt"},
+            {"item_id": 13, "name": "fun, flared skirt", "owner": 123, "borrowed": false, "borrowed_by": 0,"distance": "1.2", "image": "images/r_img4.png",  "color_tag": "yellow", "size": "L", "price": 7.5, "category": "skirt"},
+            {"item_id": 14, "name": "ripped jeans", "owner": 123, "borrowed": false, "borrowed_by": 0, "distance": "1.2","image": "images/r_img5.png",  "color_tag": "black", "size": "XL", "price": 5.5, "category": "pant"}
+        ]
         }]
-},
-{
-    "user_ID": 321,
-    "owner": "Rhea Karuturi",
-    "distance": "0",
-    "profPic": "rhea.png",
-    "borrowed": [{
-        "item_id": 12345,
-        "name": "Formal shirt",
-        "owner": 123,
-        "borrowed": true,
-        "borrowed_by": 321,
-        "distance": "1.2",
-        "image": "c_img1.png",
-        "color_tag": "red",
-        "size": "M",
-        "price": 70,
-        "category": "shirt"
-    }],
-    "closet": [{
-        "item_id": 54321,
-        "name": "Formal shirt",
-        "owner": 321,
-        "borrowed": true,
-        "borrowed_by": 123,
-        "distance": "0",
-        "image": "r_img1.png",
-        "color_tag": "blue",
-        "size": "M",
-        "price": 35,
-        "category": "shirt"
-    }, {
-        "item_id": 54322,
-        "name": "frilly shirt",
-        "owner": 321,
-        "borrowed": true,
-        "borrowed_by": 0,
-        "distance": "0",
-        "image": "r_img2.png",
-        "color_tag": "red",
-        "size": "S",
-        "price": 65,
-        "category": "shirt"
-    }, {
-        "item_id": 54323,
-        "name": "summer tank top",
-        "owner": 321,
-        "borrowed": false,
-        "borrowed_by": 0,
-        "distance": "0",
-        "image": "r_img3.png",
-        "color_tag": "white",
-        "size": "S",
-        "price": 55,
-        "category": "shirt"
-    }, {
-        "item_id": 54324,
-        "name": "fun, flared skirt",
-        "owner": 321,
-        "borrowed": true,
-        "borrowed_by": 0,
-        "distance": "0",
-        "image": "r_img4.png",
-        "color_tag": "yellow",
-        "size": "S",
-        "price": 76,
-        "category": "skirt"
-    }, {
-        "item_id": 54325,
-        "name": "ripped jeans",
-        "owner": 321,
-        "borrowed": false,
-        "borrowed_by": 0,
-        "distance": "0",
-        "image": "r_img5.png",
-        "color_tag": "black",
-        "size": "S",
-        "price": 90,
-        "category": "pant"
-    }]
-}]

@@ -24,7 +24,7 @@ class SearchItemDetailViewController: UIViewController {
             print(chosenItem)
             itemDescrip.text = chosenItem["name"].string
             if let imageStr = chosenItem["image"].string {
-                itemImage.image = UIImage(named: "images/" + imageStr)
+                itemImage.image = UIImage(named:  imageStr)
             }
             if let currPrice = chosenItem["price"].int {
                 priceDetail.text = "$" + String(currPrice) + "/day";
@@ -34,7 +34,7 @@ class SearchItemDetailViewController: UIViewController {
             for (_,user) in readableJSON {
                 if (user["user_ID"].int == chosenItem["owner"].int) {
                     if let imageStr = user["profPic"].string {
-                        profPic.image = UIImage(named: "images/" + imageStr)
+                        profPic.image = UIImage(named: imageStr)
                         profPic.layer.cornerRadius = self.profPic.frame.size.width / 2;
                         profPic.clipsToBounds = true;
                     }

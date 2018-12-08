@@ -21,6 +21,7 @@ var sizes:[String] = [String]()
 let categoryDropDown:DropDown = DropDown()
 let filterDropDown:DropDown = DropDown()
 let sortByDropDown:DropDown = DropDown()
+var keywords:[String] = [String]()
 var categorySet:Bool = Bool()
 var currSizeIndex:Int = Int()
 var currUser2:Int = Int()
@@ -28,7 +29,7 @@ var chosenItem:JSON = JSON()
 var sortType:Int = Int()
 var currUserJSON:JSON = JSON()
 
-class ProductBrowseViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class ProductBrowseViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
     var fullArray: [Item] = [];
     
     @IBOutlet weak var myCollectionView: UICollectionView!
@@ -39,6 +40,23 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
     
     @IBOutlet weak var sortByButton: UIButton!
     
+    @IBOutlet weak var searchFieldText: UISearchBar!
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        //searchActive = false;
+        searchFieldText.endEditing(true)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        let searchQuery = searchFieldText.text! as NSString
+        keywords = searchQuery.lowercased.components(separatedBy: " ")
+        print(keywords)
+        reloadData()
+    }
+
+   /* @IBAction func tapToHideKeyboard(_ sender: Any) {
+        self.searchFieldText.resignFirstResponder()
+    }*/
     
     @IBAction func categoryClicked(_ sender: Any) {
         categoryDropDown.show()
@@ -98,25 +116,40 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
                         if (item == borrowedItem) { alreadyBorrowed = true }
                     }
                     if (!alreadyBorrowed) {
+                        var keywordMatch = true
+                        if (!keywords.isEmpty && keywords[0] != "") {
+                            keywordMatch = false
+                            let itemName = item["name"].string!
+                            let nameWords = itemName.lowercased().components(separatedBy: " ")
+                            for word in nameWords {
+                                for keyword in keywords {
+                                    if (word == keyword) { keywordMatch = true }
+                                }
+                            }
+                        } else {
+                            keywordMatch = true
+                        }
                         
-                        if (categorySet) {
+                        if(keywordMatch) {
+                            if (categorySet) {
                             
-                            if(item["category"].string! == categories[currCategory]) {
+                                if(item["category"].string! == categories[currCategory]) {
                             
+                                    if (currSizeIndex == 5) {
+                                        itemData.append(item)
+                                    } else if (item["size"].string! == sizes[currSizeIndex]) {
+                                        itemData.append(item)
+                                    }
+                                
+                                }
+
+                            } else {
+
                                 if (currSizeIndex == 5) {
                                     itemData.append(item)
                                 } else if (item["size"].string! == sizes[currSizeIndex]) {
                                     itemData.append(item)
                                 }
-                                
-                            }
-
-                        } else {
-
-                            if (currSizeIndex == 5) {
-                                itemData.append(item)
-                            } else if (item["size"].string! == sizes[currSizeIndex]) {
-                                itemData.append(item)
                             }
                         }
                     }
@@ -185,6 +218,11 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         return itemData.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        chosenItem = itemData[indexPath.row]
+        self.performSegue(withIdentifier: "toItemDetail", sender: self)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell",for: indexPath) as! ProductCell
@@ -193,7 +231,7 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         //print(currItem)
         cell.productImage.image = UIImage(named: currItem["image"].string!)
         if let imageStr = currItem["image"].string {
-            cell.productImage.image = UIImage(named: "images/" + imageStr)
+            cell.productImage.image = UIImage(named: imageStr)
         }
         if let currPrice = currItem["price"].int {
             cell.productPrice.text = "$" + String(currPrice) + "/day";
@@ -319,10 +357,7 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        chosenItem = itemData[indexPath.row]
-        self.performSegue(withIdentifier: "toItemDetail", sender: self)
-    }
+
     
     
     /*func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
