@@ -1061,6 +1061,8 @@
                         <outlet property="contentView" destination="To2-g7-aKm" id="KAD-Cd-MnS"/>
                         <outlet property="myTableView" destination="5uV-0g-GDb" id="TfC-W0-2cM"/>
                         <segue destination="rlv-nD-C9r" kind="show" identifier="newsSegue" id="P0h-GW-DiH"/>
+                        <segue destination="XH1-R9-w02" kind="show" identifier="goToItemYouLent" id="6GD-De-Suz"/>
+                        <segue destination="0gy-E7-uYq" kind="show" identifier="goToItemYouBorrowed" id="Bd7-2P-vBi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Fc-Sh-1dY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1648,6 +1650,8 @@
         <image name="settingsbutton" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Bd7-2P-vBi"/>
+        <segue reference="6GD-De-Suz"/>
         <segue reference="Om7-qJ-M5f"/>
         <segue reference="P0h-GW-DiH"/>
     </inferredMetricsTieBreakers>

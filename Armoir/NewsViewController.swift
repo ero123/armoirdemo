@@ -15,7 +15,7 @@ struct Cell{
     let distance : String?
     let message : String?
     let borrowed: Bool?
-    
+    let item_id: Int
     /*init(productImage: UIImage, profileImage: UIImage, profile: String, distance: String, message: String) {
      self.productImage = productImage;
      self.profileImage = profileImage;
@@ -36,6 +36,19 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         performSegue(withIdentifier: "newsSegue", sender: self)
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        currItem = data[indexPath.row].item_id
+        if (data[indexPath.row].borrowed!) {
+            currArray = currUser.borrowed
+            performSegue(withIdentifier: "goToItemYouBorrowed",
+                         sender: self)
+        } else {
+            currArray = currUser.closet
+            performSegue(withIdentifier: "goToItemYouLent",
+                         sender: self)
+        }
+    }
+    
     
     @IBOutlet weak var myTableView: UITableView!
     
@@ -47,14 +60,15 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     let profimageURL = ["chloe","cynthia","liz","jesse"];
     
     func load_data(){
-        var users:[a_User] = [];
+        /*var users:[a_User] = [];
         do {
             try users = JSONDecoder().decode([a_User].self, from: json);
         }
         catch {
             print("array didn't work");
-        }
-        for user_instance in users {
+        }*/
+        
+        for user_instance in all_users { //changed from users
             if user_instance.user_ID == user_num {
                 currUser = user_instance;
             }
@@ -62,21 +76,35 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         var i = 0
         for item in currUser.borrowed {
             let productimg = UIImage(named: item.imgURL)
-            let profileimg = UIImage(named: profimageURL[i])
-            let prof = rand_names[i]
+            let item_id = item.item_id
+            var prof = ""
+            var profileimg = UIImage(named: item.imgURL)
+            for u in all_users { //changed from users
+                if (u.user_ID == item.owner) {
+                    prof = u.name
+                    profileimg = UIImage(named: u.profPic)!
+                }
+            }
             let dst = dist[i]
-            let msg = "You have 2 days left to return \""+item.name+"\" to "+rand_names[i];
-            data.append(Cell(productImage: productimg, profileImage: profileimg, profile: prof, distance: dst, message: msg, borrowed: true))
+            let msg = "You have 2 days left to return \""+item.name+"\" to " + prof;
+            data.append(Cell(productImage: productimg, profileImage: profileimg, profile: prof, distance: dst, message: msg, borrowed: true, item_id: item_id))
             i+=1
         }
         for item in currUser.closet {
             if(item.borrowed){
                 let productimg = UIImage(named: item.imgURL)
-                let profileimg = UIImage(named: profimageURL[i])
-                let prof = rand_names[i]
+                let item_id = item.item_id
+                var prof = ""
+                var profileimg = UIImage(named: item.imgURL)
+                for u in all_users { //changed from users
+                    if (u.user_ID == item.borrowed_by) {
+                        prof = u.name
+                        profileimg = UIImage(named: u.profPic)!
+                    }
+                }
                 let dst = dist[i]
-                let msg = rand_names[i]+" borrowed "+"\""+item.name+"\" from your closet";
-                data.append(Cell(productImage: productimg, profileImage: profileimg, profile: prof, distance: dst, message: msg, borrowed: false))
+                let msg = prof + " borrowed "+"\""+item.name+"\" from your closet";
+                data.append(Cell(productImage: productimg, profileImage: profileimg, profile: prof, distance: dst, message: msg, borrowed: false, item_id: item_id))
                 i+=1
             }
         }
