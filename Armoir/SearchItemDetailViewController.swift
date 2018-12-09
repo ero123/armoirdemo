@@ -31,7 +31,7 @@ class SearchItemDetailViewController: UIViewController {
                     currUser.borrowed.append(i)  //add to the borrowers borrowed array
                 }
             }
-        
+        _ = navigationController?.popViewControllers(viewsToPop: 1)
     }
     
 
@@ -46,7 +46,7 @@ class SearchItemDetailViewController: UIViewController {
             if let currPrice = chosenItem["price"].int {
                 priceDetail.text = "$" + String(currPrice) + "/day";
             }
-            distanceText.text = chosenItem["distance"].string! + " mi"
+            distanceText.text = chosenItem["distance"].string!
             itemImage.clipsToBounds = true;
             for (_,user) in readableJSON {
                 if (user["user_ID"].int == chosenItem["owner"].int) {

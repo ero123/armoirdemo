@@ -27,6 +27,12 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
         self.showActionSheet();
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        loadData()
+        loadLending()
+        viewOfItems.reloadData()
+    }
+    
     @objc func showActionSheet() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
@@ -52,14 +58,18 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         var selectedImage: UIImage?
+        
+        // extract image from the picker and save it
         if let editedImage = info[.editedImage] as? UIImage {
             selectedImage = editedImage
+            ImageRetriever().save(image: editedImage);
             itemImage = selectedImage!
             dismiss(animated: true, completion: {
                 self.performSegue(withIdentifier: "toAddItemPage", sender: self)
             })
         } else if let originalImage = info[.originalImage] as? UIImage{
             selectedImage = originalImage
+            ImageRetriever().save(image: originalImage);
             itemImage = selectedImage!
             dismiss(animated: true, completion: {
                 self.performSegue(withIdentifier: "toAddItemPage", sender: self)
@@ -214,7 +224,6 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
         currItem = currArray[indexPath.row].item_id;
 
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

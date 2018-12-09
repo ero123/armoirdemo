@@ -92,7 +92,7 @@ extension a_User: Codable {
         case borrowed = "borrowed";
         case borrowed_by = "borrowed_by";
         case image="image";
-        case color = "color_tag";
+        case color = "color";
         case size = "size";
         case price = "price";
         case category = "category";

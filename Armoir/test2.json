@@ -5,8 +5,8 @@
         "owner": "Kim Kardashian",
         "distance": "1.2",
         "borrowed": [
-            {"item_id": 26, "name": "Gray off shoulder", "owner": 456, "borrowed": true, "borrowed_by": 789,"distance": "1.2", "image": "images/alex_img2.png",  "color_tag": "grey", "size": "S", "price": 8.0, "category": "dress"},
-            {"item_id": 30, "name": "Red slit dress", "owner": 567, "borrowed": true, "borrowed_by": 789,"distance": "1.2", "image": "images/kendall_img1.png",  "color_tag": "red", "size": "XS", "price": 105.0, "category": "dress"}
+            {"item_id": 26, "name": "Gray off shoulder", "owner": 456, "borrowed": true, "borrowed_by": 789,"distance": "1.2", "image": "images/alex_img2.png",  "color": "grey", "size": "S", "price": 8.0, "category": "dress"},
+            {"item_id": 30, "name": "Red slit dress", "owner": 567, "borrowed": true, "borrowed_by": 789,"distance": "1.2", "image": "images/kendall_img1.png",  "color": "red", "size": "XS", "price": 105.0, "category": "dress"}
         ],
         "closet": [
             {"item_id": 35,
@@ -16,15 +16,15 @@
                 "borrowed_by": 123,
                 "distance": "1.2",
                 "image": "images/kimk_img1.png",
-                "color_tag": "brown",
+                "color": "brown",
                 "size": "L",
                 "price": 100.0,
                 "category": "pant"
             },
-            {"item_id": 36, "name": "Jewelled skirt", "owner": 789, "borrowed": true, "borrowed_by": 234, "distance": "1.2","image": "images/kimk_img2.png",  "color_tag": "white", "size": "L", "price": 100.0, "category": "skirt"},
-            {"item_id": 37, "name": "Nude Yeezy dress", "owner": 789, "borrowed": false, "borrowed_by": 0,"distance": "1.2", "image": "images/kimk_img3.png",  "color_tag": "brown", "size": "L", "price": 100.0, "category": "dress"},
-            {"item_id": 38, "name": "Jean shorts", "owner": 789, "borrowed": false, "borrowed_by": 0,"distance": "1.2", "image": "images/kimk_img4.png",  "color_tag": "blue", "size": "M", "price": 100.0, "category": "pant"},
-            {"item_id": 39, "name": "Hot pink body-con", "owner": 789, "borrowed": false, "borrowed_by": 0, "distance": "1.2","image": "images/kimk_img5.png",  "color_tag": "pink", "size": "M", "price": 100.0, "category": "dress"}
+            {"item_id": 36, "name": "Jewelled skirt", "owner": 789, "borrowed": true, "borrowed_by": 234, "distance": "1.2","image": "images/kimk_img2.png",  "color": "white", "size": "L", "price": 100.0, "category": "skirt"},
+            {"item_id": 37, "name": "Nude Yeezy dress", "owner": 789, "borrowed": false, "borrowed_by": 0,"distance": "1.2", "image": "images/kimk_img3.png",  "color": "brown", "size": "L", "price": 100.0, "category": "dress"},
+            {"item_id": 38, "name": "Jean shorts", "owner": 789, "borrowed": false, "borrowed_by": 0,"distance": "1.2", "image": "images/kimk_img4.png",  "color": "blue", "size": "M", "price": 100.0, "category": "pant"},
+            {"item_id": 39, "name": "Hot pink body-con", "owner": 789, "borrowed": false, "borrowed_by": 0, "distance": "1.2","image": "images/kimk_img5.png",  "color": "pink", "size": "M", "price": 100.0, "category": "dress"}
         ]
     }
 ]
