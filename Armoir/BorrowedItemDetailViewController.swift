@@ -11,6 +11,7 @@ import UIKit
 
 class BorrowedItemDetailViewController: UIViewController {
     
+    @IBOutlet weak var sizeDetail: UILabel!
     @IBOutlet weak var priceDetail: UILabel!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var profPic: UIImageView!
@@ -22,6 +23,8 @@ class BorrowedItemDetailViewController: UIViewController {
         for i in currArray {
             if (i.item_id == currItem) {
                 priceDetail.text = "$" + String(i.price) + "/day";
+                sizeDetail.text = i.size;
+                distanceText.text = i.distance;
                 let imageI = UIImage(named: i.image);
                 self.itemImage.image = imageI;
                 self.itemImage.clipsToBounds = true;

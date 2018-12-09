@@ -10,6 +10,7 @@ import UIKit
 
 class LentItemViewController: UIViewController {
 
+    @IBOutlet weak var sizeDetail: UILabel!
     @IBOutlet weak var daysLeft: UILabel!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var profPic: UIImageView!
@@ -19,11 +20,12 @@ class LentItemViewController: UIViewController {
     @IBOutlet weak var itemDescrip: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        distDisplay.text = "0.8 mi";
         daysLeft.text = "3 days left";
         for i in currArray {
             if (i.item_id == currItem) {
                 priceDisplay.text = "$" + String(i.price) + "/day";
+                distDisplay.text = i.distance;
+                sizeDetail.text = i.size;
                 let imageI = UIImage(named: i.image);
                 self.imgDisplay.image = imageI;
                 self.imgDisplay.clipsToBounds = true;
