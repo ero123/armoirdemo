@@ -22,6 +22,7 @@
 		176F559121B746BA00FFF556 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176F559021B746BA00FFF556 /* SignUpViewController.swift */; };
 		179234B521BC745400B391F5 /* test2.json in Resources */ = {isa = PBXBuildFile; fileRef = 179234B421BC745400B391F5 /* test2.json */; };
 		179234B721BCCDF700B391F5 /* ImageRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179234B621BCCDF700B391F5 /* ImageRetriever.swift */; };
+		179234B921BCEA4C00B391F5 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179234B821BCEA4C00B391F5 /* FirstViewController.swift */; };
 		17B3022E21B65735004E5EF8 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 17B3022D21B65735004E5EF8 /* images */; };
 		17D979E121B22BAA00E74816 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D979E021B22BAA00E74816 /* MainViewController.swift */; };
 		17D979E321B2309F00E74816 /* ClosetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D979E221B2309F00E74816 /* ClosetViewController.swift */; };
@@ -81,6 +82,7 @@
 		176F559021B746BA00FFF556 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		179234B421BC745400B391F5 /* test2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test2.json; sourceTree = "<group>"; };
 		179234B621BCCDF700B391F5 /* ImageRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRetriever.swift; sourceTree = "<group>"; };
+		179234B821BCEA4C00B391F5 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		17B3022D21B65735004E5EF8 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		17D979E021B22BAA00E74816 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		17D979E221B2309F00E74816 /* ClosetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			children = (
 				1751F04E21B06E9F00F55356 /* AppDelegate.swift */,
 				7193F59521BA370700427907 /* Main.storyboard */,
+				179234B821BCEA4C00B391F5 /* FirstViewController.swift */,
 				17040B1521B9FA760049C902 /* SearchItemDetailViewController.swift */,
 				17040B0F21B78D000049C902 /* CameraViewController.swift */,
 				17040B0D21B77BD80049C902 /* AddItemViewController.swift */,
@@ -459,6 +462,7 @@
 				71388D7221B87D0B00232F7B /* StartViewController.swift in Sources */,
 				6216B1D921BA5E5B00AB5943 /* SettingsViewController.swift in Sources */,
 				17D979E521B230BE00E74816 /* NewsViewController.swift in Sources */,
+				179234B921BCEA4C00B391F5 /* FirstViewController.swift in Sources */,
 				17040B0E21B77BD80049C902 /* AddItemViewController.swift in Sources */,
 				179234B721BCCDF700B391F5 /* ImageRetriever.swift in Sources */,
 				743BD5E321B5E64400855A1E /* ItemCell.swift in Sources */,
@@ -635,14 +639,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JRJVB7D2S2;
+				DEVELOPMENT_TEAM = 8YJ2342CPM;
 				INFOPLIST_FILE = Armoir/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.CS147.Armoir;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs147.Armoir;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -655,14 +659,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JRJVB7D2S2;
+				DEVELOPMENT_TEAM = 8YJ2342CPM;
 				INFOPLIST_FILE = Armoir/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.CS147.Armoir;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs147.Armoir;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

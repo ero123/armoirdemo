@@ -86,7 +86,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             }
             let dst = dist[i]
-            let msg = "You have 2 days left to return \""+item.name+"\" to " + prof;
+            let msg = "You have 10 days left to return \""+item.name+"\" to " + prof;
             data.append(Cell(productImage: productimg, profileImage: profileimg, profile: prof, distance: dst, message: msg, borrowed: true, item_id: item_id))
             i+=1
         }
@@ -102,7 +102,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
                         profileimg = UIImage(named: u.profPic)!
                     }
                 }
-                let dst = dist[i]
+                let dst = item.distance
                 let msg = prof + " borrowed "+"\""+item.name+"\" from your closet";
                 data.append(Cell(productImage: productimg, profileImage: profileimg, profile: prof, distance: dst, message: msg, borrowed: false, item_id: item_id))
                 i+=1

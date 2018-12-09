@@ -20,7 +20,7 @@ class LentItemViewController: UIViewController {
     @IBOutlet weak var itemDescrip: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        daysLeft.text = "3 days left";
+        daysLeft.text = "10 days left";
         for i in currArray {
             if (i.item_id == currItem) {
                 priceDisplay.text = "$" + String(i.price) + "/day";

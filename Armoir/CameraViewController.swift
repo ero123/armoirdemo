@@ -19,8 +19,7 @@ class CameraViewController: UIViewController {
     }
     
     @IBAction func pressedExit(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-        
+        _ = navigationController?.popViewControllers(viewsToPop: 1)
     }
     
     @objc func timeToMoveOn() {

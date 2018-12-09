@@ -28,16 +28,28 @@ class ImageRetriever {
         return nil
     }
 
-    public func load(fileName: String) -> String {
+    public func loadStr(fileName: String) -> String {
         let fileURL = documentsUrl.appendingPathComponent(fileName)
+        return fileURL.absoluteString
+    }
+    
+    public func loadImg(fileURL: URL) -> UIImage? {
+        //let fileURL = documentsUrl.appendingPathComponent(fileName)
         do {
             let imageData = try Data(contentsOf: fileURL)
-            print("TESTINGGG " + fileURL.absoluteString)
-            return fileURL.absoluteString
-//            return UIImage(data: imageData)
+            return UIImage(data: imageData)
         } catch {
             print("Error loading image : \(error)")
         }
-        return ""
+        return nil
+    }
+    
+    public func fileIsURL(fileName: String) -> Bool {
+        let firstFourLetters = fileName.prefix(4)
+        //print(firstFourLetters)
+        if (firstFourLetters == "file") {
+            return true
+        }
+        return false
     }
 }

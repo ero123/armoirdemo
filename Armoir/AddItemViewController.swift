@@ -18,6 +18,8 @@ class AddItemViewController: UIViewController {
 
     @IBOutlet weak var itemImageView: UIImageView!
     
+    @IBOutlet weak var missingDetailsLabel: UILabel!
+    
     @IBOutlet weak var Description: UITextField!
     
     @IBOutlet weak var Price: UITextField!
@@ -26,6 +28,12 @@ class AddItemViewController: UIViewController {
     
     @IBOutlet weak var sizeButton: UIButton!
 
+    
+     @IBAction func tapToHideKeyboard(_ sender: Any) {
+        self.Description.resignFirstResponder()
+        self.Price.resignFirstResponder()
+        
+     }
     
     @IBAction func sizeClicked(_ sender: Any) {
         sizeDropDown.show()
@@ -36,16 +44,31 @@ class AddItemViewController: UIViewController {
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
+        
+        if (Description.text == "" || Price.text == "" || categoryButton.titleLabel!.text == "Category" || sizeButton.titleLabel!.text == "Size") {
+            
+            missingDetailsLabel.isHidden = false
+        } else {
+        
+        
         //let description: String = Description.text!
         //needs to be a double based on what they enter
         var imageURL = "jeanJacketFinal"
         if (!startWithCamera) {
-            imageURL = ImageRetriever().load(fileName: "SavedImage" + String(numImgSaved))
+            ImageRetriever().save(image: itemImage);
+            imageURL = ImageRetriever().loadStr(fileName: "SavedImage" + String(numImgSaved))
+            //print(ImageRetriever().fileIsURL(fileName: imageURL))
         }
-        if (imageURL != "") { /* add it to JSON*/ }
+
         print(imageURL)
-        let price = 3.0
-        //let description = ""
+            /*if let price = Double(price.text) {
+                
+            } else {
+                
+            }*/
+        let price = Price.text!
+        let priceDouble = Double(price)!
+        let description = Description.text!
         var numItems = 0
         let category = "shirt"
         for u in all_users {
@@ -53,6 +76,59 @@ class AddItemViewController: UIViewController {
                 numItems += 1
             }
         }
+        
+        if (imageURL != "") {}
+            let new_item = Item(item_id: numItems+1, name: description, owner: currUser.user_ID, borrowed: false, borrowed_by: 0, image: imageURL, color: "", size: itemSize, price: priceDouble, category: itemCategory)
+        
+        //1. find index of currUser in all_users array
+        var i = 0;
+        var found = false;
+        for u in all_users {
+            if (u.user_ID == currUser.user_ID) {
+                found = true
+            }
+            if (!found) {
+                i += 1
+            }
+        }
+        //2. use the index to change the actual element in all users
+        //print (all_users[i]) //testing before
+        var temp = all_users[i].closet
+        temp.append(new_item)
+        all_users[i].closet = temp
+        //print (all_users[i]) // testing after
+        
+        //to check if all_users updated
+        //print(all_users)
+        
+        //encode to json
+        var text = "" //just a text
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        do {
+            let data = try encoder.encode(all_users)
+            text = String(data: data, encoding: .utf8)!
+            print("DONE ENCODING")
+            //print(String(data: data, encoding: .utf8)!)
+        }
+        catch {
+            print("array didn't work");
+        }
+        
+        //
+        let path = "search" //this is the file. we will write to and read from it
+        print("continuing");
+        
+        if let fileURL = Bundle.main.url(forResource: path, withExtension: "json") {
+            do {
+                try text.write(to: fileURL, atomically: false, encoding: .utf8)
+                print("tried to write")
+            }
+            catch {
+                print ("oh no");
+            }
+        }
+        /*
         let new_item = Item(item_id: numItems+1, name: "Jean Jacket", owner: currUser.user_ID, borrowed: false, borrowed_by: 0, image: "jeanJacketFinal", color: "red", size: "M", price: price, category: category)
         
         /*let new_item = Item(item_id: numItems+1, name: description, owner: currUser.user_ID, borrowed: false, borrowed_by: 0, image: imageURL, color: color, size: "S", price: price, category: "shirt")*/
@@ -62,10 +138,10 @@ class AddItemViewController: UIViewController {
                 u.closet.append(new_item)
             }
         }
-        
+        */
         //currUser.closet.append(new_item)
         numImgSaved += 1
-        
+ 
         if (startWithCamera) {
             print("true")
             // Go back two ViewControllers
@@ -73,11 +149,12 @@ class AddItemViewController: UIViewController {
         } else {
             _ = navigationController?.popViewControllers(viewsToPop: 1)
         }
-        
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        missingDetailsLabel.isHidden = true
         let icon = UIImage(named: "downarrow3")!
         categoryButton.setImage(icon, for: .normal)
         categoryButton.imageView?.contentMode = .scaleAspectFit
@@ -101,7 +178,6 @@ class AddItemViewController: UIViewController {
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
         self.navigationItem.hidesBackButton = false;
-        
     }
     
     func initDropDowns() {

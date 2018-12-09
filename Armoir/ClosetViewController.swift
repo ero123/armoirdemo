@@ -29,8 +29,17 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
     
     override func viewDidAppear(_ animated: Bool) {
         loadData()
-        loadLending()
+        if (status_lending) {
+            loadLending()
+        } else {
+            loadBorrowing()
+        }
         viewOfItems.reloadData()
+    }
+    
+    func loadBorrowing() {
+        currArray = currUser.borrowed;
+        status_lending = false;
     }
     
     @objc func showActionSheet() {
@@ -62,14 +71,14 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
         // extract image from the picker and save it
         if let editedImage = info[.editedImage] as? UIImage {
             selectedImage = editedImage
-            ImageRetriever().save(image: editedImage);
+            //ImageRetriever().save(image: editedImage);
             itemImage = selectedImage!
             dismiss(animated: true, completion: {
                 self.performSegue(withIdentifier: "toAddItemPage", sender: self)
             })
         } else if let originalImage = info[.originalImage] as? UIImage{
             selectedImage = originalImage
-            ImageRetriever().save(image: originalImage);
+            //ImageRetriever().save(image: originalImage);
             itemImage = selectedImage!
             dismiss(animated: true, completion: {
                 self.performSegue(withIdentifier: "toAddItemPage", sender: self)
@@ -122,11 +131,11 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
             do {
                 try text.write(to: fileURL, atomically: false, encoding: .utf8)
                 print("tried to write")
-                let url = Bundle.main.url(forResource: "test2", withExtension: "json")!
+                let url = Bundle.main.url(forResource: "search", withExtension: "json")!
                 do {
                     let jsonData = try Data(contentsOf: url)
-                    let newArray = try JSONDecoder().decode([a_User].self, from: jsonData);
-                    print(newArray)
+                    all_users = try JSONDecoder().decode([a_User].self, from: jsonData);
+                    //print(newArray)
                 }
                 catch {
                     print(error)
@@ -145,6 +154,7 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
     }
     
     func loadProfImage() {
+        
         let image = UIImage(named: currUser.profPic);
         self.profilePicture.image = image;
         self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2;
@@ -168,7 +178,12 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
             let cell = viewOfItems.dequeueReusableCell(withReuseIdentifier: "lendingCell",for: indexPath) as! ItemCell
             let i = currArray[indexPath.row]
             cell.itemName.text = i.name;
-            cell.img_display.image = UIImage(named: i.image);
+            let imgURL = i.image
+            if (ImageRetriever().fileIsURL(fileName: imgURL)) {
+                cell.img_display.image = ImageRetriever().loadImg(fileURL: URL(string: imgURL)!)
+            } else {
+                cell.img_display.image = UIImage(named: i.image);
+            }
             cell.img_display.contentMode = .scaleToFill;
             cell.img_display.layer.borderWidth = 1;
             if (i.borrowed) {
@@ -177,7 +192,7 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
                 cell.due_display.textColor = UIColor(hue: 0.0028, saturation: 0.97, brightness: 0.65, alpha: 1.0);
             } else {
                 cell.backgroundColor = UIColor.white
-                cell.due_display.text = "not borrowed";
+                cell.due_display.text = "Not borrowed";
                 cell.due_display.textColor = UIColor.black;
             }
             return cell
@@ -185,11 +200,17 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
         else {
             let cell = viewOfItems.dequeueReusableCell(withReuseIdentifier: "borrowingCell",for: indexPath) as! BorrowedCell
             let i = currArray[indexPath.row]
-            cell.img_display.image = UIImage(named: i.image);
+            let imgURL = i.image
+            if (ImageRetriever().fileIsURL(fileName: imgURL)) {
+                cell.img_display.image = ImageRetriever().loadImg(fileURL: URL(string: imgURL)!)
+            } else {
+                
+                cell.img_display.image = UIImage(named: i.image);
+            }
             cell.img_display.contentMode = .scaleToFill;
             cell.img_display.layer.borderWidth = 1;
             cell.dist_display.text = "1.2 mi";
-            cell.due_display.text = "Due in 2 days";
+            cell.due_display.text = "Due in 10 days";
             cell.due_display.textColor = UIColor.black;
             cell.price_display.text = String(i.price);
             cell.backgroundColor = UIColor.white

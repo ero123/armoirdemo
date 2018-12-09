@@ -74,7 +74,7 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
     }
     
     func getData() {
-        if let path = Bundle.main.path(forResource: "test2", ofType: "json") {
+        if let path = Bundle.main.path(forResource: "search", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 readableJSON = try JSON(data: data)
@@ -228,7 +228,7 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
 
         cell.productImage.contentMode = .scaleToFill;
         cell.productImage.layer.borderWidth = 1;
-        cell.productDistance.text = currItem["distance"].string!;
+        cell.productDistance.text = currItem["distance"].string! + " mi";
         cell.backgroundColor = UIColor.white
         return cell
     }
@@ -257,8 +257,31 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         sortby.bottomOffset = CGPoint(x: 0, y:(sortby.anchorView?.plainView.bounds.height)!)
     }*/
     
+    override func viewDidAppear(_ animated: Bool) {
+        getData()
+        loadData()
+        reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let icon = UIImage(named: "downarrow3")!
+        categoryButton.setImage(icon, for: .normal)
+        categoryButton.imageView?.contentMode = .scaleAspectFit
+        categoryButton.semanticContentAttribute = UIApplication.shared
+            .userInterfaceLayoutDirection == .rightToLeft ? .forceLeftToRight : .forceRightToLeft
+        categoryButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: categoryButton.frame.size.width - categoryButton.titleLabel!.intrinsicContentSize.width + 5, bottom: 0, right: 0)
+        filterButton.setImage(icon, for: .normal)
+        filterButton.imageView?.contentMode = .scaleAspectFit
+        filterButton.semanticContentAttribute = UIApplication.shared
+            .userInterfaceLayoutDirection == .rightToLeft ? .forceLeftToRight : .forceRightToLeft
+        filterButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: filterButton.frame.size.width - filterButton.titleLabel!.intrinsicContentSize.width - 40, bottom: 0, right: 0)
+        sortByButton.setImage(icon, for: .normal)
+        sortByButton.imageView?.contentMode = .scaleAspectFit
+        sortByButton.semanticContentAttribute = UIApplication.shared
+            .userInterfaceLayoutDirection == .rightToLeft ? .forceLeftToRight : .forceRightToLeft
+        sortByButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: sortByButton.frame.size.width - sortByButton.titleLabel!.intrinsicContentSize.width, bottom: 0, right: 0)
+        
         sortType = 0
         categorySet = false
         currSizeIndex = 5
@@ -317,21 +340,25 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
                 categorySet = false
                 self?.reloadData()
                 self?.showingLabel.text = "Showing: All Items"
+                self?.categoryButton.titleLabel!.text = "All items"
             } else {
                 categorySet = true
                 //print(index)
                 currCategory = index
                 self?.showingLabel.text = "Showing: " + capsCategories[index]
+                self?.categoryButton.titleLabel!.text = capsCategories[index]
                 self?.reloadData()
             }
         }
     }
     
     func initFilterDropDown() {
-        filterDropDown.dataSource = ["XS", "S", "M", "L", "XL", "All"]
+        let sizes = ["XS", "S", "M", "L", "XL", "All"]
+        filterDropDown.dataSource = sizes
         
         filterDropDown.selectionAction = { [weak self] (index: Int, _: String) in
             currSizeIndex = index
+            self?.filterButton.titleLabel!.text = sizes[index]
             self?.reloadData()
         }
     }
