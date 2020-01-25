@@ -17,9 +17,10 @@ class FirstViewController: UIViewController {
     }
     
     @IBAction func clickedFB(_ sender: Any) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "navigationVC") as! UINavigationController
-        self.present(nextViewController, animated:true, completion:nil)
+       // let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+       // let nextViewController = storyBoard.instantiateViewController(withIdentifier: "navigationVC") as! UINavigationController
+        self.performSegue(withIdentifier: "toBegin", sender: self)
+        //        self.present(nextViewController, animated:true, completion:nil)
     }
     
     /*

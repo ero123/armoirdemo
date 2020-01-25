@@ -50,7 +50,10 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
         
         actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action:UIAlertAction) in
             startWithCamera = true
-            self.performSegue(withIdentifier: "toCameraPage", sender: self)
+            imagePickerController.sourceType = .camera
+
+            self.present(imagePickerController, animated: true, completion: nil)
+            //self.performSegue(withIdentifier: "toCameraPage", sender: self)
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action:UIAlertAction) in
