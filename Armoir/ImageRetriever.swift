@@ -22,6 +22,7 @@ class ImageRetriever {
         let fileURL = documentsUrl.appendingPathComponent(fileName)
         if let imageData = image.jpegData(compressionQuality: 1.0) {
             try? imageData.write(to: fileURL, options: .atomic)
+            print("saved image file: " + fileName)
             return fileName // ----> Save fileName
         }
         print("Error saving image")

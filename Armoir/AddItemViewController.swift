@@ -60,14 +60,14 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         
         //let description: String = Description.text!
         //needs to be a double based on what they enter
-       var imageURL = "jeanJacketFinal"
-        if (!startWithCamera) {
+        var imageURL = ""
+        //if (!startWithCamera) {
             ImageRetriever().save(image: itemImage);
-            let imageURL = ImageRetriever().loadStr(fileName: "SavedImage" + String(numImgSaved))
-            //print(ImageRetriever().fileIsURL(fileName: imageURL))
-        }
+            imageURL = ImageRetriever().loadStr(fileName: "SavedImage" + String(numImgSaved))
+            print(ImageRetriever().fileIsURL(fileName: imageURL))
+        //}
 
-        print(imageURL)
+        print("URL: " + imageURL)
             /*if let price = Double(price.text) {
                 
             } else {
@@ -149,13 +149,13 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         //currUser.closet.append(new_item)
         numImgSaved += 1
  
-        if (startWithCamera) {
-            print("true")
+        //if (startWithCamera) {
+           // print("true")
             // Go back two ViewControllers
-            _ = navigationController?.popViewControllers(viewsToPop: 2)
-        } else {
+            //_ = navigationController?.popViewControllers(viewsToPop: 1)
+        //} else {
             _ = navigationController?.popViewControllers(viewsToPop: 1)
-        }
+        //}
         }
     }
     
@@ -232,13 +232,13 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func back(sender: UIBarButtonItem) {
-        if (startWithCamera) {
-            print("true")
+        //if (startWithCamera) {
+        //    print("true")
         // Go back two ViewControllers
-            _ = navigationController?.popViewControllers(viewsToPop: 2)
-        } else {
+           // _ = navigationController?.popViewControllers(viewsToPop: 2)
+        //} else {
             _ = navigationController?.popViewControllers(viewsToPop: 1)
-        }
+        //}
         
     }
 
