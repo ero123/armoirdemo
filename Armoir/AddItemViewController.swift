@@ -14,7 +14,7 @@ let categoryDropDown2:DropDown = DropDown()
 var itemCategory:String = String()
 var itemSize:String = String()
 
-class AddItemViewController: UIViewController {
+class AddItemViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var itemImageView: UIImageView!
     
@@ -22,7 +22,9 @@ class AddItemViewController: UIViewController {
     
     @IBOutlet weak var Description: UITextField!
     
-    @IBOutlet weak var Price: UITextField!
+    @IBOutlet weak var Price: UITextField! {
+         didSet { Price?.addDoneCancelToolbar() }
+    }
     
     @IBOutlet weak var categoryButton: UIButton!
     
@@ -34,6 +36,11 @@ class AddItemViewController: UIViewController {
         self.Price.resignFirstResponder()
         
      }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        Description.resignFirstResponder()
+        return true
+    }
     
     @IBAction func sizeClicked(_ sender: Any) {
         sizeDropDown.show()
@@ -53,10 +60,10 @@ class AddItemViewController: UIViewController {
         
         //let description: String = Description.text!
         //needs to be a double based on what they enter
-        var imageURL = "jeanJacketFinal"
+       var imageURL = "jeanJacketFinal"
         if (!startWithCamera) {
             ImageRetriever().save(image: itemImage);
-            imageURL = ImageRetriever().loadStr(fileName: "SavedImage" + String(numImgSaved))
+            let imageURL = ImageRetriever().loadStr(fileName: "SavedImage" + String(numImgSaved))
             //print(ImageRetriever().fileIsURL(fileName: imageURL))
         }
 
@@ -154,6 +161,9 @@ class AddItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.Description.delegate = self
+        self.Description.returnKeyType = UIReturnKeyType.done
+        self.Description.autocorrectionType = .no
         missingDetailsLabel.isHidden = true
         let icon = UIImage(named: "downarrow3")!
         categoryButton.setImage(icon, for: .normal)
@@ -249,4 +259,26 @@ extension UINavigationController {
         }
     }
     
+}
+
+extension UITextField {
+    func addDoneCancelToolbar(onDone: (target: Any, action: Selector)? = nil, onCancel: (target: Any, action: Selector)? = nil) {
+        let onCancel = onCancel ?? (target: self, action: #selector(cancelButtonTapped))
+        let onDone = onDone ?? (target: self, action: #selector(doneButtonTapped))
+
+        let toolbar: UIToolbar = UIToolbar()
+        toolbar.barStyle = .default
+        toolbar.items = [
+            UIBarButtonItem(title: "Cancel", style: .plain, target: onCancel.target, action: onCancel.action),
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),
+            UIBarButtonItem(title: "Done", style: .done, target: onDone.target, action: onDone.action)
+        ]
+        toolbar.sizeToFit()
+
+        self.inputAccessoryView = toolbar
+    }
+
+    // Default actions:
+    @objc func doneButtonTapped() { self.resignFirstResponder() }
+    @objc func cancelButtonTapped() { self.resignFirstResponder() }
 }
