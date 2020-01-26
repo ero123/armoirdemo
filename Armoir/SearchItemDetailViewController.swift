@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SearchItemDetailViewController: UIViewController {
         
@@ -19,6 +20,7 @@ class SearchItemDetailViewController: UIViewController {
     @IBOutlet weak var itemSize: UILabel!
     
     @IBAction func borrowItemButton(_ sender: Any) {
+        
         // set as borrowed
             //alex way
             //chosenItem["borrowed"].bool = true;
@@ -58,6 +60,8 @@ class SearchItemDetailViewController: UIViewController {
         //print (all_users[i]) //testing before
         all_users[i].closet[it_i].borrowed = true
         all_users[i].closet[it_i].borrowed_by = currUser.user_ID
+        
+        Analytics.logEvent("item_borrowed", parameters: ["currUserID": currUser.user_ID])
         
         //3. find index of currUser in all_users array
         var b = 0;

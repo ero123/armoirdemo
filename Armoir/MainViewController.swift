@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import Firebase
 
 var itemImage: UIImage = UIImage()
 var startWithCamera: Bool = Bool()
@@ -190,6 +191,9 @@ class MainViewController: UIViewController {
     @IBAction func didPressTab(_ sender: UIButton) {
         
         let previousIndex = selectedIndex
+        Analytics.logEvent("tab_pressed", parameters: [
+          "tab": (selectedIndex)
+        ])
         selectedIndex = sender.tag
         buttons[previousIndex].isSelected = false
         viewArray[previousIndex].backgroundColor = UIColor(hue: 0.0778, saturation: 0.17, brightness: 0.81, alpha: 1.0)
