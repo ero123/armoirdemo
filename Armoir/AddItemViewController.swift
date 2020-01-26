@@ -103,7 +103,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         var temp = all_users[i].closet
         temp.append(new_item)
         all_users[i].closet = temp
-        //print (all_users[i]) // testing after
+        print(all_users[i]) // testing after
         
         //to check if all_users updated
         //print(all_users)
@@ -127,14 +127,17 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         print("continuing");
         
         if let fileURL = Bundle.main.url(forResource: path, withExtension: "json") {
+            
             do {
                 try text.write(to: fileURL, atomically: false, encoding: .utf8)
                 print("tried to write")
             }
             catch {
-                print ("oh no");
+                print(error)
             }
         }
+            
+            
         /*
         let new_item = Item(item_id: numItems+1, name: "Jean Jacket", owner: currUser.user_ID, borrowed: false, borrowed_by: 0, image: "jeanJacketFinal", color: "red", size: "M", price: price, category: category)
         
