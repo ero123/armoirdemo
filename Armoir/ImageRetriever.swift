@@ -12,17 +12,17 @@ import UIKit
 var numImgSaved = 0
 
 class ImageRetriever {
-    var documentsUrl: URL {
+    /*var documentsUrl: URL {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    }
+    }*/
 
     @discardableResult
     public func save(image: UIImage) -> String? {
         let fileName = "SavedImage" + String(numImgSaved)
-        let fileURL = documentsUrl.appendingPathComponent(fileName)
+        let fileURL = documentsURL.appendingPathComponent(fileName)
         if let imageData = image.jpegData(compressionQuality: 1.0) {
             try? imageData.write(to: fileURL, options: .atomic)
-            print("saved image file: " + fileName)
+            print("saved image file: " + fileURL.absoluteString)
             return fileName // ----> Save fileName
         }
         print("Error saving image")
@@ -30,7 +30,7 @@ class ImageRetriever {
     }
 
     public func loadStr(fileName: String) -> String {
-        let fileURL = documentsUrl.appendingPathComponent(fileName)
+        let fileURL = documentsURL.appendingPathComponent(fileName)
         return fileURL.absoluteString
     }
     

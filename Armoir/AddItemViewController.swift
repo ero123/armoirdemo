@@ -122,8 +122,23 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
             print("array didn't work");
         }
         
+            
+        //let fileName = "search.json"
+            //let filePath = documentDirectory.appendingPathComponent("search.json").absoluteString
+
+           // let filePath = (documentDirectory as NSString).stringByAppendingPathComponent("search.json")
+           // let filePath = self.applicationDocumentsDirectory().path?.stringByAppendingString(fileName)
+
+            do {
+                try text.write(toFile: fullDestPathString, atomically: true, encoding: String.Encoding.utf8)
+                print(fullDestPathString)
+            }
+            catch {
+                print(error)
+            }
+                
         //
-        let path = "search" //this is the file. we will write to and read from it
+        /*let path = "search" //this is the file. we will write to and read from it
         print("continuing");
         
         if let fileURL = Bundle.main.url(forResource: path, withExtension: "json") {
@@ -135,7 +150,36 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
             catch {
                 print(error)
             }
-        }
+        }*/
+            
+            
+            
+//            let from = Bundle.main.url(forResource: "search", withExtension: "json")!
+//
+//            let to = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("result.json")
+//
+//            do {
+//
+//                try FileManager.default.copyItem(at: from, to: to)
+//
+//                print(try FileManager.default.contents(atPath: to.path))
+//
+//                let wer = Data("rerree".utf8 )
+//
+//                try wer.write(to: to)
+//
+//                print(try FileManager.default.contents(atPath: to.path))
+//
+//            }
+//            catch {
+//
+//                print(error)
+//            }
+//
+//            let fileName = "search"
+//            let documentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+//            let fileURL = documentDirURL.appendingPathComponent(fileName).appendingPathExtension("json")
+//                print("File PAth: \(fileURL.path)")
             
             
         /*
@@ -285,3 +329,4 @@ extension UITextField {
     @objc func doneButtonTapped() { self.resignFirstResponder() }
     @objc func cancelButtonTapped() { self.resignFirstResponder() }
 }
+
