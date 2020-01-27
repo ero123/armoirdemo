@@ -257,7 +257,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     }
     
     func initcategoryDropDown2() {
-        let categories = ["Shirt", "Pants", "Skirt", "Shorts", "Dress"]
+        let categories = ["Shirt", "Pants", "Skirt", "Shorts", "Dress", "Outerwear"]
         categoryDropDown2.dataSource = categories
         
         categoryDropDown2.selectionAction = { [weak self] (index: Int, _: String) in

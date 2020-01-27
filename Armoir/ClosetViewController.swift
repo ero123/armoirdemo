@@ -201,7 +201,7 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
             } else {
                 cell.img_display.image = UIImage(named: i.image);
             }
-            cell.img_display.contentMode = .scaleToFill;
+            cell.img_display.contentMode = .scaleAspectFit;
             cell.img_display.layer.borderWidth = 1;
             if (i.borrowed) {
                 cell.backgroundColor = UIColor(hue: 0.0028, saturation: 0, brightness: 0.82, alpha: 1.0)
@@ -224,7 +224,7 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
                 
                 cell.img_display.image = UIImage(named: i.image);
             }
-            cell.img_display.contentMode = .scaleToFill;
+            cell.img_display.contentMode = .scaleAspectFit;
             cell.img_display.layer.borderWidth = 1;
             cell.dist_display.text = "1.2 mi";
             cell.due_display.text = "Due in 10 days";
