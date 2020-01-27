@@ -31,6 +31,7 @@
 		6216B1D921BA5E5B00AB5943 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216B1D821BA5E5A00AB5943 /* SettingsViewController.swift */; };
 		6216B1DB21BAA73300AB5943 /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6216B1DA21BAA73300AB5943 /* DropDown.framework */; };
 		6250122221BAAE5B0015F10A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6250122121BAAE5B0015F10A /* SwiftyJSON.framework */; };
+		645905A523DE5DEE00930FD8 /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645905A423DE5DEE00930FD8 /* InboxViewController.swift */; };
 		71388D7221B87D0B00232F7B /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71388D7121B87D0B00232F7B /* StartViewController.swift */; };
 		7193F59621BA370700427907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7193F59521BA370700427907 /* Main.storyboard */; };
 		7193F59721BA370700427907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7193F59521BA370700427907 /* Main.storyboard */; };
@@ -93,6 +94,7 @@
 		6216B1D821BA5E5A00AB5943 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		6216B1DA21BAA73300AB5943 /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6250122121BAAE5B0015F10A /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		645905A423DE5DEE00930FD8 /* InboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
 		71388D7121B87D0B00232F7B /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		7193F59521BA370700427907 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		743BD5E221B5E64400855A1E /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				743BD5E821B9DEAB00855A1E /* BorrowedItemDetailViewController.swift */,
 				743BD5EA21B9ECCF00855A1E /* LentItemViewController.swift */,
 				6216B1D821BA5E5A00AB5943 /* SettingsViewController.swift */,
+				645905A423DE5DEE00930FD8 /* InboxViewController.swift */,
 			);
 			path = Armoir;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 				176F559121B746BA00FFF556 /* SignUpViewController.swift in Sources */,
 				17D979E121B22BAA00E74816 /* MainViewController.swift in Sources */,
 				743BD5E921B9DEAB00855A1E /* BorrowedItemDetailViewController.swift in Sources */,
+				645905A523DE5DEE00930FD8 /* InboxViewController.swift in Sources */,
 				1751F07D21B08B2100F55356 /* ProductBrowseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
