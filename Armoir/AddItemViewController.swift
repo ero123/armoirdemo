@@ -8,6 +8,7 @@
 
 import UIKit
 import DropDown
+import Firebase
 
 let sizeDropDown:DropDown = DropDown()
 let categoryDropDown2:DropDown = DropDown()
@@ -44,6 +45,8 @@ class AddItemViewController: UIViewController {
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
+        
+        Analytics.logEvent("add_item_button_pressed", parameters: ["item" : "pressed"])
         
         if (Description.text == "" || Price.text == "" || categoryButton.titleLabel!.text == "Category" || sizeButton.titleLabel!.text == "Size") {
             
