@@ -8,6 +8,8 @@
 
 import UIKit
 
+var documentsURL: URL = NSURLComponents().url!
+
 class ClosetViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
@@ -50,7 +52,10 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
         
         actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action:UIAlertAction) in
             startWithCamera = true
-            self.performSegue(withIdentifier: "toCameraPage", sender: self)
+            imagePickerController.sourceType = .camera
+
+            self.present(imagePickerController, animated: true, completion: nil)
+            //self.performSegue(withIdentifier: "toCameraPage", sender: self)
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action:UIAlertAction) in
@@ -94,19 +99,21 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
         
         //1. read json from file: DONE
         var longJsonData = ""
-        let url = Bundle.main.url(forResource: "search", withExtension: "json")!
+        //let url = Bundle.main.url(forResource: "search", withExtension: "json")!
+       // let url = URL(string: fullDestPathString)
         do {
-            let jsonData = try Data(contentsOf: url)
+            let jsonData = try Data(contentsOf: fullDestPath)
             try all_users = JSONDecoder().decode([a_User].self, from: jsonData);
-            
+
         }
         catch {
+            print("read error:")
             print(error)
         }
-        
+
         //2. when adding, add to the all_users array: to do in code
-       
-        
+
+
         //3. then, encode it to be in json
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
@@ -119,32 +126,42 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
         catch {
             print("array didn't work");
         }
-        print(longJsonData)
-        
+        //print(longJsonData)
+
         //4. write to search.json with new encoded string
-        let path = "test2" //this is the file. we will write to and read from it
-        print("continuing");
-        let text = longJsonData //just a text
-        if let fileURL = Bundle.main.url(forResource: path, withExtension: "json") {
-            //print(fileURL)
-            //writing
-            do {
-                try text.write(to: fileURL, atomically: false, encoding: .utf8)
-                print("tried to write")
-                let url = Bundle.main.url(forResource: "search", withExtension: "json")!
-                do {
-                    let jsonData = try Data(contentsOf: url)
-                    all_users = try JSONDecoder().decode([a_User].self, from: jsonData);
-                    //print(newArray)
-                }
-                catch {
-                    print(error)
-                }
-            }
-            catch {
-                print ("oh no");
-            }
-        }
+        let text = longJsonData
+         do {
+             try text.write(toFile: fullDestPathString, atomically: true, encoding: String.Encoding.utf8)
+             print(fullDestPathString)
+         }
+         catch {
+            print("write error:")
+             print(error)
+         }
+        
+//        let path = "test2" //this is the file. we will write to and read from it
+//        print("continuing");
+//        let text = longJsonData //just a text
+//        if let fileURL = Bundle.main.url(forResource: path, withExtension: "json") {
+//            //print(fileURL)
+//            //writing
+//            do {
+//                try text.write(to: fileURL, atomically: false, encoding: .utf8)
+//                print("tried to write")
+//                let url = Bundle.main.url(forResource: "search", withExtension: "json")!
+//                do {
+//                    let jsonData = try Data(contentsOf: url)
+//                    all_users = try JSONDecoder().decode([a_User].self, from: jsonData);
+//                    //print(newArray)
+//                }
+//                catch {
+//                    print(error)
+//                }
+//            }
+//            catch {
+//                print ("oh no");
+//            }
+//        }
         
         for user_instance in all_users {
             if user_instance.user_ID == user_num {
@@ -154,8 +171,8 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
     }
     
     func loadProfImage() {
-        
         let image = UIImage(named: currUser.profPic);
+        print(image)
         self.profilePicture.image = image;
         self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2;
         self.profilePicture.clipsToBounds = true;
@@ -184,7 +201,7 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
             } else {
                 cell.img_display.image = UIImage(named: i.image);
             }
-            cell.img_display.contentMode = .scaleToFill;
+            cell.img_display.contentMode = .scaleAspectFit;
             cell.img_display.layer.borderWidth = 1;
             if (i.borrowed) {
                 cell.backgroundColor = UIColor(hue: 0.0028, saturation: 0, brightness: 0.82, alpha: 1.0)
@@ -207,7 +224,7 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
                 
                 cell.img_display.image = UIImage(named: i.image);
             }
-            cell.img_display.contentMode = .scaleToFill;
+            cell.img_display.contentMode = .scaleAspectFit;
             cell.img_display.layer.borderWidth = 1;
             cell.dist_display.text = "1.2 mi";
             cell.due_display.text = "Due in 10 days";
@@ -248,6 +265,17 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let fileManager = FileManager.default
+                // Move '/Documents/filename.hello.swift' to  '/Documents/Folder/filename/hello.swift'
+        do {
+            try fileManager.copyfileToUserDocumentDirectory(forResource: "search", ofType: "json")
+                //try fileManager.moveItem(atPath: "search.json", toPath:
+             //"/Documents/search.json")
+            print("successfully moved")
+            }
+        catch let error as NSError {
+              print("it did not worked\(error)")
+        }
         loadData();
         loadProfImage();
         showUserName();
@@ -262,11 +290,32 @@ class ClosetViewController: UIViewController,UICollectionViewDataSource, UIColle
         //let layout = viewOfItems.collectionViewLayout as! UICollectionViewFlowLayout;
         layout.minimumInteritemSpacing = 1;
         layout.itemSize = CGSize( width: widthPerItem, height: widthPerItem*1.3)
-    
         viewOfItems.collectionViewLayout = layout
-
-        
     }
    
 
+}
+
+extension FileManager {
+    func copyfileToUserDocumentDirectory(forResource name: String,
+                                         ofType ext: String) throws
+    {
+        if let bundlePath = Bundle.main.path(forResource: name, ofType: ext),
+            let URL1 = NSSearchPathForDirectoriesInDomains(.documentDirectory,
+                                .userDomainMask,
+                                true).first {
+            let fileName = "\(name).\(ext)"
+            documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            //documentsURL = URL(fileURLWithPath: URL1)
+            //fullDestPath = documentsURL.appendingPathComponent(fileName)
+            fullDestPath = URL(fileURLWithPath: URL1)
+                                   .appendingPathComponent(fileName)
+            fullDestPathString = fullDestPath.path
+            print("full dest path:")
+            print(fullDestPathString)
+            if !self.fileExists(atPath: fullDestPathString) {
+                try self.copyItem(atPath: bundlePath, toPath: fullDestPathString)
+            }
+        }
+    }
 }

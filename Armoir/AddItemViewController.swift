@@ -15,7 +15,7 @@ let categoryDropDown2:DropDown = DropDown()
 var itemCategory:String = String()
 var itemSize:String = String()
 
-class AddItemViewController: UIViewController {
+class AddItemViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var itemImageView: UIImageView!
     
@@ -23,7 +23,9 @@ class AddItemViewController: UIViewController {
     
     @IBOutlet weak var Description: UITextField!
     
-    @IBOutlet weak var Price: UITextField!
+    @IBOutlet weak var Price: UITextField! {
+         didSet { Price?.addDoneCancelToolbar() }
+    }
     
     @IBOutlet weak var categoryButton: UIButton!
     
@@ -35,6 +37,11 @@ class AddItemViewController: UIViewController {
         self.Price.resignFirstResponder()
         
      }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        Description.resignFirstResponder()
+        return true
+    }
     
     @IBAction func sizeClicked(_ sender: Any) {
         sizeDropDown.show()
@@ -56,14 +63,14 @@ class AddItemViewController: UIViewController {
         
         //let description: String = Description.text!
         //needs to be a double based on what they enter
-        var imageURL = "jeanJacketFinal"
-        if (!startWithCamera) {
+        var imageURL = ""
+        //if (!startWithCamera) {
             ImageRetriever().save(image: itemImage);
             imageURL = ImageRetriever().loadStr(fileName: "SavedImage" + String(numImgSaved))
-            //print(ImageRetriever().fileIsURL(fileName: imageURL))
-        }
+            print(ImageRetriever().fileIsURL(fileName: imageURL))
+        //}
 
-        print(imageURL)
+        print("URL: " + imageURL)
             /*if let price = Double(price.text) {
                 
             } else {
@@ -99,7 +106,7 @@ class AddItemViewController: UIViewController {
         var temp = all_users[i].closet
         temp.append(new_item)
         all_users[i].closet = temp
-        //print (all_users[i]) // testing after
+        print(all_users[i]) // testing after
         
         //to check if all_users updated
         //print(all_users)
@@ -118,19 +125,66 @@ class AddItemViewController: UIViewController {
             print("array didn't work");
         }
         
+            
+        //let fileName = "search.json"
+            //let filePath = documentDirectory.appendingPathComponent("search.json").absoluteString
+
+           // let filePath = (documentDirectory as NSString).stringByAppendingPathComponent("search.json")
+           // let filePath = self.applicationDocumentsDirectory().path?.stringByAppendingString(fileName)
+
+            do {
+                try text.write(toFile: fullDestPathString, atomically: true, encoding: String.Encoding.utf8)
+                print(fullDestPathString)
+            }
+            catch {
+                print(error)
+            }
+                
         //
-        let path = "search" //this is the file. we will write to and read from it
+        /*let path = "search" //this is the file. we will write to and read from it
         print("continuing");
         
         if let fileURL = Bundle.main.url(forResource: path, withExtension: "json") {
+            
             do {
                 try text.write(to: fileURL, atomically: false, encoding: .utf8)
                 print("tried to write")
             }
             catch {
-                print ("oh no");
+                print(error)
             }
-        }
+        }*/
+            
+            
+            
+//            let from = Bundle.main.url(forResource: "search", withExtension: "json")!
+//
+//            let to = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("result.json")
+//
+//            do {
+//
+//                try FileManager.default.copyItem(at: from, to: to)
+//
+//                print(try FileManager.default.contents(atPath: to.path))
+//
+//                let wer = Data("rerree".utf8 )
+//
+//                try wer.write(to: to)
+//
+//                print(try FileManager.default.contents(atPath: to.path))
+//
+//            }
+//            catch {
+//
+//                print(error)
+//            }
+//
+//            let fileName = "search"
+//            let documentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+//            let fileURL = documentDirURL.appendingPathComponent(fileName).appendingPathExtension("json")
+//                print("File PAth: \(fileURL.path)")
+            
+            
         /*
         let new_item = Item(item_id: numItems+1, name: "Jean Jacket", owner: currUser.user_ID, borrowed: false, borrowed_by: 0, image: "jeanJacketFinal", color: "red", size: "M", price: price, category: category)
         
@@ -145,18 +199,21 @@ class AddItemViewController: UIViewController {
         //currUser.closet.append(new_item)
         numImgSaved += 1
  
-        if (startWithCamera) {
-            print("true")
+        //if (startWithCamera) {
+           // print("true")
             // Go back two ViewControllers
-            _ = navigationController?.popViewControllers(viewsToPop: 2)
-        } else {
+            //_ = navigationController?.popViewControllers(viewsToPop: 1)
+        //} else {
             _ = navigationController?.popViewControllers(viewsToPop: 1)
-        }
+        //}
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.Description.delegate = self
+        self.Description.returnKeyType = UIReturnKeyType.done
+        self.Description.autocorrectionType = .no
         missingDetailsLabel.isHidden = true
         let icon = UIImage(named: "downarrow3")!
         categoryButton.setImage(icon, for: .normal)
@@ -203,7 +260,7 @@ class AddItemViewController: UIViewController {
     }
     
     func initcategoryDropDown2() {
-        let categories = ["Shirt", "Pants", "Skirt", "Shorts", "Dress"]
+        let categories = ["Shirt", "Pants", "Skirt", "Shorts", "Dress", "Outerwear"]
         categoryDropDown2.dataSource = categories
         
         categoryDropDown2.selectionAction = { [weak self] (index: Int, _: String) in
@@ -225,13 +282,13 @@ class AddItemViewController: UIViewController {
     }
     
     @objc func back(sender: UIBarButtonItem) {
-        if (startWithCamera) {
-            print("true")
+        //if (startWithCamera) {
+        //    print("true")
         // Go back two ViewControllers
-            _ = navigationController?.popViewControllers(viewsToPop: 2)
-        } else {
+           // _ = navigationController?.popViewControllers(viewsToPop: 2)
+        //} else {
             _ = navigationController?.popViewControllers(viewsToPop: 1)
-        }
+        //}
         
     }
 
@@ -253,3 +310,26 @@ extension UINavigationController {
     }
     
 }
+
+extension UITextField {
+    func addDoneCancelToolbar(onDone: (target: Any, action: Selector)? = nil, onCancel: (target: Any, action: Selector)? = nil) {
+        let onCancel = onCancel ?? (target: self, action: #selector(cancelButtonTapped))
+        let onDone = onDone ?? (target: self, action: #selector(doneButtonTapped))
+
+        let toolbar: UIToolbar = UIToolbar()
+        toolbar.barStyle = .default
+        toolbar.items = [
+            UIBarButtonItem(title: "Cancel", style: .plain, target: onCancel.target, action: onCancel.action),
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),
+            UIBarButtonItem(title: "Done", style: .done, target: onDone.target, action: onDone.action)
+        ]
+        toolbar.sizeToFit()
+
+        self.inputAccessoryView = toolbar
+    }
+
+    // Default actions:
+    @objc func doneButtonTapped() { self.resignFirstResponder() }
+    @objc func cancelButtonTapped() { self.resignFirstResponder() }
+}
+

@@ -16,6 +16,9 @@ var currItem: Int = 0
 var user_num = 123;
 var currUser = a_User(user_ID: 123, profPic: "", owner: "", borrowed: [], closet: []);
 var currArray: [Item] = [];
+var longJsonData: String = ""
+var fullDestPathString: String = ""
+var fullDestPath: URL = NSURLComponents().url!
 
 struct Item: Codable {
     enum Sizes: String, Decodable {
@@ -171,6 +174,34 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var newsView: UIView!
     
+
+//    override func viewDidAppear(_ animated: Bool) {
+//        //1. read json from file: DONE
+//        var longJsonData = ""
+//        let url = Bundle.main.url(forResource: "search", withExtension: "json")!
+//        do {
+//            let jsonData = try Data(contentsOf: url)
+//            try all_users = JSONDecoder().decode([a_User].self, from: jsonData);
+//            
+//        }
+//        catch {
+//            print(error)
+//        }
+//        
+//        let encoder = JSONEncoder()
+//               encoder.outputFormatting = .prettyPrinted
+//               do {
+//                   let data = try encoder.encode(all_users)
+//                   longJsonData = String(data: data, encoding: .utf8)!
+//                   //print(String(data: data, encoding: .utf8)!)
+//                   print("DONE ENCODING")
+//               }
+//               catch {
+//                   print("array didn't work");
+//               }
+//               print(longJsonData)
+//    }
+    
     override func viewDidLoad() {
         viewArray = [searchView, closetView, newsView]
         super.viewDidLoad()
@@ -232,3 +263,4 @@ class MainViewController: UIViewController {
     */
 
 }
+

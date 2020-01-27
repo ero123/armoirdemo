@@ -92,6 +92,7 @@ class SearchItemDetailViewController: UIViewController {
         do {
             let data = try encoder.encode(all_users)
             text = String(data: data, encoding: .utf8)!
+            //longJsonData = String(data: data, encoding: .utf8)!
             print("DONE ENCODING")
             //print(String(data: data, encoding: .utf8)!)
         }
@@ -99,19 +100,27 @@ class SearchItemDetailViewController: UIViewController {
             print("array didn't work");
         }
         
-        //
-        let path = "search" //this is the file. we will write to and read from it
-        print("continuing");
-        
-        if let fileURL = Bundle.main.url(forResource: path, withExtension: "json") {
-            do {
-                try text.write(to: fileURL, atomically: false, encoding: .utf8)
-                print("tried to write")
-            }
-            catch {
-                print ("oh no");
-            }
+        //save to json file
+        do {
+            try text.write(toFile: fullDestPathString, atomically: true, encoding: String.Encoding.utf8)
+            print(fullDestPathString)
         }
+        catch {
+            print(error)
+        }
+        
+//        let path = "search" //this is the file. we will write to and read from it
+//        print("continuing");
+//
+//        if let fileURL = Bundle.main.url(forResource: path, withExtension: "json") {
+//            do {
+//                try text.write(to: fileURL, atomically: false, encoding: .utf8)
+//                print("tried to write")
+//            }
+//            catch {
+//                print ("oh no");
+//            }
+//        }
         let alert = UIAlertController(title: "You borrowed an item! Go check out your closet.", message: "", preferredStyle: .alert)
 
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
