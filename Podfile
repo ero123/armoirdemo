@@ -11,6 +11,13 @@ target 'Armoir' do
     pod 'Firebase'
     pod 'Firebase/Analytics'
     pod 'Firebase/Performance'
+    pod 'Firebase/Auth'
+    pod 'FBSDKLoginKit'
+    pod 'FBSDKCoreKit'
+    pod 'FBSDKShareKit'
+    pod 'FBSDKCoreKit/Swift'
+    pod 'FBSDKLoginKit/Swift'
+    pod 'FBSDKShareKit/Swift'
 
   target 'ArmoirTests' do
     inherit! :search_paths
