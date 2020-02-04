@@ -1,5 +1,15 @@
 PODS:
   - DropDown (2.3.2)
+  - FBSDKCoreKit (5.15.1):
+    - FBSDKCoreKit/Basics (= 5.15.1)
+    - FBSDKCoreKit/Core (= 5.15.1)
+  - FBSDKCoreKit/Basics (5.15.1)
+  - FBSDKCoreKit/Core (5.15.1):
+    - FBSDKCoreKit/Basics
+  - FBSDKLoginKit (5.15.1):
+    - FBSDKLoginKit/Login (= 5.15.1)
+  - FBSDKLoginKit/Login (5.15.1):
+    - FBSDKCoreKit (~> 5.0)
   - Firebase (5.14.0):
     - Firebase/Core (= 5.14.0)
   - Firebase/Analytics (5.14.0):
@@ -89,14 +99,18 @@ PODS:
 
 DEPENDENCIES:
   - DropDown (= 2.3.2)
+  - FBSDKLoginKit
   - Firebase
   - Firebase/Analytics
   - Firebase/Performance
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - DropDown
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+    - Firebase
     - FirebaseABTesting
     - FirebaseAnalytics
     - FirebaseCore
@@ -110,11 +124,11 @@ SPEC REPOS:
     - nanopb
     - Protobuf
     - SwiftyJSON
-  trunk:
-    - Firebase
 
 SPEC CHECKSUMS:
   DropDown: 7f87abecc28f9b4edad810fe1211c5c018c257e5
+  FBSDKCoreKit: 1d5acf7c9d7a2f92bb1a242dc60cae5b7adb91df
+  FBSDKLoginKit: f1ea8026a58b52d30c9f2e6a58ca7d813619fb83
   Firebase: 963d5685fae888a56d6d4d9cfce6b9c976958798
   FirebaseABTesting: 1f50b8d50f5e3469eea54e7463a7b7fe221d1f5e
   FirebaseAnalytics: c06f9d70577d79074214700a71fd5d39de5550fb
@@ -130,6 +144,6 @@ SPEC CHECKSUMS:
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: dc6d49a98f4f8f0fd07e3b4d283746b9f533f338
+PODFILE CHECKSUM: 5abbc314f8d20a63b3c8045ec513182c033e628f
 
 COCOAPODS: 1.8.4

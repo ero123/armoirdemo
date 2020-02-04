@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let loginButton = FBLoginButton()
+        //loginButton.delegate = self as! LoginButtonDelegate
+        loginButton.center = view.center
+        view.addSubview(loginButton)
+        //let loginButton = FBLoginButton(readPermissions: [ .publicProfile ])
         // Do any additional setup after loading the view.
     }
     
