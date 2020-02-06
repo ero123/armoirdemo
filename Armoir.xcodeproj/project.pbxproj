@@ -13,6 +13,7 @@
 		17040B1021B78D000049C902 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17040B0F21B78D000049C902 /* CameraViewController.swift */; };
 		17040B1221B796D40049C902 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17040B1121B796D40049C902 /* Assets.xcassets */; };
 		17040B1621B9FA760049C902 /* SearchItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17040B1521B9FA760049C902 /* SearchItemDetailViewController.swift */; };
+		1732E87623EB990A00E4F3E1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1732E87523EB990A00E4F3E1 /* GoogleService-Info.plist */; };
 		1751F04F21B06E9F00F55356 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F04E21B06E9F00F55356 /* AppDelegate.swift */; };
 		1751F05921B06EA300F55356 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1751F05721B06EA300F55356 /* LaunchScreen.storyboard */; };
 		1751F06421B06EA400F55356 /* ArmoirTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F06321B06EA400F55356 /* ArmoirTests.swift */; };
@@ -28,7 +29,6 @@
 		17D979E321B2309F00E74816 /* ClosetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D979E221B2309F00E74816 /* ClosetViewController.swift */; };
 		17D979E521B230BE00E74816 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D979E421B230BE00E74816 /* NewsViewController.swift */; };
 		2F4EB6A65C6E1331B9831F4D /* Pods_Armoir.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3B0FD42F3D1F612CE415C3 /* Pods_Armoir.framework */; };
-		3461F10C23DE572A00D3DF81 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3461F10B23DE572A00D3DF81 /* GoogleService-Info.plist */; };
 		6216B1D921BA5E5B00AB5943 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216B1D821BA5E5A00AB5943 /* SettingsViewController.swift */; };
 		6216B1DB21BAA73300AB5943 /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6216B1DA21BAA73300AB5943 /* DropDown.framework */; };
 		6250122221BAAE5B0015F10A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6250122121BAAE5B0015F10A /* SwiftyJSON.framework */; };
@@ -69,6 +69,7 @@
 		17040B0F21B78D000049C902 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		17040B1121B796D40049C902 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17040B1521B9FA760049C902 /* SearchItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemDetailViewController.swift; sourceTree = "<group>"; };
+		1732E87523EB990A00E4F3E1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1751F04B21B06E9F00F55356 /* Armoir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Armoir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1751F04E21B06E9F00F55356 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1751F05821B06EA300F55356 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -92,7 +93,7 @@
 		17D979E221B2309F00E74816 /* ClosetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetViewController.swift; sourceTree = "<group>"; };
 		17D979E421B230BE00E74816 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		2BFD9C27390DC9FB9E7BC3FA /* Pods-Armoir.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Armoir.release.xcconfig"; path = "Pods/Target Support Files/Pods-Armoir/Pods-Armoir.release.xcconfig"; sourceTree = "<group>"; };
-		3461F10B23DE572A00D3DF81 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3461F10B23DE572A00D3DF81 /* GoogleService-Info old.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info old.plist"; sourceTree = "<group>"; };
 		44DC47DD6FC2973BBAADF91A /* Pods-ArmoirUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArmoirUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArmoirUITests/Pods-ArmoirUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4C6EE03E84BA4F5E1E39930B /* Pods-ArmoirTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArmoirTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArmoirTests/Pods-ArmoirTests.release.xcconfig"; sourceTree = "<group>"; };
 		6216B1D821BA5E5A00AB5943 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -180,7 +181,8 @@
 				17040B0721B76B180049C902 /* search.json */,
 				179234B421BC745400B391F5 /* test2.json */,
 				743BD5E421B5FB8C00855A1E /* BorrowedCell.swift */,
-				3461F10B23DE572A00D3DF81 /* GoogleService-Info.plist */,
+				1732E87523EB990A00E4F3E1 /* GoogleService-Info.plist */,
+				3461F10B23DE572A00D3DF81 /* GoogleService-Info old.plist */,
 				17040B1121B796D40049C902 /* Assets.xcassets */,
 				743BD5E221B5E64400855A1E /* ItemCell.swift */,
 				17D979E221B2309F00E74816 /* ClosetViewController.swift */,
@@ -354,7 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7193F59621BA370700427907 /* Main.storyboard in Resources */,
-				3461F10C23DE572A00D3DF81 /* GoogleService-Info.plist in Resources */,
+				1732E87623EB990A00E4F3E1 /* GoogleService-Info.plist in Resources */,
 				17040B0A21B775BD0049C902 /* Alike-Regular.ttf in Resources */,
 				179234B521BC745400B391F5 /* test2.json in Resources */,
 				17B3022E21B65735004E5EF8 /* images in Resources */,
@@ -676,7 +678,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs147.Armoir;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs194h.Armoir;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
