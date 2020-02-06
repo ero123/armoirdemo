@@ -2250,7 +2250,6 @@
         <image name="settingsbutton" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bd7-2P-vBi"/>
         <segue reference="6GD-De-Suz"/>
         <segue reference="dTl-b8-yKo"/>
         <segue reference="q4d-cE-Cts"/>
