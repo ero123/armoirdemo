@@ -16,6 +16,8 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var inviteFriends: UIButton!
     
+    @IBOutlet weak var changeUsername: UIButton!
+    
     @IBOutlet weak var changePassword: UIButton!
     
     @IBOutlet weak var changePicture: UIButton!
@@ -23,11 +25,13 @@ class SettingsViewController: UIViewController {
     func makeButtonsRound(){
         self.inviteFriends.layer.cornerRadius = 7
         self.inviteFriends.clipsToBounds = true
-        
+        self.changeUsername.clipsToBounds = true
         self.saveChanges.layer.cornerRadius = 7
         self.saveChanges.clipsToBounds = true
         
         self.changePicture.layer.cornerRadius = 7
+        
+        self.changeUsername.layer.cornerRadius = 7
         self.changePicture.clipsToBounds = true
         
         self.changePassword.layer.cornerRadius = 7

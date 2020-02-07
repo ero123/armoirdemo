@@ -8,7 +8,17 @@ target 'Armoir' do
   # Pods for Armoir
     pod 'SwiftyJSON', '~> 4.0'
     pod 'DropDown', '2.3.2'
-    
+    pod 'Firebase'
+    pod 'Firebase/Analytics'
+    pod 'Firebase/Performance'
+    pod 'Firebase/Auth'
+    pod 'FBSDKLoginKit'
+    pod 'FBSDKCoreKit'
+    pod 'FBSDKShareKit'
+    pod 'FBSDKCoreKit/Swift'
+    pod 'FBSDKLoginKit/Swift'
+    pod 'FBSDKShareKit/Swift'
+
   target 'ArmoirTests' do
     inherit! :search_paths
     # Pods for testing

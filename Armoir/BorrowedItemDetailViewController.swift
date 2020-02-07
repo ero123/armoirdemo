@@ -25,8 +25,17 @@ class BorrowedItemDetailViewController: UIViewController {
                 priceDetail.text = "$" + String(i.price) + "/day";
                 sizeDetail.text = i.size;
                 distanceText.text = i.distance;
-                let imageI = UIImage(named: i.image);
-                self.itemImage.image = imageI;
+                //let imageI = UIImage(named: i.image);
+                
+                let imgURL = i.image
+                if (ImageRetriever().fileIsURL(fileName: imgURL)) {
+                    self.itemImage.image = ImageRetriever().loadImg(fileURL: URL(string: imgURL)!)
+                } else {
+                    self.itemImage.image = UIImage(named: i.image);
+                }
+                
+                
+                //self.itemImage.image = imageI;
                 self.itemImage.clipsToBounds = true;
                 itemDescrip.text = i.name;
                 var userID = i.owner;

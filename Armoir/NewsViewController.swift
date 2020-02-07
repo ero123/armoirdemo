@@ -31,7 +31,6 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var contentView: UIView!
     
-    
     @IBAction func pressedSettings(_ sender: UIButton) {
         performSegue(withIdentifier: "newsSegue", sender: self)
     }
@@ -124,6 +123,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! NewsTableViewCell
         
+    cell.reminderButton.isHidden = true
         cell.productImg?.image =  data[indexPath.row].productImage
         cell.profileImg?.image =  data[indexPath.row].profileImage
         cell.profileImg.layer.cornerRadius = cell.profileImg.frame.size.width / 2;
@@ -133,6 +133,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.message?.text = data[indexPath.row].message
         if(!data[indexPath.row].borrowed!){
             cell.backgroundColor = UIColor(hue: 0.0028, saturation: 0, brightness: 0.82, alpha: 1.0)
+            cell.reminderButton.isHidden = false
         }
         
         return cell
@@ -152,4 +153,5 @@ class NewsTableViewCell: UITableViewCell{
     
     @IBOutlet weak var message: UILabel!
     
+    @IBOutlet weak var reminderButton: UIButton!
 }

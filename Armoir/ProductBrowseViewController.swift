@@ -48,6 +48,17 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         searchFieldText.endEditing(true)
     }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                searchBar.resignFirstResponder()
+                //searchBar.endEditing(true)
+            }
+            //searchBar.resignFirstResponder()
+            //reloadData()
+        }
+    }
+    
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         let searchQuery = searchFieldText.text! as NSString
         keywords = searchQuery.lowercased.components(separatedBy: " ")
@@ -226,7 +237,7 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
             cell.productPrice.text = "$" + String(currPrice) + "/day";
         }
 
-        cell.productImage.contentMode = .scaleToFill;
+        cell.productImage.contentMode = .scaleAspectFit;
         cell.productImage.layer.borderWidth = 1;
         cell.productDistance.text = currItem["distance"].string! + " mi";
         cell.backgroundColor = UIColor.white
@@ -306,6 +317,7 @@ class ProductBrowseViewController: UIViewController, UICollectionViewDataSource,
         
         myCollectionView.collectionViewLayout = layout
     }
+    
     
     func initDropDowns() {
         DropDown.appearance().textColor = UIColor.black

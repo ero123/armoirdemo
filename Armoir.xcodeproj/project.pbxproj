@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		17040B1021B78D000049C902 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17040B0F21B78D000049C902 /* CameraViewController.swift */; };
 		17040B1221B796D40049C902 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17040B1121B796D40049C902 /* Assets.xcassets */; };
 		17040B1621B9FA760049C902 /* SearchItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17040B1521B9FA760049C902 /* SearchItemDetailViewController.swift */; };
+		1732E87623EB990A00E4F3E1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1732E87523EB990A00E4F3E1 /* GoogleService-Info.plist */; };
 		1751F04F21B06E9F00F55356 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F04E21B06E9F00F55356 /* AppDelegate.swift */; };
 		1751F05921B06EA300F55356 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1751F05721B06EA300F55356 /* LaunchScreen.storyboard */; };
 		1751F06421B06EA400F55356 /* ArmoirTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F06321B06EA400F55356 /* ArmoirTests.swift */; };
@@ -31,6 +32,7 @@
 		6216B1D921BA5E5B00AB5943 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216B1D821BA5E5A00AB5943 /* SettingsViewController.swift */; };
 		6216B1DB21BAA73300AB5943 /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6216B1DA21BAA73300AB5943 /* DropDown.framework */; };
 		6250122221BAAE5B0015F10A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6250122121BAAE5B0015F10A /* SwiftyJSON.framework */; };
+		645905A523DE5DEE00930FD8 /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645905A423DE5DEE00930FD8 /* InboxViewController.swift */; };
 		71388D7221B87D0B00232F7B /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71388D7121B87D0B00232F7B /* StartViewController.swift */; };
 		7193F59621BA370700427907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7193F59521BA370700427907 /* Main.storyboard */; };
 		7193F59721BA370700427907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7193F59521BA370700427907 /* Main.storyboard */; };
@@ -67,6 +69,7 @@
 		17040B0F21B78D000049C902 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		17040B1121B796D40049C902 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17040B1521B9FA760049C902 /* SearchItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemDetailViewController.swift; sourceTree = "<group>"; };
+		1732E87523EB990A00E4F3E1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1751F04B21B06E9F00F55356 /* Armoir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Armoir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1751F04E21B06E9F00F55356 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1751F05821B06EA300F55356 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -79,6 +82,8 @@
 		1751F07021B06EA400F55356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1751F07C21B08B2100F55356 /* ProductBrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductBrowseViewController.swift; sourceTree = "<group>"; };
 		1751F07E21B08BFD00F55356 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		175D4F9E23E24ACB001EB119 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		175D4F9F23E24ACB001EB119 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		176F559021B746BA00FFF556 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		179234B421BC745400B391F5 /* test2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test2.json; sourceTree = "<group>"; };
 		179234B621BCCDF700B391F5 /* ImageRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRetriever.swift; sourceTree = "<group>"; };
@@ -88,11 +93,13 @@
 		17D979E221B2309F00E74816 /* ClosetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetViewController.swift; sourceTree = "<group>"; };
 		17D979E421B230BE00E74816 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		2BFD9C27390DC9FB9E7BC3FA /* Pods-Armoir.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Armoir.release.xcconfig"; path = "Pods/Target Support Files/Pods-Armoir/Pods-Armoir.release.xcconfig"; sourceTree = "<group>"; };
+		3461F10B23DE572A00D3DF81 /* GoogleService-Info old.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info old.plist"; sourceTree = "<group>"; };
 		44DC47DD6FC2973BBAADF91A /* Pods-ArmoirUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArmoirUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArmoirUITests/Pods-ArmoirUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4C6EE03E84BA4F5E1E39930B /* Pods-ArmoirTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArmoirTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArmoirTests/Pods-ArmoirTests.release.xcconfig"; sourceTree = "<group>"; };
 		6216B1D821BA5E5A00AB5943 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		6216B1DA21BAA73300AB5943 /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6250122121BAAE5B0015F10A /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		645905A423DE5DEE00930FD8 /* InboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
 		71388D7121B87D0B00232F7B /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		7193F59521BA370700427907 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		743BD5E221B5E64400855A1E /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
@@ -174,6 +181,8 @@
 				17040B0721B76B180049C902 /* search.json */,
 				179234B421BC745400B391F5 /* test2.json */,
 				743BD5E421B5FB8C00855A1E /* BorrowedCell.swift */,
+				1732E87523EB990A00E4F3E1 /* GoogleService-Info.plist */,
+				3461F10B23DE572A00D3DF81 /* GoogleService-Info old.plist */,
 				17040B1121B796D40049C902 /* Assets.xcassets */,
 				743BD5E221B5E64400855A1E /* ItemCell.swift */,
 				17D979E221B2309F00E74816 /* ClosetViewController.swift */,
@@ -188,6 +197,7 @@
 				743BD5E821B9DEAB00855A1E /* BorrowedItemDetailViewController.swift */,
 				743BD5EA21B9ECCF00855A1E /* LentItemViewController.swift */,
 				6216B1D821BA5E5A00AB5943 /* SettingsViewController.swift */,
+				645905A423DE5DEE00930FD8 /* InboxViewController.swift */,
 			);
 			path = Armoir;
 			sourceTree = "<group>";
@@ -213,6 +223,8 @@
 		58EDE642AEDDAF578B388A59 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				175D4F9E23E24ACB001EB119 /* FBSDKCoreKit.framework */,
+				175D4F9F23E24ACB001EB119 /* FBSDKLoginKit.framework */,
 				6250122121BAAE5B0015F10A /* SwiftyJSON.framework */,
 				6216B1DA21BAA73300AB5943 /* DropDown.framework */,
 				8A3B0FD42F3D1F612CE415C3 /* Pods_Armoir.framework */,
@@ -344,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7193F59621BA370700427907 /* Main.storyboard in Resources */,
+				1732E87623EB990A00E4F3E1 /* GoogleService-Info.plist in Resources */,
 				17040B0A21B775BD0049C902 /* Alike-Regular.ttf in Resources */,
 				179234B521BC745400B391F5 /* test2.json in Resources */,
 				17B3022E21B65735004E5EF8 /* images in Resources */,
@@ -395,19 +408,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Armoir/Pods-Armoir-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Armoir/Pods-Armoir-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Armoir/Pods-Armoir-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Armoir/Pods-Armoir-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Armoir/Pods-Armoir-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9EE2F9F08CCBBE1C84C7B8B4 /* [CP] Check Pods Manifest.lock */ = {
@@ -470,6 +480,7 @@
 				176F559121B746BA00FFF556 /* SignUpViewController.swift in Sources */,
 				17D979E121B22BAA00E74816 /* MainViewController.swift in Sources */,
 				743BD5E921B9DEAB00855A1E /* BorrowedItemDetailViewController.swift in Sources */,
+				645905A523DE5DEE00930FD8 /* InboxViewController.swift in Sources */,
 				1751F07D21B08B2100F55356 /* ProductBrowseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -638,16 +649,17 @@
 			baseConfigurationReference = 85BC3CC017DAD85A6498EF3B /* Pods-Armoir.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8YJ2342CPM;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = JRJVB7D2S2;
 				INFOPLIST_FILE = Armoir/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs147.Armoir;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs194h.Armoir;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Armoir Development Profile";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -659,14 +671,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8YJ2342CPM;
+				DEVELOPMENT_TEAM = CQRZ4E7K9U;
 				INFOPLIST_FILE = Armoir/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs147.Armoir;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs194h.Armoir;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
